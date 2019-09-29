@@ -1,0 +1,1 @@
+zenity --question --icon-name='gnome-logout' --width="370" --height=20 --title "Logout X session" --timeout=5 --text "You pressed the logout X session shortcut. \nDo you want to proceed?" \ && exec i3-msg exit
