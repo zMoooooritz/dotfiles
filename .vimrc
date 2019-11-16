@@ -1,6 +1,7 @@
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=4 
+set expandtab
 set number relativenumber
 set clipboard=unnamed
 set nocompatible
@@ -12,6 +13,7 @@ set foldlevel=120
 set encoding=utf-8
 set incsearch
 syntax on
+filetype plugin indent on
 
 " show spacings and tabs
 set list
@@ -37,7 +39,9 @@ Plugin 'tpope/vim-commentary' " makes commenting much easier
 Plugin 'ervandew/supertab' " autocompletion if you press tab
 Plugin 'takac/vim-hardtime' " stops you from scrolling down with up and down keys
 " Enjoy your hard time
-" let g:hardtime_default_on = 1
+
+"Plugin 'sheerun/vim-polyglot' " for better highlighting of the different languages
+Plugin 'neovimhaskell/haskell-vim' " for better haskell syntax highlighting 
 
 " Color themes
 Plugin 'dracula/vim'
@@ -56,7 +60,6 @@ Plugin 'vim-airline/vim-airline-themes' " the airline-themes
 " =============
 "
 call vundle#end()
-filetype plugin indent on
 
 " Colortheme and airline
 let g:solarized_italic=0
@@ -88,3 +91,20 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.paste = 'p'
 let g:airline_symbols.whitespace = 'Ξ'
+
+" setting for haskell syntax highlighting
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+" settings for hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_timeout = 5000
+let g:hardtime_showmsg = 1
+let g:list_of_normal_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_visual_keys = []
+let g:list_of_insert_keys = []
