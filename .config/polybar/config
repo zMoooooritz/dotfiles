@@ -420,23 +420,23 @@ animation-discharging-framerate = 750
 [module/spotify]
 format-underline = #28bc00
 type = custom/script
-exec = ~/.config/i3/scripts/spotify_bar.py
+exec = ~/.scripts/spotify_bar.py
 tail = true
 interval = 2
-click-left = ~/.config/i3/scripts/spotify_bar.py toggleplay
+click-left = ~/.scripts/spotify_bar.py toggleplay
 
 [module/deadbeef]
 format-underline = #008C79
 type = custom/script
-exec = ~/.config/i3/scripts/deadbeef_bar.sh
+exec = ~/.scripts/deadbeef_bar.sh
 tail = true
 interval = 2
-click-left = ~/.config/i3/scripts/deadbeef_bar.sh toggleplay
+click-left = ~/.scripts/deadbeef_bar.sh toggleplay
 
 [module/weather]
 format-underline = #19b6ff
 type = custom/script
-exec = ~/.config/i3/scripts/weather_bar.py
+exec = ~/.scripts/weather_bar.py
 tail = true
 interval = 300
 
@@ -445,31 +445,31 @@ interval = 300
 format-underline = #28bc00
 type = custom/text
 content = 
-click-left = ~/.config/i3/scripts/spotify_bar.py prev
+click-left = ~/.scripts/spotify_bar.py prev
 
 [module/play]
 format-underline = #28bc00
 type = custom/text
 content = 
-click-left = ~/.config/i3/scripts/spotify_bar.py play
+click-left = ~/.scripts/spotify_bar.py play
 
 [module/pause]
 format-underline = #28bc00
 type = custom/text
 content = 
-click-left = ~/.config/i3/scripts/spotify_bar.py pause
+click-left = ~/.scripts/spotify_bar.py pause
 
 [module/next]
 format-underline = #28bc00
 type = custom/text
 content = 
-click-left = ~/.config/i3/scripts/spotify_bar.py next
+click-left = ~/.scripts/spotify_bar.py next
 
 [module/stop]
 format-underline = #28bc00
 type = custom/text
 content = 
-click-left = ~/.config/i3/scripts/spotify_bar.py stop
+click-left = ~/.scripts/spotify_bar.py stop
 
 [module/temperature]
 type = internal/temperature
