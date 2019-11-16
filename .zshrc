@@ -90,52 +90,11 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias polybarconfig="vim ~/.config/polybar/config"
-alias i3config="vim ~/.config/i3/config"
-alias vimconfig="vim ~/.vimrc"
-
-alias la="ls -a"
-alias ll="ls -lah"
-alias svim="sudo vim"
-alias sl="sl && clear"
-alias SL="sl && clear"
-alias dc="figlet 'TYPO'"
-alias DC="figlet 'TYPO'"
-alias upgrade="sudo pacman -Syu"
-alias sysinfo="neofetch | lolcat"
-alias feh="feh --image-bg black -Z -."
-alias tutorium="pdfpc -d 90 -l 10" # maybee add the option -s again
-alias clock="clockywock"
-alias clock2="while true; do tput clear; date +'%H : %M : %S' | figlet -c -w 280 ; sleep 1; done"
-alias matrix="cmatrix | lolcat"
-alias pi="echo 'scale=14; 4*a(1)' | bc -l | figlet | lolcat"
-alias wttr="curl wttr.in"
-
-alias viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"'
-
-alias py="python"
-
-alias st="~/.config/i3/scripts/streamlink.sh"
-alias ard="streamlink -p mpv daserste.de/live best"
-alias zdf="streamlink -p mpv zdf.de/live-tv best"
-alias trill="streamlink -p mpv twitch.tv/trilluxe best"
-alias asmr="streamlink -p mpv twitch.tv/amouranth audio_only"
-
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-alias apps="~/.config/i3/scripts/apps.sh"
-alias binds="~/.config/i3/scripts/binds.sh"
-alias screen="~/.config/i3/scripts/screen.sh"
-alias mute="~/.config/i3/scripts/mute.sh"
 
 zle_highlight+=(paste:none)
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
-# neofetch | lolcat
+source $HOME/.aliasrc
+

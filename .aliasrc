@@ -1,0 +1,68 @@
+#
+# --- ALIASES FOR BASH AND ZSH ---
+#
+
+# shortcuts to config files
+
+alias zshconfig="vim ~/.zshrc" \
+        ohmyzshconfig="vim ~/.oh-my-zsh" \
+        polybarconfig="vim ~/.config/polybar/config" \
+        i3config="vim ~/.config/i3/config" \
+        vimconfig="vim ~/.vimrc" \
+
+# system commands
+
+alias ka="killall" \
+        mkd="mkdir -pv" \
+        p="sudo pacman" \
+        SS="sudo systemctl" \
+        ls="ls --color=auto --group-directories-first" \
+        grep="grep --color=auto" \
+        diff="diff --color=auto" \
+        sysinfo="neofetch | lolcat" \
+        la="ls -a" \
+        ll="ls -lah" \
+        svim="sudo vim" \
+        alias py="python"
+
+# other aliases
+
+alias sl="sl && clear" \
+        SL="sl && clear" \
+        dc="figlet 'TYPO'" \
+        DC="figlet 'TYPO'" \
+        feh="feh --image-bg black -Z -." \
+        tutorium="pdfpc -d 90 -l 10" \ # maybee add the option -s again
+        clock="clockywock" \
+        clock2="while true; do tput clear; date +'%H : %M : %S' | figlet -c -w 280 ; sleep 1; done" \
+        matrix="cmatrix | lolcat" \
+        pi="echo 'scale=14; 4*a(1)' | bc -l | figlet | lolcat" \
+        wttr="curl wttr.in" \
+        viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"'
+
+# commands that run bash scripts
+
+alias apps="~/.scripts/apps.sh" \
+        binds="~/.scripts/binds.sh" \
+        screen="~/.scripts/screen.sh" \
+        mute="~/.scripts/mute.sh" \
+        st="~/.scripts/streamlink.sh"
+
+# shortcuts for streamlink
+
+alias ard="streamlink -p mpv daserste.de/live best" \
+        zdf="streamlink -p mpv zdf.de/live-tv best" \
+        trill="streamlink -p mpv twitch.tv/trilluxe best" \
+        asmr="streamlink -p mpv twitch.tv/amouranth audio_only"
+
+
+# git shortcuts
+
+alias g="git" \
+        gco="git checkout" \
+        gb="git branch" \
+        gc="git commit" \
+        gs="git status" \
+        gl="git log --decorate --oneline" \
+        gh="git log --pretty=format:'%Cblue%h %Cgreen %ar%Creset %s'" \
+        config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
