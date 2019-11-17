@@ -154,15 +154,15 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec i3-msg exit
-bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/scripts/exit.sh
+bindsym $mod+Shift+e exec --no-startup-id ~/.scripts/exit.sh
 
 # lock
-bindsym $mod+Shift+x exec --no-startup-id ~/.config/i3/scripts/lock.sh
+bindsym $mod+Shift+x exec --no-startup-id ~/.scripts/lock.sh
 
 # auto lock screen and afterwards suspend
-exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.config/i3/scripts/lock.sh"
-#exec_always --no-startup-id xautolock -corners "--00" -time 1 -locker "~/.config/i3/scripts/lock.sh" -killtime 10 -killer "systemctl suspend" -detectsleep
-#exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer normal 600 '~/.config/i3/scripts/lock.sh' '' --timer normal 900 'systemctl suspend' ''
+exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
+#exec_always --no-startup-id xautolock -corners "--00" -time 1 -locker "~/.scripts/lock.sh" -killtime 10 -killer "systemctl suspend" -detectsleep
+#exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer normal 600 '~/.scripts/lock.sh' '' --timer normal 900 'systemctl suspend' ''
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -229,6 +229,9 @@ gaps inner 15
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
 
+for_window [class="Spotify"] floating enable
+for_window [class="Spotify"] resize set 1000 90
+
 ## borders / titlebar
 new_window normal
 hide_edge_borders vertical
@@ -257,11 +260,11 @@ bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill 
 # mute
 bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
 
-bindsym XF86AudioPlay exec ~/.config/i3/scripts/multimedia.sh playpause
-bindsym XF86AudioPause exec ~/.config/i3/scripts/multimedia.sh playpause
-bindsym XF86AudioStop exec ~/.config/i3/scripts/multimedia.sh stop
-bindsym XF86AudioNext exec ~/.config/i3/scripts/multimedia.sh next
-bindsym XF86AudioPrev exec ~/.config/i3/scripts/multimedia.sh prev
+bindsym XF86AudioPlay exec ~/.scripts/multimedia.sh playpause
+bindsym XF86AudioPause exec ~/.scripts/multimedia.sh playpause
+bindsym XF86AudioStop exec ~/.scripts/multimedia.sh stop
+bindsym XF86AudioNext exec ~/.scripts/multimedia.sh next
+bindsym XF86AudioPrev exec ~/.scripts/multimedia.sh prev
 
 #bindsym XF86AudioPlay exec playerctl play
 #bindsym XF86AudioPause exec playerctl pause
@@ -329,7 +332,7 @@ exec --no-startup-id variety
 bindsym Mod1+v exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"
 
 # restart qpps like qtpad and compton
-#exec --no-startup-id "sleep 5s && ~/.config/i3/scripts/restart.sh"
+#exec --no-startup-id "sleep 5s && ~/.scripts/restart.sh"
 
 # Start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -349,30 +352,30 @@ bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -theme so
 bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
 
 # Take a screenshot
-bindsym $mod+Shift+s exec --no-startup-id ~/.config/i3/scripts/screenshot.sh
+bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
 
 # Mod1 is the Alt-Key
 
 # Reboot the system
-bindsym $mod+Mod1+r exec --no-startup-id ~/.config/i3/scripts/reboot.sh
+bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot.sh
 
 # Shutdown the system
-bindsym $mod+Mod1+s exec --no-startup-id ~/.config/i3/scripts/shutdown.sh
+bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown.sh
 
 # Hibernate the system
-bindsym $mod+Mod1+h exec --no-startup-id ~/.config/i3/scripts/lock.sh 1
+bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock.sh 1
 
 # Goto next / prev workspace
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
 
 # Brightness control with the backlight script
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/backlight.sh 1 5
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/backlight.sh 2 5
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh 1 5
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh 2 5
 
 # Toggle compton
-bindsym $mod+Mod1+c exec --no-startup-id ~/.config/i3/scripts/compton-toggle.sh
+bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton-toggle.sh
 
 # Open specific programms on start
-exec --no-startup-id i3-msg 'workspace 1; exec termite; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo; workspace 5; exec ~/.config/i3/scripts/qtpad.sh'
+exec --no-startup-id i3-msg 'workspace 1; exec termite; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo; workspace 5; exec ~/.scripts/qtpad.sh'
 exec --no-startup-id i3-msg workspace 1
