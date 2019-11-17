@@ -23,7 +23,7 @@ alias ka="killall" \
         la="ls -a" \
         ll="ls -lah" \
         svim="sudo vim" \
-        alias py="python"
+        py="python"
 
 # other aliases
 
@@ -32,7 +32,7 @@ alias sl="sl && clear" \
         dc="figlet 'TYPO'" \
         DC="figlet 'TYPO'" \
         feh="feh --image-bg black -Z -." \
-        tutorium="pdfpc -d 90 -l 10" \ # maybee add the option -s again
+        tutorium="pdfpc -d 90 -l 10" \
         clock="clockywock" \
         clock2="while true; do tput clear; date +'%H : %M : %S' | figlet -c -w 280 ; sleep 1; done" \
         matrix="cmatrix | lolcat" \
