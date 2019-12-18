@@ -229,6 +229,9 @@ gaps inner 15
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
 
+for_window [class="Spotify"] floating enable
+for_window [class="Spotify"] resize set 1000 90
+
 ## borders / titlebar
 new_window normal
 hide_edge_borders vertical
