@@ -268,6 +268,36 @@ exec --no-startup-id xset s off
 exec --no-startup-id numlockx on
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
 
+# Open the rofi application launcher
+bindsym $mod+d exec rofi -show run -theme solarized_alternate.rasi -lines 5
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -theme solarized_alternate.rasi
+bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
+
+# Take a screenshot
+bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
+
+# Mod1 is the Alt-Key
+
+# Reboot the system
+bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot.sh
+
+# Shutdown the system
+bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown.sh
+
+# Hibernate the system
+bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock.sh 1
+
+# Goto next / prev workspace
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
+
+# Brightness control with the backlight script
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh 1 5
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh 2 5
+
+# Toggle compton
+bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton-toggle.sh
+
 # Open specific programms on start
 exec --no-startup-id i3-msg 'workspace 1; exec termite; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo; workspace 5; exec mynotes'
 exec --no-startup-id i3-msg workspace 1
