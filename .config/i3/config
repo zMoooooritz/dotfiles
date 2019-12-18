@@ -23,8 +23,8 @@ bindsym $mod+Return exec termite
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+Shift+h split h
-bindsym $mod+Shift+v split v
+bindsym $mod+b split h
+bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
 
@@ -56,23 +56,25 @@ bindsym $mod+u exec --no-startup-id ~/.scripts/i3resize.sh down
 bindsym $mod+i exec --no-startup-id ~/.scripts/i3resize.sh up
 bindsym $mod+o exec --no-startup-id ~/.scripts/i3resize.sh right
 
+bindsym $mod+n exec --no-startup-id ~/.scripts/mynotes.sh
+
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ntilde move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
 
 
 # #--- Workspace Settings ---# #
@@ -142,6 +144,7 @@ bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -theme so
 bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
+bindsym $mod+Ctrl+s exec --no-startup-id shutter -s -e
 
 bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot.sh
 bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown.sh
@@ -149,8 +152,11 @@ bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock.sh 1
 
 bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton-toggle.sh
 
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+Right workspace next
+#bindsym $mod+Ctrl+Left workspace prev
+#bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+l workspace next
+
 
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh 1 5
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh 2 5
@@ -263,6 +269,6 @@ exec --no-startup-id numlockx on
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
 
 # Open specific programms on start
-exec --no-startup-id i3-msg 'workspace 1; exec termite; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo; workspace 5; exec ~/.scripts/qtpad.sh'
+exec --no-startup-id i3-msg 'workspace 1; exec termite; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo; workspace 5; exec mynotes'
 exec --no-startup-id i3-msg workspace 1
 

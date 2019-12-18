@@ -108,3 +108,6 @@ let g:hardtime_showmsg = 1
 let g:list_of_normal_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_visual_keys = []
 let g:list_of_insert_keys = []
+
+
+au FileType perl set filetype=prolog

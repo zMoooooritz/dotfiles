@@ -9,6 +9,7 @@ alias zshconfig="vim ~/.zshrc" \
         polybarconfig="vim ~/.config/polybar/config" \
         i3config="vim ~/.config/i3/config" \
         vimconfig="vim ~/.vimrc" \
+        aliasconfig="vim ~/.aliasrc" \
 
 # system commands
 
@@ -38,7 +39,9 @@ alias sl="sl && clear" \
         matrix="cmatrix | lolcat" \
         pi="echo 'scale=14; 4*a(1)' | bc -l | figlet | lolcat" \
         wttr="curl wttr.in" \
-        viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"'
+        viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
+        yt='youtube-dl -i' \
+        viminfo='yt -x -f bestaudio/best'
 
 # commands that run bash scripts
 

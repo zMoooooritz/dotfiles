@@ -51,15 +51,10 @@ class Player:
             return "%{F#ccff00}Advertisement%{F-}"
         elif shorter(self.get_value(self._trackMap['title'])) == '' and shorter(self.get_value(self._trackMap['album']) == ''):
             return ""
-        elif shorter(self.get_value(self._trackMap['title'])) in shorter(self.get_value(self._trackMap['album'])):
+        else:
             return "{} - {}".format(
                 shorter(self.get_value(self._trackMap['title'])),
                 shorter(self.get_value(self._trackMap['artist'])))
-        else:
-            return "{} - {} - {}".format(
-                shorter(self.get_value(self._trackMap['title'])),
-                shorter(self.get_value(self._trackMap['artist'])),
-                shorter(self.get_value(self._trackMap['album'])))
 
     # Get all availables information from DBus for a player object
     def get_metadata(self):
