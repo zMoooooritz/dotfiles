@@ -43,6 +43,8 @@ Plugin 'takac/vim-hardtime' " stops you from scrolling down with up and down key
 "Plugin 'sheerun/vim-polyglot' " for better highlighting of the different languages
 Plugin 'neovimhaskell/haskell-vim' " for better haskell syntax highlighting 
 
+Plugin 'lervag/vimtex'
+
 " Color themes
 Plugin 'dracula/vim'
 Plugin 'morhetz/gruvbox'
@@ -109,5 +111,6 @@ let g:list_of_normal_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_visual_keys = []
 let g:list_of_insert_keys = []
 
+let g:vimtex_view_method = 'zathura'
 
 au FileType perl set filetype=prolog

@@ -28,13 +28,13 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/top]
-monitor = ${env:MONITOR:VGA-1}
+monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
-fixed-center = false
+radius = 7.0
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -55,64 +55,14 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3
-modules-center =
-modules-right = weather pulseaudio xbacklight eth temperature date
-; unused modules: memory cpu wlan battery
+modules-left = i3 spotify cmus
+modules-center = window
+modules-right = weather pulseaudio eth cpu memory temperature date
+; unused modules: backlight wlan battery
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #333333
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/top_external]
-monitor = ${env:MONITOR:DP1}
-width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
-fixed-center = false
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 4
-border-color = #00000000
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-
-modules-left = bspwm i3
-modules-center = 
-modules-right = pulseaudio battery date
-
-;tray-position = right
-;tray-padding = 2
-;tray-background = #0063ff
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -232,6 +182,11 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
 [module/backlight]
 type = internal/backlight
 
@@ -331,7 +286,7 @@ label = %time% %date%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
 format-volume-underline = #fc7035
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
@@ -425,13 +380,23 @@ tail = true
 interval = 2
 click-left = ~/.scripts/spotify_bar.py toggleplay
 
-[module/deadbeef]
+[module/cmus]
 format-underline = #008C79
 type = custom/script
-exec = ~/.scripts/deadbeef_bar.sh
+exec = ~/.scripts/cmus_bar.sh
 tail = true
 interval = 2
-click-left = ~/.scripts/deadbeef_bar.sh toggleplay
+click-left = ~/.scripts/cmus_bar.sh toggleplay
+
+[module/window]
+type = custom/script
+exec = ~/.scripts/window.sh
+interval = 0
+
+[module/test]
+type = custom/script
+exec = ~/.scripts/test.sh
+interval = 10
 
 [module/weather]
 format-underline = #19b6ff
@@ -440,41 +405,11 @@ exec = ~/.scripts/weather_bar.py
 tail = true
 interval = 300
 
-# Currently unused controls for spotify via the polybar
-[module/prev]
-format-underline = #28bc00
-type = custom/text
-content = 
-click-left = ~/.scripts/spotify_bar.py prev
-
-[module/play]
-format-underline = #28bc00
-type = custom/text
-content = 
-click-left = ~/.scripts/spotify_bar.py play
-
-[module/pause]
-format-underline = #28bc00
-type = custom/text
-content = 
-click-left = ~/.scripts/spotify_bar.py pause
-
-[module/next]
-format-underline = #28bc00
-type = custom/text
-content = 
-click-left = ~/.scripts/spotify_bar.py next
-
-[module/stop]
-format-underline = #28bc00
-type = custom/text
-content = 
-click-left = ~/.scripts/spotify_bar.py stop
-
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
+interval = 5
 
 format = <ramp> <label>
 format-underline = #f50a4d
@@ -517,6 +452,7 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
 [settings]
 screenchange-reload = true
 ;compositing-background = xor

@@ -56,8 +56,6 @@ bindsym $mod+u exec --no-startup-id ~/.scripts/i3resize.sh down
 bindsym $mod+i exec --no-startup-id ~/.scripts/i3resize.sh up
 bindsym $mod+o exec --no-startup-id ~/.scripts/i3resize.sh right
 
-bindsym $mod+n exec --no-startup-id ~/.scripts/mynotes.sh
-
 # alternatively, you can use the cursor keys:
 #bindsym $mod+Left focus left
 #bindsym $mod+Down focus down
@@ -135,13 +133,11 @@ bindsym $mod+Shift+Ctrl+9 move container to workspace 19
 bindsym $mod+Shift+Ctrl+0 move container to workspace 20
 
 # #--- Other Bindings ---# #
-bindsym $mod+Shift+e exec --no-startup-id ~/.scripts/exit.sh
-
-bindsym $mod+Shift+x exec --no-startup-id ~/.scripts/lock.sh
 
 bindsym $mod+d exec rofi -show run -theme solarized_alternate.rasi -lines 5
 bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -theme solarized_alternate.rasi
 bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
+bindsym $mod+e exec rofi -show emoji -modi emoji -theme solarized_alternate.rasi
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
 bindsym $mod+Ctrl+s exec --no-startup-id shutter -s -e
@@ -149,11 +145,10 @@ bindsym $mod+Ctrl+s exec --no-startup-id shutter -s -e
 bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot.sh
 bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown.sh
 bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock.sh 1
+bindsym $mod+Mod1+e exec --no-startup-id ~/.scripts/exit.sh
 
 bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton-toggle.sh
 
-#bindsym $mod+Ctrl+Left workspace prev
-#bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Ctrl+l workspace next
 
@@ -165,24 +160,11 @@ bindsym Mod1+v exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
     bindsym j resize shrink width 5 px or 5 ppt
     bindsym k resize grow height 5 px or 5 ppt
     bindsym l resize shrink height 5 px or 5 ppt
     bindsym ntilde resize grow width 5 px or 5 ppt
 
-    # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 5 px or 5 ppt
-    bindsym Down resize grow height 5 px or 5 ppt
-    bindsym Up resize shrink height 5 px or 5 ppt
-    bindsym Right resize grow width 5 px or 5 ppt
-
-    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -206,8 +188,6 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 
 
 # #--- Special Window Settings ---# #
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Kalu"] floating enable
 #for_window [class="Spotify"] floating enable
 #for_window [class="Spotify"] resize set 1000 90
 # disable border for all applicatios
@@ -257,7 +237,7 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia.sh prev
 # #---Autostart Applications---# #
 exec --no-startup-id nm-applet
 exec --no-startup-id "compton -b --config ~/.config/compton.conf"
-exec --no-startup-id variety
+exec --no-startup-id "feh --bg-center ~/.config/wall.jpg"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id pasystray
 exec --no-startup-id greenclip daemon
@@ -265,40 +245,11 @@ exec --no-startup-id greenclip daemon
 exec --no-startup-id xset -b
 exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
+exec --no-startup-id xset m 1/2 0
 exec --no-startup-id numlockx on
+exec_always --no-startup-id setxkbmap -layout de
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
 
-# Open the rofi application launcher
-bindsym $mod+d exec rofi -show run -theme solarized_alternate.rasi -lines 5
-bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -theme solarized_alternate.rasi
-bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
-
-# Take a screenshot
-bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
-
-# Mod1 is the Alt-Key
-
-# Reboot the system
-bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot.sh
-
-# Shutdown the system
-bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown.sh
-
-# Hibernate the system
-bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock.sh 1
-
-# Goto next / prev workspace
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+Right workspace next
-
-# Brightness control with the backlight script
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh 1 5
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh 2 5
-
-# Toggle compton
-bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton-toggle.sh
-
 # Open specific programms on start
-exec --no-startup-id i3-msg 'workspace 1; exec termite; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo; workspace 5; exec mynotes'
+exec --no-startup-id i3-msg 'workspace 1; exec termite; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo'
 exec --no-startup-id i3-msg workspace 1
-

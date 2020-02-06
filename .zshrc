@@ -3,6 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/moritz/.oh-my-zsh"
+export PATH="$PATH:`pwd`/flutter/bin"
+export PATH="$PATH:/usr/lib/dart/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,4 +99,8 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
 source $HOME/.aliasrc
+
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
 
