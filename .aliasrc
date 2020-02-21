@@ -54,11 +54,10 @@ alias apps="~/.scripts/apps.sh" \
 
 # shortcuts for streamlink
 
-alias ard="streamlink -p mpv daserste.de/live best" \
-        zdf="streamlink -p mpv zdf.de/live-tv best" \
-        trill="streamlink -p mpv twitch.tv/trilluxe best" \
-        asmr="streamlink -p mpv twitch.tv/amouranth audio_only"
-
+alias ard="streamlink daserste.de/live best" \
+        zdf="streamlink zdf.de/live-tv best" \
+        trill="streamlink twitch.tv/trilluxe best" \
+        asmr="streamlink twitch.tv/amouranth audio_only"
 
 # git shortcuts
 
