@@ -187,15 +187,6 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-[module/backlight]
-type = internal/backlight
-
-card = intel_backlight
-enable-scroll = true
-format = <label>
-format-underline = #06b500
-label =  %percentage%%
-
 [module/xbacklight]
 type = internal/xbacklight
 
@@ -393,10 +384,16 @@ type = custom/script
 exec = ~/.scripts/window.sh
 interval = 0
 
-[module/test]
+[module/backlight]
+format-underline = #008C79
 type = custom/script
-exec = ~/.scripts/test.sh
-interval = 10
+exec = ~/.scripts/backlight.sh
+tail = true
+interval = 1
+click-left = ~/.scripts/backlight.sh def
+enable-scroll = true
+scroll-up = ~/.scripts/backlight.sh inc
+scroll-down = ~/.scripts/backlight.sh dec
 
 [module/weather]
 format-underline = #19b6ff
