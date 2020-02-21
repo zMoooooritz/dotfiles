@@ -17,20 +17,14 @@ declare -a class_upper=("discord" "skype" "spotify" "shutter")
 
 declare -a class_full_upper=("gimp" "obs")
 
-# TODO apps to fix
-# mpv
-
 if [[ $id == "xprop: error"* ]]; then
     # empty workspace
     title=""
 elif [[ $name == *"()" ]]; then
-    # cmus
     title="cmus"
 elif [[ $class2 = "firefox" ]]; then
-    # firefox
     title="Mozilla Firefox"
-elif [[ $name =~ "Mozilla Thunderbird" ]]; then
-    # thunderbird
+elif [[ $class2 == "Thunderbird" ]]; then
     title="Mozilla Thunderbird"
 elif [[ $name =~ "Tor Browser" ]]; then
     title="Tor Browser"
@@ -38,11 +32,15 @@ elif [[ $name =~ "streamlink" ]]; then
     title="streamlink"
 elif [[ $class2 =~ "mpv" ]]; then
     title="mpv - $name"
+elif [[ $class2 =~ "Zathura" ]]; then
+    title="Zathura - $name"
+elif [[ $class =~ "libreoffice" ]]; then
+    file=${name%-*}
+    app=${name: -(${#name} - ${#file} - 2)}
+    title="$app - $file"
 elif [[ $class == "nemo" ]]; then
-    # nemo
     [[ $class == "" ]] && title="Nemo" || title="Nemo - $name"
 elif [[ $class == "gnome-terminal" ]]; then
-    # nemo
     title="Termite"
 elif [[ ${name_apps[@]} =~ "$(echo $name | cut -d' ' -f1)" ]]; then
     # whatever you want to do when arr contains value
