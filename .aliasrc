@@ -41,7 +41,8 @@ alias sl="sl && clear" \
         wttr="curl wttr.in" \
         viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
         yt='youtube-dl -i' \
-        viminfo='yt -x -f bestaudio/best'
+        ytm='yt -x -f bestaudio/best' \
+        todo='vim -c ":Note TODO"'
 
 # commands that run bash scripts
 
@@ -53,11 +54,10 @@ alias apps="~/.scripts/apps.sh" \
 
 # shortcuts for streamlink
 
-alias ard="streamlink -p mpv daserste.de/live best" \
-        zdf="streamlink -p mpv zdf.de/live-tv best" \
-        trill="streamlink -p mpv twitch.tv/trilluxe best" \
-        asmr="streamlink -p mpv twitch.tv/amouranth audio_only"
-
+alias ard="streamlink daserste.de/live best" \
+        zdf="streamlink zdf.de/live-tv best" \
+        trill="streamlink twitch.tv/trilluxe best" \
+        asmr="streamlink twitch.tv/amouranth audio_only"
 
 # git shortcuts
 

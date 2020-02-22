@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#TODO update bind list
+
 cat << EOF
 
 Variety

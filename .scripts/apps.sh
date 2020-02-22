@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#TODO update the used apps
+
 cat << EOF
 
 My applications are:

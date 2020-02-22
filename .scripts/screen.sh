@@ -1,12 +1,10 @@
 #!/bin/bash
 
 # Normal Laptop-Screen
-INTERN="eDP1"
+INTERN="HDMI-1"
 
-# HDMI Output
-HDMI="HDMI1"
 # VGA Output
-VGA="DP1"
+VGA="VGA"
 
 DISPEX=true
 
