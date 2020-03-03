@@ -2,7 +2,7 @@
 
 if pgrep -x "compton" > /dev/null
 then
-	killall compton
+    killall compton
 else
-	compton -b --config ~/.config/compton.conf
+    compton -b --config ~/.config/compton.conf
 fi

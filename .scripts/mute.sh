@@ -44,27 +44,27 @@ while read line; do
    else
      if [[ "${line:0:6}" == "index:" ]]; then
          current_index="${line:7}"
-		 # echo "Index has been set: $current_index"
-	 elif [[ "${line:0:25}" == "application.process.id = " ]]; then
+         # echo "Index has been set: $current_index"
+     elif [[ "${line:0:25}" == "application.process.id = " ]]; then
          for process_id in "${process_id_list[@]}"
-		 do
-			#echo "PID: $process_id and expected PID: ${line:25}"
-			if [ "$is_app" -eq 1 ] && [[ "${line:25}" == \""$process_id"\" ]]; then
-				#index found...
-				#echo "Found process $process_id"
-				found_pid=1
-				break;
-			fi
-		 done
-		 if [ $found_pid -eq 1 ]; then
-			 break
-		 fi
+         do
+            #echo "PID: $process_id and expected PID: ${line:25}"
+            if [ "$is_app" -eq 1 ] && [[ "${line:25}" == \""$process_id"\" ]]; then
+                #index found...
+                #echo "Found process $process_id"
+                found_pid=1
+                break;
+            fi
+         done
+         if [ $found_pid -eq 1 ]; then
+             break
+         fi
      elif [[ "${line:0:19}" == "application.name = " ]]; then
-		 app=${line:20:-1}
-		 if [[ ${app,,} == ${1,,} ]]; then
-			 is_app=1
-		 fi
-	 fi
+         app=${line:20:-1}
+         if [[ ${app,,} == ${1,,} ]]; then
+             is_app=1
+         fi
+     fi
 
    fi
 done < $temp

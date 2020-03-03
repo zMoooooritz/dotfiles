@@ -24,6 +24,7 @@ cnoremap <F5> <C-c>:set list!<CR>
 
 noremap <C-Right> :tabn<CR>
 noremap <C-Left> :tabp<CR>
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim

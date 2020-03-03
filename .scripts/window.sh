@@ -11,7 +11,7 @@ name=$(xprop -id $id | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
 class=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f2)
 class2=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f4)
 
-declare -a name_apps=("Telegram" "vimiv")
+declare -a name_apps=("Telegram" "vimiv" "TeamSpeak 3")
 
 declare -a class_upper=("discord" "skype" "spotify" "shutter")
 
