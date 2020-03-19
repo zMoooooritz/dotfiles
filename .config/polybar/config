@@ -33,8 +33,8 @@ width = 100%
 height = 27
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
-fixed-center = false
+radius = 7.0
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -55,8 +55,8 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3 spotify deadbeef
-modules-center =
+modules-left = i3 spotify cmus
+modules-center = window
 modules-right = weather pulseaudio backlight wlan eth battery temperature date
 ; unused modules: memory cpu
 
@@ -425,13 +425,18 @@ tail = true
 interval = 2
 click-left = ~/.scripts/spotify_bar.py toggleplay
 
-[module/deadbeef]
+[module/cmus]
 format-underline = #008C79
 type = custom/script
-exec = ~/.scripts/deadbeef_bar.sh
+exec = ~/.scripts/cmus_bar.sh
 tail = true
-interval = 2
-click-left = ~/.scripts/deadbeef_bar.sh toggleplay
+interval = 1
+click-left = ~/.scripts/cmus_bar.sh toggleplay
+
+[module/window]
+type = custom/script
+exec = ~/.scripts/window.sh
+interval = 0
 
 [module/weather]
 format-underline = #19b6ff

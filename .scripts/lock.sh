@@ -13,10 +13,10 @@ then
 	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
 fi
 
-# Pause Deadbeef-Playback
-if pidof "deadbeef" > /dev/null
+# Pause cmus-Playback
+if pidof "cmus" > /dev/null
 then
-	deadbeef --pause
+	cmus-remote --pause-playback
 fi
 
 i3lock -u -t -i $tmpbg

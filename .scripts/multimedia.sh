@@ -17,20 +17,20 @@ then
 	fi
 fi
 
-if pidof "deadbeef" > /dev/null
+if pidof "cmus" > /dev/null
 then
 	if [ "$1" == "playpause" ];
 	then
-		deadbeef --play-pause
+        cmus-remote --pause
 	elif [ "$1" == "stop" ]
 	then
-		deadbeef --stop
+        cmus-remote --stop
 	elif [ "$1" == "next" ]
 	then
-		deadbeef --next
+        cmus-remote --next
 	elif [ "$1" == "prev" ]
 	then
-		deadbeef --prev
+        cmus-remote --prev
 	fi
 fi
 
