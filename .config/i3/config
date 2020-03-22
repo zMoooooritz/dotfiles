@@ -147,11 +147,13 @@ bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown.sh
 bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock.sh 1
 bindsym $mod+Mod1+e exec --no-startup-id ~/.scripts/exit.sh
 
-bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton-toggle.sh
+bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton_toggle.sh
 
 bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Ctrl+l workspace next
 
+for_window [instance="TODOLIST"] floating enable, move postion center, resize set 1000px 500px;
+bindsym $mod+t exec --no-startup-id ~/.scripts/todo_toggle.sh
 
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh 1 5
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh 2 5
