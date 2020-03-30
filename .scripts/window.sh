@@ -57,6 +57,8 @@ elif [[ $class == *"termite" ]]; then
     else
         title="$name"
     fi
+elif [[ $class == "st" ]]; then
+    title="st - $name"
 else
     title="$class"
 fi

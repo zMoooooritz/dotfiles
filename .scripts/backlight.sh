@@ -1,14 +1,22 @@
 #!/bin/bash
 
-bl_level_default="80"
-bl_level_step="$2"
+bl_max=$(</sys/class/backlight/intel_backlight/max_brightness)
 
-if [ $1 == 1 ]; then
-	xbacklight -inc $bl_level_step
-elif [ $1 == 2 ]; then
-	xbacklight -dec $bl_level_step
-elif [ $1 == 3 ]; then
-	xbacklight -set $bl_level_default
-else
-	sleep 1
-fi
+bl_level_default="80"
+bl_level_step="${2:-5}"
+
+bl_level_step=$((bl_level_step*bl_max/100))
+bl_level_default=$((bl_level_default*bl_max/100))
+
+bl_current=$(</sys/class/backlight/intel_backlight/brightness)
+
+case "$1" in
+    inc|up) ((bl_current+=bl_level_step));;
+    dec|down) ((bl_current-=bl_level_step)) ;;
+    set) ((bl_current=bl_level_default)) ;;
+esac
+
+[ $bl_current -le 0 ] && bl_current="0"
+[ $bl_current -ge $bl_max ] && bl_current=$bl_max
+
+echo $bl_current > /sys/class/backlight/intel_backlight/brightness
