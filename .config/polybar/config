@@ -28,7 +28,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/top]
-monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -55,10 +55,10 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3 spotify cmus
+modules-left = i3 cmus
 modules-center = window
-modules-right = weather pulseaudio eth cpu memory temperature date
-; unused modules: backlight wlan battery
+modules-right = weather pulseaudio backlight wlan eth battery temperature date
+; unused modules: memory cpu
 
 tray-position = right
 tray-padding = 2
@@ -376,7 +376,7 @@ format-underline = #008C79
 type = custom/script
 exec = ~/.scripts/cmus_bar.sh
 tail = true
-interval = 2
+interval = 1
 click-left = ~/.scripts/cmus_bar.sh toggleplay
 
 [module/window]

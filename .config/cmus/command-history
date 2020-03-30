@@ -1,0 +1,24 @@
+add http://stream.antenne.de/antenne/stream/mp3
+add http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3
+add https://wdr-edge-101b-dus-dtag-cdn.cast.addradio.de/wdr/1live/live/mp3/128/stream.mp3
+add http://play.antenne.de/antenne.m3u
+add http://streams.bigfm.de/hmr-128-mp3
+x
+add http://stream.antenne1.de/a1stg/livestream2.mp3
+add http://streams.br.de/b5aktuell_2.m3u
+add http://mp3-live.dasding.de/dasding_m.m3u
+add http://mp3-live.swr.de/swr4tu_m.m3u
+add http://mp3-live.swr3.de/swr3_m.m3u
+add http://mp3-live.swr3.de/swr3_m.m3uj
+add http://mp3-live.swr.de/swr1bw_m.m3u
+pl-create streams
+q!
+q
+save 
+add http://mp3-live.swr.de/swr1bw_s.m3u
+add mp3-live.swr.de/swr1bw_s.m3u
+add 
+add http://stream.antenne1.de/a1stg/livestream1.aac
+pl-create
+pl-create Chillout-Lounge
+add ~/Music/Chillout_Lounge/

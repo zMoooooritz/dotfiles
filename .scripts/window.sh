@@ -17,6 +17,9 @@ declare -a class_upper=("discord" "skype" "spotify" "shutter")
 
 declare -a class_full_upper=("gimp" "obs")
 
+# TODO apps to fix
+# mpv
+
 if [[ $id == "xprop: error"* ]]; then
     # empty workspace
     title=""
@@ -52,13 +55,14 @@ elif [[ ${class_full_upper[@]} =~ "$class" ]]; then
     # whatever you want to do when arr contains value
     title="${class^^}"
 elif [[ $class == *"termite" ]]; then
-    # termite
     nm=$(echo $name | cut -d' ' -f2)
     if [[ ${nm:0:1} == "~" || ${nm:0:1} == "/" ]]; then
         title="Termite - $nm"
     else
         title="$name"
     fi
+elif [[ $class == "st" ]]; then
+    title="st - $name"
 else
     title="$class"
 fi
