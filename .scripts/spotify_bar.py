@@ -20,8 +20,7 @@ class Player:
     _info = {}
     _trackMap = {
         'trackid': 'mpris:trackid',
-        'length': 'mpris:length',
-        'artUrl': 'mpris:artUrl',
+        'length': 'mpris:length', 'artUrl': 'mpris:artUrl',
         'album': 'xesam:album',
         'artist': 'xesam:artist',
         'title': 'xesam:title',
@@ -42,9 +41,9 @@ class Player:
     def __repr__(self):
         # if self.get_value(self._trackMap['title']) == 'Advertisement':
         if self.get_value(self._trackMap['title']) == 'Advertisement' or self.get_value(self._trackMap['title']) == 'Spotify':
-            os.system('GREPDB="~/.config/i3/scripts/mute.sh spotify mute"; /bin/bash -c "$GREPDB"')
+            os.system('GREPDB="~/.scripts/mute.sh spotify mute"; /bin/bash -c "$GREPDB"')
         else:
-            os.system('GREPDB="~/.config/i3/scripts/mute.sh spotify unmute"; /bin/bash -c "$GREPDB"')
+            os.system('GREPDB="~/.scripts/mute.sh spotify unmute"; /bin/bash -c "$GREPDB"')
 
         # if self.get_value(self._trackMap['title']) == 'Advertisement':
         if self.get_value(self._trackMap['title']) == 'Advertisement' or self.get_value(self._trackMap['title']) == 'Spotify':

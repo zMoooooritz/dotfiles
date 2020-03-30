@@ -27,7 +27,7 @@ elif [[ $name == *"()" ]]; then
     title="cmus"
 elif [[ $class2 = "firefox" ]]; then
     title="Mozilla Firefox"
-elif [[ $name =~ "Mozilla Thunderbird" ]]; then
+elif [[ $class2 == "Thunderbird" ]]; then
     title="Mozilla Thunderbird"
 elif [[ $name =~ "Tor Browser" ]]; then
     title="Tor Browser"
@@ -37,6 +37,10 @@ elif [[ $class2 =~ "mpv" ]]; then
     title="mpv - $name"
 elif [[ $class2 =~ "Zathura" ]]; then
     title="Zathura - $name"
+elif [[ $class =~ "libreoffice" ]]; then
+    file=${name%-*}
+    app=${name: -(${#name} - ${#file} - 2)}
+    title="$app - $file"
 elif [[ $class == "nemo" ]]; then
     [[ $class == "" ]] && title="Nemo" || title="Nemo - $name"
 elif [[ $class == "gnome-terminal" ]]; then

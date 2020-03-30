@@ -7,6 +7,7 @@ export EDITOR="nvim"
 export TERMINAL="termite"
 export BROWSER="firefox"
 export READER="zathura"
+export ANDROID_SDK_ROOT="/opt/android-sdk"
 
 # Start graphical server if i3 not already running
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
