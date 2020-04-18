@@ -53,9 +53,13 @@ elif [[ ${class_full_upper[@]} =~ "$class" ]]; then
     title="${class^^}"
 elif [[ $class == *"termite" ]]; then
     # termite
-    nm=$(echo $name | cut -d' ' -f2)
+    nm=$(echo $name | cut -c 13-)
     if [[ ${nm:0:1} == "~" || ${nm:0:1} == "/" ]]; then
-        title="Termite - $nm"
+        if [[ ${#nm} > 40 ]]; then
+            title="Termite - ${nm:0:1}/.../$(echo $nm | rev | cut -d'/' -f1-2 | rev)"
+        else
+            title="Termite - $nm"
+        fi
     else
         title="$name"
     fi

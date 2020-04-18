@@ -27,10 +27,11 @@ bindsym $mod+b split h
 bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle global
 
-#bindsym $mod+Shift+h layout stacking
-bindsym $mod+Shift+w layout tabbed
-bindsym $mod+Shift+g layout toggle split
+bindsym $mod+Shift+u layout stacking
+bindsym $mod+Shift+i layout tabbed
+bindsym $mod+Shift+o layout toggle split
 
 bindsym $mod+Shift+space floating toggle
 
@@ -43,6 +44,7 @@ bindsym $mod+a focus parent
 
 bindsym $mod+Shift+t reload
 bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+e exit
 
 # change focus
 bindsym $mod+h focus left
@@ -50,7 +52,7 @@ bindsym $mod+k focus down
 bindsym $mod+j focus up
 bindsym $mod+l focus right
 
-# change focus
+# resize window
 bindsym $mod+z exec --no-startup-id ~/.scripts/i3resize.sh left
 bindsym $mod+u exec --no-startup-id ~/.scripts/i3resize.sh down
 bindsym $mod+i exec --no-startup-id ~/.scripts/i3resize.sh up
@@ -139,9 +141,6 @@ bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton-toggle.sh
 bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Ctrl+l workspace next
 
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh 1 5
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh 2 5
-
 bindsym Mod1+v exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"
 
 # resize window (you can also use the mouse for that)
@@ -176,7 +175,6 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 # #--- Special Window Settings ---# #
 # disable border for all applicatios
 for_window [class="^.*"] border pixel 0
-for_window [class="Firefox"] border pixel 1
 for_window [class="^Thunderbird"] layout stacking
 
 # #---Multimedia Key Bindings---# #
