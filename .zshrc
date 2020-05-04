@@ -3,8 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/moritz/.oh-my-zsh"
-export PATH="$PATH:`pwd`/flutter/bin"
-export PATH="$PATH:/usr/lib/dart/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

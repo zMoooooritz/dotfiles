@@ -181,12 +181,12 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 
 
 # #--- Special Window Settings ---# #
+
 # disable border for all applicatios
 for_window [class="^.*"] border pixel 0
 for_window [class="^Thunderbird"] layout stacking
 
 # #---Multimedia Key Bindings---# #
-
 
 # Brightness Control
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh up 5
@@ -218,6 +218,7 @@ exec --no-startup-id "feh --bg-center ~/.config/wall.jpg"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id pasystray
 exec --no-startup-id greenclip daemon
+exec --no-startup-id dunst
 
 exec --no-startup-id xset -b
 exec --no-startup-id xset -dpms

@@ -51,6 +51,7 @@ Plugin 'takac/vim-hardtime' " stops you from scrolling down with up and down key
 " Enjoy your hard time
 
 "Plugin 'sheerun/vim-polyglot' " for better highlighting of the different languages
+
 Plugin 'neovimhaskell/haskell-vim' " for better haskell syntax highlighting
 
 Plugin 'lervag/vimtex'
@@ -121,6 +122,8 @@ let g:hardtime_showmsg = 1
 let g:list_of_normal_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_visual_keys = []
 let g:list_of_insert_keys = []
+
+let g:vimtex_view_method = 'zathura'
 
 let g:vimtex_view_method = 'zathura'
 
