@@ -4,12 +4,12 @@
 
 # shortcuts to config files
 
-alias zshconfig="vim ~/.zshrc" \
-        ohmyzshconfig="vim ~/.oh-my-zsh" \
-        polybarconfig="vim ~/.config/polybar/config" \
-        i3config="vim ~/.config/i3/config" \
-        vimconfig="vim ~/.vimrc" \
-        aliasconfig="vim ~/.aliasrc" \
+alias zshconfig="nvim ~/.zshrc" \
+        ohmyzshconfig="nvim ~/.oh-my-zsh" \
+        polybarconfig="nvim ~/.config/polybar/config" \
+        i3config="nvim ~/.config/i3/config" \
+        vimconfig="nvim ~/.vimrc" \
+        aliasconfig="nvim ~/.aliasrc" \
 
 # system commands
 
@@ -23,7 +23,8 @@ alias ka="killall" \
         sysinfo="neofetch | lolcat" \
         la="ls -a" \
         ll="ls -lah" \
-        svim="sudo vim" \
+        vim="nvim" \
+        svim="sudo nvim" \
         py="python"
 
 # other aliases
@@ -41,8 +42,7 @@ alias sl="sl && clear" \
         wttr="curl wttr.in" \
         viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
         yt='youtube-dl -i' \
-        ytm='yt -x -f bestaudio/best' \
-        todo='vim -c ":Note TODO"'
+        ytm='yt -x -f bestaudio/best'
 
 # commands that run bash scripts
 
@@ -50,7 +50,7 @@ alias apps="~/.scripts/apps.sh" \
         binds="~/.scripts/binds.sh" \
         screen="~/.scripts/screen.sh" \
         mute="~/.scripts/mute.sh" \
-        st="~/.scripts/streamlink.sh"
+        stream="~/.scripts/streamlink.sh"
 
 # shortcuts for streamlink
 
