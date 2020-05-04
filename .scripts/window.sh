@@ -7,6 +7,10 @@ if [[ $id == "0x0" ]]; then
     return
 fi
 
+[ $(xrandr -q | grep -c " connected") -gt 1 ] &&
+    output="$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).output' | cut -d"\"" -f2): "
+
+
 name=$(xprop -id $id | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
 class=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f2)
 class2=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f4)
@@ -18,7 +22,6 @@ declare -a class_upper=("discord" "skype" "spotify" "shutter")
 declare -a class_full_upper=("gimp" "obs")
 
 # TODO apps to fix
-# mpv
 
 if [[ $id == "xprop: error"* ]]; then
     # empty workspace
@@ -45,6 +48,8 @@ elif [[ $class == "nemo" ]]; then
     [[ $class == "" ]] && title="Nemo" || title="Nemo - $name"
 elif [[ $class == "gnome-terminal" ]]; then
     title="Termite"
+elif [[ $class =~ "microsoft teams" ]]; then
+    title="Microsoft Teams"
 elif [[ ${name_apps[@]} =~ "$(echo $name | cut -d' ' -f1)" ]]; then
     # whatever you want to do when arr contains value
     title="$name"
@@ -67,5 +72,5 @@ else
     title="$class"
 fi
 
-echo "$title"
+echo "$output$title"
 

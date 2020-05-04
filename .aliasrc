@@ -8,8 +8,9 @@ alias zshconfig="nvim ~/.zshrc" \
         ohmyzshconfig="nvim ~/.oh-my-zsh" \
         polybarconfig="nvim ~/.config/polybar/config" \
         i3config="nvim ~/.config/i3/config" \
+        vimconfig="nvim ~/.vimrc" \
         nvimconfig="nvim ~/.nvimrc" \
-        aliasconfig="nvim ~/.aliasrc" \
+        aliasconfig="nvim ~/.aliasrc"
 
 # system commands
 
