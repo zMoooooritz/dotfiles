@@ -1,54 +1,85 @@
 #!/bin/bash
 
 # Normal Laptop-Screen
-INTERN="eDP-1"
+INTERN="HDMI-1"
 
-# EXTERN Output
-EXTERN="HDMI-1"
+# VGA Output
+VGA="VGA"
+
+DISPEX=true
 
 PrintUsage() {
 cat << EOI
 Usage:
-    screen < modes | connected | intern | extern | clone | extend > < none (defaults to HDMI) | HDMI | VGA >
+	screen < modes | connected | intern | extern | clone | extend > < none (defaults to HDMI) | HDMI | VGA >
 EOI
 }
 
-if [ "$1" == "extern" ] || [ "$1" == "clone" ] || [ "$1" == "extend" ]; then
-    [ $(xrandr -q | grep -c " connected") == 1 ] && echo "Missing Connection to second output" && exit 0
+res=$(xrandr -q | grep ' connected' | grep '$VGA' | wc -l)
+
+if [ "$2" == "HDMI" ];
+then
+	if [ "$(xrandr -q | grep ' connected' | grep $HDMI | wc -l)" == "0" ];
+	then
+		echo "No Connection at $HDMI"
+		exit
+	fi
+	EXTERN=$HDMI
+elif [ "$2" == "VGA" ]
+then
+	if [ "$(xrandr -q | grep ' connected' | grep -v $INTERN  | grep $VGA | wc -l)" == "0" ];
+	then
+		echo "No Connection at $VGA"
+		exit
+	fi
+	EXTERN=$VGA
+else
+	if [ "$(xrandr -q | grep ' connected' | grep $HDMI | wc -l)" == "1" ];
+	then
+		EXTERN=$HDMI
+	elif [ "$(xrandr -q | grep ' connected' | grep -v $INTERN  | grep $VGA | wc -l)" == "1" ]
+	then
+		EXTERN=$VGA
+	else
+		EXTERN=$HDMI
+		DISPEX=false
+	fi
 fi
 
-case $2 in
-    "HDMI")
-        [ $(xrandr -q | grep -c "HDMI-1 connected") == 0 ] && echo "No Connection at HDMI-1" && exit 0
-        EXTERN="HDMI-1" ;;
-    "VGA")
-        [ $(xrandr -q | grep -c "VGA connected") == 0 ] && echo "No Connection at VGA" && exit 0
-        EXTERN="VGA" ;;
-    "")
-        [ $(xrandr -q | grep -c "VGA connected") == 1 ] && EXTERN="VGA"
-        [ $(xrandr -q | grep -c "HDMI-1 connected") == 1 ] && EXTERN="HDMI-1"
-        ;;
-    *)
-        echo "No Connection at $2" && exit 0 ;;
-esac
+if [ "$1" == "extern" ] || [ "$1" == "clone" ] || [ "$1" == "extend" ];
+then
+	if [ "$DISPEX" == false ];
+	then
+		echo "Missing Connection to second output"
+		exit
+	fi
+fi
 
 case $1 in
-    modes) xrandr -q ;;
-    connected) xrandr -q | grep " connected" ;;
-    intern)
-        xrandr --output $INTERN --auto --output $EXTERN --off
-        ~/.scripts/i3restart.sh ;;
-    extern)
-        xrandr --output $INTERN --off --output $EXTERN --auto
-        ~/.scripts/i3restart.sh ;;
-    clone)
-        CLONERES=`xrandr --query | awk '/^ *[0-9]*x[0-9]*/{ print $1 }' | sort -n | uniq -d | tail -1`
-        xrandr --output $INTERN --mode $CLONERES --output $EXTERN --mode $CLONERES
-        ~/.scripts/i3restart.sh ;;
-    extend)
-        xrandr --output $INTERN --primary  --auto --output $EXTERN --auto --right-of $INTERN
-        ~/.scripts/i3restart.sh ;;
-    *)
-        PrintUsage
-        ;;
+	modes)
+		xrandr -q
+		;;
+	connected)
+		xrandr -q | grep " connected"
+		;;
+	intern)
+		xrandr --output $INTERN --auto --output $EXTERN --off
+		i3-msg restart || true
+		;;
+	extern)
+		xrandr --output $INTERN --off --output $EXTERN --auto
+		i3-msg restart || true
+		;;
+	clone)
+		CLONERES=`xrandr --query | awk '/^ *[0-9]*x[0-9]*/{ print $1 }' | sort -n | uniq -d | tail -1`
+		xrandr --output $INTERN --mode $CLONERES --output $EXTERN --mode $CLONERES
+		i3-msg restart || true
+		;;
+	extend)
+		xrandr --output $INTERN --primary  --auto --output $EXTERN --auto --right-of $INTERN
+		i3-msg restart || true
+		;;
+	*)
+		PrintUsage
+		;;
 esac

@@ -9,7 +9,8 @@ alias zshconfig="nvim ~/.zshrc" \
         polybarconfig="nvim ~/.config/polybar/config" \
         i3config="nvim ~/.config/i3/config" \
         vimconfig="nvim ~/.vimrc" \
-        aliasconfig="nvim ~/.aliasrc" \
+        nvimconfig="nvim ~/.nvimrc" \
+        aliasconfig="nvim ~/.aliasrc"
 
 # system commands
 
@@ -23,8 +24,7 @@ alias ka="killall" \
         sysinfo="neofetch | lolcat" \
         la="ls -a" \
         ll="ls -lah" \
-        vim="nvim" \
-        svim="sudo nvim" \
+        svim="sudo vim" \
         py="python"
 
 # other aliases
@@ -35,22 +35,21 @@ alias sl="sl && clear" \
         DC="figlet 'TYPO'" \
         feh="feh --image-bg black -Z -." \
         tutorium="pdfpc -d 90 -l 10" \
-        clock="clockywock" \
+        clock="clockywock" \a
         clock2="while true; do tput clear; date +'%H : %M : %S' | figlet -c -w 280 ; sleep 1; done" \
         matrix="cmatrix | lolcat" \
         pi="echo 'scale=14; 4*a(1)' | bc -l | figlet | lolcat" \
         wttr="curl wttr.in" \
         viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
         yt='youtube-dl -i' \
-        ytm='yt -x -f bestaudio/best'
+        ytm='yt -x -f bestaudio/best' \
+        todo='vim -c ":Note TODO"'
 
 # commands that run bash scripts
 
-alias apps="~/.scripts/apps.sh" \
-        binds="~/.scripts/binds.sh" \
-        screen="~/.scripts/screen.sh" \
+alias screen="~/.scripts/screen.sh" \
         mute="~/.scripts/mute.sh" \
-        stream="~/.scripts/streamlink.sh"
+        st="~/.scripts/streamlink.sh"
 
 # shortcuts for streamlink
 

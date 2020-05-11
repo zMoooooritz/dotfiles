@@ -19,7 +19,7 @@ gaps inner 15
 new_window normal
 
 # #---Basic Binds---# #
-bindsym $mod+Return exec st
+bindsym $mod+Return exec termite
 
 bindsym $mod+Shift+q kill
 
@@ -43,7 +43,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 bindsym $mod+Shift+t reload
-bindsym $mod+Shift+r exec --no-startup-id ~/.scripts/i3restart.sh
+bindsym $mod+Shift+r restart
 #bindsym $mod+Shift+e exit
 
 # change focus
@@ -63,18 +63,6 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# move focused container to other output
-bindsym $mod+Shift+Mod1+h move container to output left
-bindsym $mod+Shift+Mod1+j move container to output down
-bindsym $mod+Shift+Mod1+k move container to output up
-bindsym $mod+Shift+Mod1+l move container to output right
-
-# move focused workspace to other output
-bindsym $mod+Shift+Mod1+z move workspace to output left
-bindsym $mod+Shift+Mod1+u move workspace to output down
-bindsym $mod+Shift+Mod1+i move workspace to output up
-bindsym $mod+Shift+Mod1+o move workspace to output right
 
 # #--- Workspace Settings ---# #
 set $ws1 "1"
@@ -140,9 +128,6 @@ bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -theme so
 bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
 bindsym $mod+e exec rofi -show emoji -modi emoji -theme solarized_alternate.rasi
 
-bindsym $mod+p exec --no-startup-id ~/.scripts/cal.sh cur
-bindsym $mod+udiaeresis exec --no-startup-id ~/.scripts/cheatsheet.sh
-
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
 bindsym --release $mod+Ctrl+s exec --no-startup-id ~/.scripts/screenshot.sh sel
 
@@ -151,18 +136,25 @@ bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown.sh
 bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock.sh 1
 bindsym $mod+Mod1+e exec --no-startup-id ~/.scripts/exit.sh
 
-bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/picom_toggle.sh
+bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/compton-toggle.sh
 
 bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Ctrl+l workspace next
 
-# todolist configuration
-for_window [instance="TODOLIST"] floating enable, sticky enable
-bindsym $mod+t exec --no-startup-id ~/.scripts/todo_toggle.sh
+bindsym Mod1+v exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"
 
-# radioplayer configuration
-for_window [instance="RADIOPLAYER"] floating enable, sticky enable
-bindsym $mod+r exec --no-startup-id ~/.scripts/radio_toggle.sh
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym j resize shrink width 5 px or 5 ppt
+    bindsym k resize grow height 5 px or 5 ppt
+    bindsym l resize shrink height 5 px or 5 ppt
+    bindsym ntilde resize grow width 5 px or 5 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
 
 set $bg-color            #365cad
 set $inactive-bg-color   #2f343f
@@ -181,12 +173,12 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 
 
 # #--- Special Window Settings ---# #
+
 # disable border for all applicatios
 for_window [class="^.*"] border pixel 2
 for_window [class="^Thunderbird"] layout stacking
 
 # #---Multimedia Key Bindings---# #
-
 
 # Brightness Control
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh up 5
@@ -194,14 +186,18 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh down 
 bindsym $mod+XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight.sh up 1
 bindsym $mod+XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight.sh down 1
 
-# Volume Control
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.scripts/volume.sh up 5
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.scripts/volume.sh down 5
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id ~/.scripts/volume.sh up 1
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id ~/.scripts/volume.sh down 1
-bindsym XF86AudioMute exec --no-startup-id ~/.scripts/volume.sh toggle
+# volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
 
-# Track control
+# granular volume control
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +1%
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -1%
+
+# mute
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+
+# track control
 bindsym XF86AudioPlay exec ~/.scripts/multimedia.sh playpause
 bindsym XF86AudioPause exec ~/.scripts/multimedia.sh playpause
 bindsym XF86AudioStop exec ~/.scripts/multimedia.sh stop
@@ -213,11 +209,12 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia.sh prev
 
 # #---Autostart Applications---# #
 exec --no-startup-id nm-applet
-exec --no-startup-id "picom -b --config ~/.config/picom/picom.conf"
+exec --no-startup-id "compton -b --config ~/.config/compton.conf"
 exec --no-startup-id "feh --bg-center ~/.config/wall.jpg"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id pasystray
 exec --no-startup-id greenclip daemon
+exec --no-startup-id dunst
 
 exec --no-startup-id xset -b
 exec --no-startup-id xset -dpms
@@ -228,5 +225,5 @@ exec_always --no-startup-id setxkbmap -layout de
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
 
 # Open specific programms on start
-exec --no-startup-id i3-msg 'workspace 1; exec st; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo'
+exec --no-startup-id i3-msg 'workspace 1; exec termite; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo'
 exec --no-startup-id i3-msg workspace 1
