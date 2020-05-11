@@ -56,8 +56,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3 spotify cmus
-modules-center =
-modules-right = weather pulseaudio eth cpu memory temperature cal
+modules-center = window
+modules-right = weather pulseaudio eth cpu memory temperature date
 ; unused modules: backlight wlan battery
 
 tray-position = right
@@ -376,7 +376,7 @@ format-underline = #008C79
 type = custom/script
 exec = ~/.scripts/cmus_bar.sh
 tail = true
-interval = 1
+interval = 2
 click-left = ~/.scripts/cmus_bar.sh toggleplay
 
 [module/window]
@@ -401,16 +401,6 @@ type = custom/script
 exec = ~/.scripts/weather_bar.py
 tail = true
 interval = 300
-
-[module/cal]
-format-underline = #0a6cf5
-type = custom/script
-exec = ~/.scripts/cal.sh
-click-left = i3-msg exec '~/.scripts/cal.sh cur'
-click-right = i3-msg exec '~/.scripts/cal.sh next'
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-interval = 1
 
 [module/temperature]
 type = internal/temperature

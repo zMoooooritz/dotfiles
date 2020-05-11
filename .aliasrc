@@ -24,8 +24,7 @@ alias ka="killall" \
         sysinfo="neofetch | lolcat" \
         la="ls -a" \
         ll="ls -lah" \
-        vim="nvim" \
-        svim="sudo nvim" \
+        svim="sudo vim" \
         py="python"
 
 # other aliases
@@ -43,13 +42,14 @@ alias sl="sl && clear" \
         wttr="curl wttr.in" \
         viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
         yt='youtube-dl -i' \
-        ytm='yt -x -f bestaudio/best'
+        ytm='yt -x -f bestaudio/best' \
+        todo='vim -c ":Note TODO"'
 
 # commands that run bash scripts
 
 alias screen="~/.scripts/screen.sh" \
         mute="~/.scripts/mute.sh" \
-        stream="~/.scripts/streamlink.sh"
+        st="~/.scripts/streamlink.sh"
 
 # shortcuts for streamlink
 

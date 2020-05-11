@@ -1,6 +1,6 @@
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=4 
 set expandtab
 set number relativenumber
 set clipboard=unnamed
@@ -15,25 +15,16 @@ set incsearch
 syntax on
 filetype plugin indent on
 
-" Custom Binds
-
 " show spacings and tabs
-noremap <F2> :call ToggleNumber()<CR>
-function! ToggleNumber()
-    :set nonumber!
-    :set relativenumber!
-endfunction
-
 set list
 set listchars=tab:•\ ,trail:•,extends:»,precedes:«
-noremap <F3> :set list!<CR>
-
-noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-noremap <F5> :NERDTreeToggle<CR>
+noremap <F5> :set list!<CR>
+inoremap <F5> <C-o>:set list!<CR>
+cnoremap <F5> <C-c>:set list!<CR>
 
 noremap <C-Right> :tabn<CR>
 noremap <C-Left> :tabp<CR>
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -63,8 +54,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'rakr/vim-colors-rakr'
 
 Plugin 'scrooloose/nerdtree' " File explorer
-
-Plugin 'ap/vim-css-color' " colorizer
+nnoremap <C-o> :NERDTreeToggle<CR>
 
 Plugin 'vim-airline/vim-airline' " the airline at the bottom of vim
 Plugin 'vim-airline/vim-airline-themes' " the airline-themes
