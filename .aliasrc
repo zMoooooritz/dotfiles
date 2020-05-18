@@ -24,7 +24,8 @@ alias ka="killall" \
         sysinfo="neofetch | lolcat" \
         la="ls -a" \
         ll="ls -lah" \
-        svim="sudo vim" \
+        vim="nvim" \
+        svim="sudo nvim" \
         py="python"
 
 # other aliases
@@ -35,21 +36,20 @@ alias sl="sl && clear" \
         DC="figlet 'TYPO'" \
         feh="feh --image-bg black -Z -." \
         tutorium="pdfpc -d 90 -l 10" \
-        clock="clockywock" \a
+        clock="clockywock" \
         clock2="while true; do tput clear; date +'%H : %M : %S' | figlet -c -w 280 ; sleep 1; done" \
         matrix="cmatrix | lolcat" \
         pi="echo 'scale=14; 4*a(1)' | bc -l | figlet | lolcat" \
         wttr="curl wttr.in" \
         viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
         yt='youtube-dl -i' \
-        ytm='yt -x -f bestaudio/best' \
-        todo='vim -c ":Note TODO"'
+        ytm='yt -x -f bestaudio/best'
 
 # commands that run bash scripts
 
 alias screen="~/.scripts/screen.sh" \
         mute="~/.scripts/mute.sh" \
-        st="~/.scripts/streamlink.sh"
+        stream="~/.scripts/streamlink.sh"
 
 # shortcuts for streamlink
 

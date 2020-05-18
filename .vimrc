@@ -15,16 +15,19 @@ set incsearch
 syntax on
 filetype plugin indent on
 
-" show spacings and tabs
-set list
-set listchars=tab:•\ ,trail:•,extends:»,precedes:«
-noremap <F5> :set list!<CR>
-inoremap <F5> <C-o>:set list!<CR>
-cnoremap <F5> <C-c>:set list!<CR>
+" Custom Binds
 
-noremap <C-Right> :tabn<CR>
-noremap <C-Left> :tabp<CR>
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" show spacings and tabs
+noremap <F2> :call ToggleNumber()<CR>
+function! ToggleNumber()
+    :set nonumber!
+    :set relativenumber!
+endfunction
+noremap <F3> :set list!<CR>
+
+noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+noremap <F5> :NERDTreeToggle<CR>
 
 " initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -54,7 +57,8 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'rakr/vim-colors-rakr'
 
 Plugin 'scrooloose/nerdtree' " File explorer
-nnoremap <C-o> :NERDTreeToggle<CR>
+
+Plugin 'ap/vim-css-color' " colorizer
 
 Plugin 'vim-airline/vim-airline' " the airline at the bottom of vim
 Plugin 'vim-airline/vim-airline-themes' " the airline-themes
