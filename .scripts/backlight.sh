@@ -13,7 +13,7 @@ bl_current=$(</sys/class/backlight/intel_backlight/brightness)
 case "$1" in
     inc|up) ((bl_current+=bl_level_step));;
     dec|down) ((bl_current-=bl_level_step)) ;;
-    set) ((bl_current=bl_level_default)) ;;
+    reset) ((bl_current=bl_level_default)) ;;
 esac
 
 [ $bl_current -le 0 ] && bl_current="0"

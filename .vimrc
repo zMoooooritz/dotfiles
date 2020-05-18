@@ -1,6 +1,6 @@
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=4 
 set expandtab
 set number relativenumber
 set clipboard=unnamed
@@ -23,17 +23,11 @@ function! ToggleNumber()
     :set nonumber!
     :set relativenumber!
 endfunction
-
-set list
-set listchars=tab:•\ ,trail:•,extends:»,precedes:«
 noremap <F3> :set list!<CR>
 
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 noremap <F5> :NERDTreeToggle<CR>
-
-noremap <C-Right> :tabn<CR>
-noremap <C-Left> :tabp<CR>
 
 " initialize Vundle
 set rtp+=~/.vim/bundle/Vundle.vim

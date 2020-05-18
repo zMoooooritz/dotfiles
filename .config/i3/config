@@ -35,7 +35,7 @@ bindsym $mod+Shift+o layout toggle split
 
 bindsym $mod+Shift+space floating toggle
 
-bindsym $mod+Mod1+X [class="^.*"] border toggle
+bindsym $mod+Mod1+X [class="^.*"] border toggle 2
 
 bindsym $mod+space focus mode_toggle
 
@@ -144,7 +144,9 @@ bindsym $mod+p exec --no-startup-id ~/.scripts/cal.sh cur
 bindsym $mod+udiaeresis exec --no-startup-id ~/.scripts/cheatsheet.sh
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
-bindsym $mod+Ctrl+s exec --no-startup-id shutter -s -e
+bindsym --release $mod+Ctrl+s exec --no-startup-id ~/.scripts/screenshot.sh sel
+bindsym Print exec --no-startup-id ~/.scripts/screenshot.sh
+bindsym --release Ctrl+Print exec --no-startup-id ~/.scripts/screenshot.sh sel
 
 bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot.sh
 bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown.sh
@@ -164,7 +166,7 @@ bindsym $mod+t exec --no-startup-id ~/.scripts/todo_toggle.sh
 for_window [instance="RADIOPLAYER"] floating enable, sticky enable
 bindsym $mod+r exec --no-startup-id ~/.scripts/radio_toggle.sh
 
-set $bg-color            #2f343f
+set $bg-color            #365cad
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
@@ -183,7 +185,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 # #--- Special Window Settings ---# #
 
 # disable border for all applicatios
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 for_window [class="^Thunderbird"] layout stacking
 
 # #---Multimedia Key Bindings---# #
@@ -219,6 +221,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id pasystray
 exec --no-startup-id greenclip daemon
 exec --no-startup-id dunst
+exec --no-startup-id unclutter
 
 exec --no-startup-id xset -b
 exec --no-startup-id xset -dpms
