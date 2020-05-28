@@ -56,7 +56,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3 spotify cmus
-modules-center = 
+modules-center = window
 modules-right = weather pulseaudio eth cpu memory temperature cal
 ; unused modules: backlight wlan battery window date
 
@@ -382,7 +382,7 @@ click-left = ~/.scripts/cmus_bar.sh toggleplay
 [module/window]
 type = custom/script
 exec = ~/.scripts/window.sh
-interval = 0
+interval = 0.3
 
 [module/backlight]
 format-underline = #008C79
