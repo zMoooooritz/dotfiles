@@ -10,17 +10,17 @@ id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
 ! [ -f $id_path ] && echo "id file does not exist" && exit 0
 ! [ -f $name_path ] && echo "name file does not exist" && exit 0
 
+name=$(xprop -id $id | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
+
 # check if the window changed
 read old_id < $id_path
 read old_name < $name_path
-[[ $id == $old_id ]] && echo $old_name && exit 0
-echo $id > $id_path
+[[ $id$name == $old_id ]] && echo $old_name && exit 0
+echo $id$name > $id_path
 
 [ $(xrandr -q | grep -c " connected") -gt 1 ] &&
     output="$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).output' | cut -d"\"" -f2): "
 
-
-name=$(xprop -id $id | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
 class=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f2)
 class2=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f4)
 

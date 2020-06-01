@@ -1,7 +1,9 @@
 #!/bin/bash
 
+max_lines=6
 options="$(ls ~/.cheatsheets | sed 's/_cheatsheet.*//g')"
 clines="$(echo -e "$options" | wc -l)"
+clines=$(( $clines < $max_lines ? $clines : $max_lines ))
 
 rofi_menu="rofi \
     -dmenu \
