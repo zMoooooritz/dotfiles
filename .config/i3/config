@@ -142,6 +142,7 @@ bindsym $mod+e exec rofi -show emoji -modi emoji -theme solarized_alternate.rasi
 
 bindsym $mod+p exec --no-startup-id ~/.scripts/cal.sh cur
 bindsym $mod+udiaeresis exec --no-startup-id ~/.scripts/cheatsheet.sh
+bindsym $mod+w exec --no-startup-id ~/.scripts/weather_bar.sh overview
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
 bindsym --release $mod+Ctrl+s exec --no-startup-id ~/.scripts/screenshot.sh sel
@@ -165,6 +166,9 @@ bindsym $mod+t exec --no-startup-id ~/.scripts/todo_toggle.sh
 # radioplayer configuration
 for_window [instance="RADIOPLAYER"] floating enable, sticky enable
 bindsym $mod+r exec --no-startup-id ~/.scripts/radio_toggle.sh
+
+# weatherinfo configuration
+for_window [instance="WTTRINFO"] floating enable, sticky enable
 
 set $bg-color            #365cad
 set $inactive-bg-color   #2f343f

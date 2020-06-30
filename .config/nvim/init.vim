@@ -23,53 +23,41 @@ function! ToggleNumber()
     :set nonumber!
     :set relativenumber!
 endfunction
+
 noremap <F3> :set list!<CR>
 
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 noremap <F5> :NERDTreeToggle<CR>
 
-" initialize Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+" auto add closing backets
+inoremap {<CR>  {<CR>}<Esc>O
 
-" ===============
-"  Start Plugins
-" ===============
+" auto add closing braces
+inoremap        (  ()<Left>
+inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 
-Plugin 'tpope/vim-surround' " Makes it easy to replace things
-Plugin 'tpope/vim-commentary' " makes commenting much easier
-Plugin 'ervandew/supertab' " autocompletion if you press tab
-Plugin 'takac/vim-hardtime' " stops you from scrolling down with up and down keys
-" Enjoy your hard time
+call plug#begin('~/.vim/plugged')
 
-Plugin 'sheerun/vim-polyglot' " for better highlighting of the different languages
+Plug 'tpope/vim-surround' " Makes it easy to replace things
+Plug 'tpope/vim-commentary' " makes commenting much easier
+Plug 'ervandew/supertab' " autocompletion if you press tab
+Plug 'takac/vim-hardtime' " stops you from scrolling down with up and down keys
 
-"Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'sheerun/vim-polyglot' " highlighting for many languages
 
-Plugin 'neovimhaskell/haskell-vim' " for better haskell syntax highlighting
+Plug 'lervag/vimtex'
 
-Plugin 'lervag/vimtex'
+Plug 'dracula/vim' " dracula color theme
 
-" Color themes
-Plugin 'dracula/vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'rakr/vim-colors-rakr'
+Plug 'scrooloose/nerdtree' " File explorer
 
-Plugin 'scrooloose/nerdtree' " File explorer
+Plug 'ap/vim-css-color' " colorizer
 
-Plugin 'ap/vim-css-color' " colorizer
+Plug 'vim-airline/vim-airline' " the airline at the bottom of vim
+Plug 'vim-airline/vim-airline-themes' " the airline-themes
 
-Plugin 'vim-airline/vim-airline' " the airline at the bottom of vim
-Plugin 'vim-airline/vim-airline-themes' " the airline-themes
-
-" =============
-"  End Plugins
-" =============
-"
-call vundle#end()
+call plug#end()
 
 " Colortheme and airline
 let g:solarized_italic=0
@@ -122,3 +110,4 @@ let g:list_of_insert_keys = []
 let g:vimtex_view_method = 'zathura'
 
 au FileType perl set filetype=prolog
+

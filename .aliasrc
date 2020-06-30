@@ -9,7 +9,7 @@ alias zshconfig="nvim ~/.zshrc" \
         polybarconfig="nvim ~/.config/polybar/config" \
         i3config="nvim ~/.config/i3/config" \
         vimconfig="nvim ~/.vimrc" \
-        nvimconfig="nvim ~/.nvimrc" \
+        nvimconfig="nvim ~/.config/nvim/init.vim" \
         aliasconfig="nvim ~/.aliasrc"
 
 # system commands
@@ -22,6 +22,7 @@ alias ka="killall" \
         grep="grep --color=auto" \
         diff="diff --color=auto" \
         sysinfo="neofetch | lolcat" \
+        cal="cal -m" \
         la="ls -a" \
         ll="ls -lah" \
         vim="nvim" \
