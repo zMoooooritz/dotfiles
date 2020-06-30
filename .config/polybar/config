@@ -381,7 +381,7 @@ click-left = ~/.scripts/cmus_bar.sh toggleplay
 
 [module/window]
 type = custom/script
-exec = ~/.scripts/window.sh
+exec = ~/.scripts/window.sh 2> ~/.local/share/window/log
 interval = 0.3
 
 [module/backlight]
@@ -398,7 +398,8 @@ scroll-down = ~/.scripts/backlight.sh dec
 [module/weather]
 format-underline = #19b6ff
 type = custom/script
-exec = ~/.scripts/weather_bar.py
+exec = ~/.scripts/weather.py
+click-left = ~/.scripts/weather_bar.sh overview
 tail = true
 interval = 300
 

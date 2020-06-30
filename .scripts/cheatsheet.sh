@@ -15,5 +15,5 @@ rofi_menu="rofi \
 
 chosen="$(echo -e "$options" | $rofi_menu)"
 
-[ $chosen -z ] || i3-msg exec "feh  --image-bg black -Z -. ~/.cheatsheets/$chosen*"
+[ $chosen -z ] || i3-msg exec "sxiv -b ~/.cheatsheets/$chosen*"
 

@@ -44,7 +44,7 @@ elif [[ $name =~ "Tor Browser" ]]; then
 elif [[ $name =~ "streamlink" ]]; then
     title="streamlink"
 elif [[ $class2 =~ "mpv" ]]; then
-    title="mpv - $name"
+    title="mpv - ${name% - mpv}"
 elif [[ $class2 =~ "Zathura" ]]; then
     title="Zathura - $name"
 elif [[ $class =~ "libreoffice" ]]; then
@@ -65,7 +65,8 @@ elif [[ ${class_full_upper[@]} =~ "$class" ]]; then
     # whatever you want to do when arr contains value
     title="${class^^}"
 elif [[ $class == "st" ]]; then
-    title="st - $name"
+    s_name=${name##..*/}
+    title="st - $s_name"
 else
     title="$class"
 fi
