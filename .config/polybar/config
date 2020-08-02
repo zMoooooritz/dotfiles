@@ -398,10 +398,10 @@ scroll-down = ~/.scripts/backlight.sh dec
 [module/weather]
 format-underline = #19b6ff
 type = custom/script
-exec = ~/.scripts/weather.py
+exec = ~/.scripts/weather_bar.sh
 click-left = ~/.scripts/weather_bar.sh overview
 tail = true
-interval = 300
+interval = 5
 
 [module/cal]
 format-underline = #0a6cf5

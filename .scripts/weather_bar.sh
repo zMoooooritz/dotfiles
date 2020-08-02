@@ -13,15 +13,11 @@ fi
 
 ! [ -f $weatherreport ] && echo "weather report file does not exist" && exit 0
 
-change_date=$(stat -c %y $weatherreport | cut -d' ' -f1)
+change_esec=$(stat -c %Y $weatherreport)
+date_esec=$(date '+%s')
 
-change_time=$(stat -c %y $weatherreport | cut -d' ' -f2)
-change_time=${change_time%.*}
-change_time=${change_time//:}
+diff=$((date_esec - change_esec))
 
-diff=$(($(date '+%H%M%S') - change_time))
-
-[[ $change_date != "$(date '+%Y-%m-%d')" || $diff < 500 ]] ||
-    python "/home/moritz/.scripts/weather.py" > $weatherreport
+[ $diff -gt 300 ] && python "/home/moritz/.scripts/weather.py" > $weatherreport
 
 cat $weatherreport
