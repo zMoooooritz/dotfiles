@@ -34,6 +34,7 @@ bindsym $mod+Shift+i layout tabbed
 bindsym $mod+Shift+o layout toggle split
 
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+y sticky toggle
 
 bindsym $mod+Mod1+X [class="^.*"] border toggle 2
 
