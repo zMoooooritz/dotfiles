@@ -227,6 +227,7 @@ exec --no-startup-id pasystray
 exec --no-startup-id greenclip daemon
 exec --no-startup-id dunst
 exec --no-startup-id unclutter
+exec --no-startup-id ~/.scripts/xob_setup.sh
 
 exec --no-startup-id xset -b
 exec --no-startup-id xset -dpms
