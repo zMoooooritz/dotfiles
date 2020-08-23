@@ -11,6 +11,7 @@ set foldmethod=syntax
 nnoremap <space> za
 set foldlevel=120
 set encoding=utf-8
+set iskeyword+=-
 set incsearch
 syntax on
 filetype plugin indent on
@@ -32,10 +33,6 @@ noremap <F5> :NERDTreeToggle<CR>
 
 " auto add closing backets
 inoremap {<CR>  {<CR>}<Esc>O
-
-" auto add closing braces
-inoremap        (  ()<Left>
-inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 
 call plug#begin('~/.vim/plugged')
 
