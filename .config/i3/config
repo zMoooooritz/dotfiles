@@ -141,10 +141,6 @@ bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -theme so
 bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
 bindsym $mod+e exec rofi -show emoji -modi emoji -theme solarized_alternate.rasi
 
-bindsym $mod+p exec --no-startup-id ~/.scripts/cal.sh cur
-bindsym $mod+udiaeresis exec --no-startup-id ~/.scripts/cheatsheet.sh
-bindsym $mod+w exec --no-startup-id ~/.scripts/weather_bar.sh overview
-
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
 bindsym --release $mod+Ctrl+s exec --no-startup-id ~/.scripts/screenshot.sh sel
 bindsym Print exec --no-startup-id ~/.scripts/screenshot.sh
@@ -162,14 +158,23 @@ bindsym $mod+Ctrl+l workspace next
 
 # todolist configuration
 for_window [instance="TODOLIST"] floating enable, sticky enable
-bindsym $mod+t exec --no-startup-id ~/.scripts/todo_toggle.sh
+bindsym $mod+t exec --no-startup-id ~/.scripts/toggle.sh TODOLIST
 
 # radioplayer configuration
 for_window [instance="RADIOPLAYER"] floating enable, sticky enable
-bindsym $mod+r exec --no-startup-id ~/.scripts/radio_toggle.sh
+bindsym $mod+r exec --no-startup-id ~/.scripts/toggle.sh RADIOPLAYER
+
+# calendar configuration
+for_window [instance="CALENDAR"] floating enable, sticky enable
+bindsym $mod+p exec --no-startup-id ~/.scripts/toggle.sh CALENDAR
 
 # weatherinfo configuration
 for_window [instance="WTTRINFO"] floating enable, sticky enable
+bindsym $mod+w exec --no-startup-id ~/.scripts/weather_bar.sh overview
+
+# cheatsheet configuration
+for_window [instance="CHEATSHEET"] floating enable, sticky enable
+bindsym $mod+udiaeresis exec --no-startup-id ~/.scripts/cheatsheet.sh
 
 set $bg-color            #365cad
 set $inactive-bg-color   #2f343f
