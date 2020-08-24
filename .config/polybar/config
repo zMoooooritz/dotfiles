@@ -406,9 +406,9 @@ interval = 5
 [module/cal]
 format-underline = #0a6cf5
 type = custom/script
-exec = ~/.scripts/cal.sh
-click-left = i3-msg exec '~/.scripts/cal.sh cur'
-click-right = i3-msg exec '~/.scripts/cal.sh next'
+exec = date '+%H:%M:%S %d.%m.%Y'
+click-left = i3-msg exec '~/.scripts/toggle.sh CALENDAR'
+click-right = i3-msg exec '~/.scripts/toggle.sh CALENDAR'
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 interval = 1
