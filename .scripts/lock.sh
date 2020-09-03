@@ -19,6 +19,12 @@ then
 	cmus-remote --pause-playback
 fi
 
+# Pause cmus-Playback
+if pidof "mpd" > /dev/null
+then
+	mpc pause
+fi
+
 i3lock -u -t -i $tmpbg
 
 if [ -z "$1" ];

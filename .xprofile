@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# hier noch mehr aus i3-config autostart machen
+
+mpd &
+dunst &
+unclutter &
+calcurse --daemon &
+greenclip daemon &
+nm-applet &
+pasystray &
+
+# keyboard setup
+xset -b -dpms s off m 1/2 0 &
+numlockx on &
+setxkbmap -layout de &
