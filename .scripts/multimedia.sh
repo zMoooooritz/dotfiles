@@ -20,3 +20,12 @@ then
     esac
 fi
 
+if pidof "mpd" > /dev/null
+then
+    case "$1" in
+        "playpause") mpc toggle ;;
+        "stop")      mpc stop ;;
+        "next")      mpc next ;;
+        "prev")      mpc prev ;;
+    esac
+fi

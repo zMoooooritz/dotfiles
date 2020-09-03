@@ -55,7 +55,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3 spotify cmus
+modules-left = i3 spotify mpd
 modules-center = window
 modules-right = weather pulseaudio eth cpu memory temperature cal
 ; unused modules: backlight wlan battery window date
@@ -169,18 +169,18 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 ; label-separator = |
 
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+;[module/mpd]
+;type = internal/mpd
+;format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+;icon-prev = 
+;icon-stop = 
+;icon-play = 
+;icon-pause = 
+;icon-next = 
 
-label-song-maxlen = 25
-label-song-ellipsis = true
+;label-song-maxlen = 25
+;label-song-ellipsis = true
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -371,13 +371,13 @@ tail = true
 interval = 2
 click-left = ~/.scripts/spotify_bar.py toggleplay
 
-[module/cmus]
+[module/mpd]
 format-underline = #008C79
 type = custom/script
-exec = ~/.scripts/cmus_bar.sh
+exec = ~/.scripts/mpd_bar.sh
 tail = true
 interval = 1
-click-left = ~/.scripts/cmus_bar.sh toggleplay
+click-left = ~/.scripts/mpd_bar.sh toggleplay
 
 [module/window]
 type = custom/script
@@ -399,7 +399,7 @@ scroll-down = ~/.scripts/backlight.sh dec
 format-underline = #19b6ff
 type = custom/script
 exec = ~/.scripts/weather_bar.sh
-click-left = ~/.scripts/weather_bar.sh overview
+click-left = ~/.scripts/toggle.sh WTTR
 tail = true
 interval = 5
 
@@ -407,8 +407,8 @@ interval = 5
 format-underline = #0a6cf5
 type = custom/script
 exec = date '+%H:%M:%S %d.%m.%Y'
-click-left = i3-msg exec '~/.scripts/toggle.sh CALENDAR'
-click-right = i3-msg exec '~/.scripts/toggle.sh CALENDAR'
+click-left = ~/.scripts/toggle.sh CALENDAR
+click-right = ~/.scripts/toggle.sh CALENDAR
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 interval = 1

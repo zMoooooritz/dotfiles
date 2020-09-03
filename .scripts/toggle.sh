@@ -12,8 +12,9 @@ if xdotool search --classname "$1"; then
 fi
 
 case $1 in
-    "TODOLIST") i3-msg exec "st -n $1 -g 150x50 -e nvim +edit note:todo" ;;
-    "RADIOPLAYER") i3-msg exec "st -n $1 -g 150x50 -e cmus" ;;
+    "TODO") i3-msg exec "st -n $1 -g 150x50 -e nvim +edit note:todo" ;;
+    "MUSIC") i3-msg exec "st -n $1 -g 150x50 -e ncmpcpp" ;;
     "CALENDAR") i3-msg exec "st -n $1 -g 150x50 -e calcurse" ;;
+    "WTTR") i3-msg exec "st -n $1 -g 125x38 -e weather_update.sh" ;;
     *) ;;
 esac
