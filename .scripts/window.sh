@@ -35,6 +35,8 @@ if [[ $id == "xprop: error"* ]]; then
     title=""
 elif [[ $name == *"()" ]]; then
     title="cmus"
+elif [[ $class = "brave-browser" ]]; then
+    title="brave"
 elif [[ $class2 = "firefox" ]]; then
     title="Mozilla Firefox"
 elif [[ $class2 == "Thunderbird" ]]; then

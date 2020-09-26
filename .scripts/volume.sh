@@ -13,7 +13,3 @@ case "$1" in
     reset) pactl set-sink-volume $SINK $vol_default% ;;
     *) ;;
 esac
-
-str=$(pamixer --get-volume)
-$(pamixer --get-mute) && str+="!"
-echo $str > /tmp/volpipe

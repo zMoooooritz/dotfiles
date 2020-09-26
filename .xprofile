@@ -3,6 +3,7 @@
 # hier noch mehr aus i3-config autostart machen
 
 mpd &
+mpc random &
 dunst &
 unclutter &
 calcurse --daemon &
