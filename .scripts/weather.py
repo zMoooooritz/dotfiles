@@ -4,11 +4,11 @@ import requests
 import sys
 import json
 
-# needs to be ne generated for every user on the owm-website
+# needs to be generated for every user on the owm-website
 # https://openweathermap.org/api
 APPID_OWM = "81aa338e6db6692568b1f23c6619c695"
 
-# needs to be ne generated for every user on the ipstack-website
+# needs to be generated for every user on the ipstack-website
 # https://ipstack.com/
 APPID_IPS = "609c46cc9cd9f9ac31f28239eeeaf1d6"
 
