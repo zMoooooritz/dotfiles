@@ -58,13 +58,13 @@ elif [[ $class == "nemo" ]]; then
 elif [[ $class =~ "microsoft teams" ]]; then
     title="Microsoft Teams"
 elif [[ ${name_apps[@]} =~ "$(echo $name | cut -d' ' -f1)" ]]; then
-    # whatever you want to do when arr contains value
+    # whatever you want to do when name_apps contains value
     title="$name"
 elif [[ ${class_upper[@]} =~ "$class" ]]; then
-    # whatever you want to do when arr contains value
+    # whatever you want to do when class_upper contains value
     title="$(tr '[:lower:]' '[:upper:]' <<< ${class:0:1})${class:1}"
 elif [[ ${class_full_upper[@]} =~ "$class" ]]; then
-    # whatever you want to do when arr contains value
+    # whatever you want to do when class_full_upper contains value
     title="${class^^}"
 elif [[ $class == "st" ]]; then
     s_name=${name##..*/}
