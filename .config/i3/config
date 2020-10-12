@@ -214,10 +214,10 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia.sh prev
 # #---Autostart Applications---# #
 exec --no-startup-id ~/.scripts/picom_toggle.sh
 exec --no-startup-id "feh --bg-center ~/.config/wall.jpg"
-exec --no-startup-id ~/.scripts/xob_setup.sh
+exec --no-startup-id "python ~/.scripts/pulse_watcher.py | xob"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
 
 # Open specific programms on start
-exec --no-startup-id i3-msg 'workspace 1; exec st; workspace 2; exec firefox; workspace 3; exec thunderbird; workspace 4; exec nemo'
+exec --no-startup-id i3-msg 'workspace 1; exec st; workspace 2; exec brave; workspace 3; exec thunderbird; workspace 4; exec nemo'
 exec --no-startup-id i3-msg workspace 1

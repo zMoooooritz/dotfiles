@@ -7,7 +7,7 @@ clines=$(( $clines < $max_lines ? $clines : $max_lines ))
 
 rofi_menu="rofi \
     -dmenu \
-    -lines 45 \
+    -lines 43 \
     -hide-scrollbar \
     -theme DarkBlue.rasi \
     -no-custom \
