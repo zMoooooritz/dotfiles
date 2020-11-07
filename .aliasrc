@@ -45,7 +45,8 @@ alias sl="sl && clear" \
         viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
         yt='youtube-dl -i' \
         ytm='yt -x -f bestaudio/best' \
-        ncmp='ncmpcpp -q -c ~/.config/ncmpcpp/config'
+        ncmp='ncmpcpp -q -c ~/.config/ncmpcpp/config' \
+        ba='cd /home/moritz/Moritz/Studium/7.\ Semester/Bachelorarbeit'
 
 # commands that run bash scripts
 
