@@ -24,7 +24,7 @@ echo $id$name > $id_path
 class=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f2)
 class2=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f4)
 
-declare -a name_apps=("Telegram" "vimiv")
+declare -a name_apps=("Telegram")
 declare -a class_upper=("discord" "skype" "spotify" "shutter")
 declare -a class_full_upper=("gimp" "obs")
 

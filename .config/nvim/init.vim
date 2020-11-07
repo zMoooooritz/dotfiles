@@ -6,7 +6,7 @@ set number relativenumber
 set clipboard=unnamed
 set nocompatible
 set nowrap
-let mapleader=','
+let mapleader=';'
 set foldmethod=syntax
 nnoremap <space> za
 set foldlevel=120
@@ -105,6 +105,7 @@ let g:list_of_visual_keys = []
 let g:list_of_insert_keys = []
 
 let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'plain'
 
 au FileType perl set filetype=prolog
 

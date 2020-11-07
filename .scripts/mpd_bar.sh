@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# falls funkionalität so vollständig ist etwas kompakter / effizienter schreiben
-
 if [ $(pidof mpd) > /dev/null ];
 then
     # ncmpcpp is open

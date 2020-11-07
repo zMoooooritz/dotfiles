@@ -208,6 +208,12 @@ bindsym XF86AudioStop exec ~/.scripts/multimedia.sh stop
 bindsym XF86AudioNext exec ~/.scripts/multimedia.sh next
 bindsym XF86AudioPrev exec ~/.scripts/multimedia.sh prev
 
+#bar {
+#    status_command i3status
+#    position top
+#    font pango:DejaVu Sans Mono 10
+#}
+
 # Redirect sound to headphones
 # bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
