@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 i3-msg exec ~/.scripts/picom_toggle.sh
 i3-msg restart

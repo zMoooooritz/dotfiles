@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 name=$(date +'%Y-%m-%d_%H:%M:%S.png')
 save_path="/home/moritz/Pictures/screenshots/"

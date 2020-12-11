@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # $1 is the streaming service
 # $2 is the optional quality modifier

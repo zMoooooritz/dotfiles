@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 id_path="/home/moritz/.local/share/window/id"
 name_path="/home/moritz/.local/share/window/name"
@@ -18,8 +18,7 @@ read old_name < $name_path
 [[ $id$name == $old_id ]] && echo $old_name && exit 0
 echo $id$name > $id_path
 
-[ $(xrandr -q | grep -c " connected") -gt 1 ] &&
-    output="$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).output' | cut -d"\"" -f2): "
+output="$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).output' | cut -d"\"" -f2): "
 
 class=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f2)
 class2=$(xprop -id $id | awk '/WM_CLASS/' | cut -d'"' -f4)
@@ -28,17 +27,11 @@ declare -a name_apps=("Telegram")
 declare -a class_upper=("discord" "skype" "spotify" "shutter")
 declare -a class_full_upper=("gimp" "obs")
 
-# TODO apps to fix
-
 if [[ $id == "xprop: error"* ]]; then
     # empty workspace
     title=""
-elif [[ $name == *"()" ]]; then
-    title="cmus"
 elif [[ $class = "brave-browser" ]]; then
     title="brave"
-elif [[ $class2 = "firefox" ]]; then
-    title="Mozilla Firefox"
 elif [[ $class2 == "Thunderbird" ]]; then
     title="Mozilla Thunderbird"
 elif [[ $name =~ "Tor Browser" ]]; then
@@ -57,6 +50,8 @@ elif [[ $class == "nemo" ]]; then
     [[ $class == "" ]] && title="Nemo" || title="Nemo - $name"
 elif [[ $class =~ "microsoft teams" ]]; then
     title="Microsoft Teams"
+elif [[ $class2 == "Zotero" ]]; then
+    title="Zotero"
 elif [[ ${name_apps[@]} =~ "$(echo $name | cut -d' ' -f1)" ]]; then
     # whatever you want to do when name_apps contains value
     title="$name"

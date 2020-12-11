@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 case $1 in
     "s"|"shutdown"|"poweroff")
-        ssh -t "moritz@delta" "sudo poweroff"
+        ssh -t "moritz@delta" -o ConnectTimeout=2 -o ConnectionAttempts=2 "sudo poweroff"
         ;;
     "r"|"reboot")
         ssh -t "moritz@delta" "sudo reboot"

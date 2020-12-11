@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #It works as: mute.sh vlc mute OR mute.sh vlc unmute
 
 if [ -z "$1" ]; then

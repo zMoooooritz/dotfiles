@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 weatherreport="/home/moritz/.local/share/weather/report"
 weatherscript="/home/moritz/.scripts/weather.py"

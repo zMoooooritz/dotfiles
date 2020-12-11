@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-icon='/home/moritz/.config/i3/icons/icon.png'
+icon='/home/moritz/.config/i3/icons/icon2.png'
 tmpbg='/tmp/i3lock.png'
 
 scrot -z "$tmpbg"
@@ -13,13 +13,7 @@ then
 	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
 fi
 
-# Pause cmus-Playback
-if pidof "cmus" > /dev/null
-then
-	cmus-remote --pause-playback
-fi
-
-# Pause cmus-Playback
+# Pause mpd-Playback
 if pidof "mpd" > /dev/null
 then
 	mpc pause

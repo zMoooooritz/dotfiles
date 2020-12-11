@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 max_lines=6
 options="$(ls ~/.cheatsheets | sed 's/_cheatsheet.*//g')"
