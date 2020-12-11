@@ -105,7 +105,7 @@ let g:list_of_visual_keys = []
 let g:list_of_insert_keys = []
 
 let g:vimtex_view_method = 'zathura'
-let g:tex_flavor = 'plain'
+let g:tex_flavor = 'latex'
 
 au FileType perl set filetype=prolog
 

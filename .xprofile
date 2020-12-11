@@ -9,6 +9,7 @@ calcurse --daemon &
 greenclip daemon &
 nm-applet &
 pasystray &
+nitrogen --restore &
 
 # keyboard setup
 xset -b -dpms s off m 1/2 0 &
