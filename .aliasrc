@@ -4,13 +4,13 @@
 
 # shortcuts to config files
 
-alias zshconfig="nvim ~/.zshrc" \
-        ohmyzshconfig="nvim ~/.oh-my-zsh" \
-        polybarconfig="nvim ~/.config/polybar/config" \
-        i3config="nvim ~/.config/i3/config" \
-        vimconfig="nvim ~/.vimrc" \
-        nvimconfig="nvim ~/.config/nvim/init.vim" \
-        aliasconfig="nvim ~/.aliasrc"
+alias zshconfig="$EDITOR ~/.zshrc" \
+        ohmyzshconfig="$EDITOR ~/.oh-my-zsh" \
+        polybarconfig="$EDITOR ~/.config/polybar/config" \
+        i3config="$EDITOR ~/.config/i3/config" \
+        vimconfig="$EDITOR ~/.vimrc" \
+        nvimconfig="$EDITOR ~/.config/nvim/init.vim" \
+        aliasconfig="$EDITOR ~/.aliasrc"
 
 # system commands
 
@@ -46,7 +46,9 @@ alias sl="sl && clear" \
         yt='youtube-dl -i' \
         ytm='yt -x -f bestaudio/best' \
         ncmp='ncmpcpp -q -c ~/.config/ncmpcpp/config' \
-        ba='cd /home/moritz/Moritz/Studium/7.\ Semester/Bachelorarbeit'
+        ba='cd /home/moritz/Moritz/Studium/7.\ Semester/Bachelorarbeit' \
+        cg='cd /home/moritz/Moritz/Studium/7.\ Semester/Module/Computergrafik' \
+        rb='cd /home/moritz/Moritz/Studium/7.\ Semester/Module/Robotik\ I'
 
 # commands that run bash scripts
 

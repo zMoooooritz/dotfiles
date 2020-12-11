@@ -1,6 +1,6 @@
 # #---Basic Definitions---# #
 set $mod Mod4
-font pango:monospace 9
+font pango:monospace 11
 hide_edge_borders both
 floating_modifier $mod
 gaps inner 15
@@ -33,7 +33,6 @@ bindsym $mod+a focus parent
 
 bindsym $mod+Shift+t reload
 bindsym $mod+Shift+r exec --no-startup-id ~/.scripts/i3restart.sh
-#bindsym $mod+Shift+e exit
 
 # change focus
 bindsym $mod+h focus left
@@ -76,6 +75,12 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+workspace 1 output primary
+workspace 2 output primary
+workspace 3 output primary
+workspace 4 output primary
+workspace 5 output primary
 
 # #--- Workspace Bindings ---# #
 bindsym $mod+1 workspace 1
@@ -219,11 +224,7 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia.sh prev
 
 # #---Autostart Applications---# #
 exec --no-startup-id ~/.scripts/picom_toggle.sh
-exec --no-startup-id "feh --bg-center ~/.config/wall.jpg"
-exec --no-startup-id "python ~/.scripts/pulse_watcher.py | xob"
+#exec_always --no-startup-id ~/.scripts/audio_listener.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
-
-# Open specific programms on start
-exec --no-startup-id i3-msg 'workspace 1; exec st; workspace 2; exec brave; workspace 3; exec thunderbird; workspace 4; exec nemo'
-exec --no-startup-id i3-msg workspace 1
+exec --no-startup-id ~/.scripts/workspace_setup.sh
