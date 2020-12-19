@@ -31,6 +31,20 @@ noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 noremap <F5> :NERDTreeToggle<CR>
 
+noremap <F6> :call ToggleSpellChecking()<CR>
+
+let g:is_spell_checking = 0
+
+function! ToggleSpellChecking()
+    if g:is_spell_checking
+        setlocal nospell
+        let g:is_spell_checking = 0
+    else
+        setlocal spell spelllang=de_20
+        let g:is_spell_checking = 1
+    endif
+endfunction
+
 " auto add closing backets
 inoremap {<CR>  {<CR>}<Esc>O
 

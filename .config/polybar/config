@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=13;1
 
 modules-left = i3 mpd spotify
 modules-center = window
-modules-right = weather pulseaudio eth cpu temperature memory cal
+modules-right = tracker tracker_hook weather pulseaudio eth cpu temperature memory cal
 ; unused modules: backlight wlan battery window date
 
 tray-position = right
@@ -67,6 +67,7 @@ tray-padding = 2
 wm-restack = i3
 
 ;override-redirect = true
+enable-ipc = true
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -254,22 +255,6 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
 
-[module/qmemory]
-type = custom/script
-format-underline = #4bffdc
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-exec = ~/.scripts/statusbar/memory.sh
-interval = 1
-
-[module/qcpu]
-type = custom/script
-format-underline = #f90000
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-exec = ~/.scripts/statusbar/cpu.sh
-interval = 1
-
 [module/memory]
 type = internal/memory
 interval = 2
@@ -441,6 +426,19 @@ click-left = ~/.scripts/mpd_bar.sh toggleplay
 type = custom/script
 exec = ~/.scripts/window.sh 2> ~/.local/share/window/log
 interval = 0.3
+
+[module/tracker]
+type = custom/script
+exec = polybar-msg hook tracker_hook 1 &> /dev/null
+interval = 60
+
+[module/tracker_hook]
+format-underline = #e21012
+type = custom/ipc
+hook-0 = ~/.scripts/tracker.py current
+hook-1 = date
+click-left = ~/.scripts/tracker.py toggle && polybar-msg -p %pid% hook tracker_hook 1
+initial = 1
 
 [module/backlight]
 format-underline = #008C79

@@ -12,9 +12,9 @@ case $1 in
         BACKUP_POST="/daily/${DAY}"
         BACKUP_PATH="${BACKUP_DIR}${BACKUP_POST}"
         ssh -t $NAS_ADDR "mkdir -p $BACKUP_VOL$BACKUP_POST"
+        ssh -t $NAS_ADDR "touch -c $BACKUP_VOL$BACKUP_POST"
         ssh -t $NAS_ADDR "ln -sfn $BACKUP_VOL$BACKUP_POST $BACKUP_VOL$CURRENT_POST"
-        rsync -avm --include-from="/home/moritz/.config/rsyncexclude" $SOURCE_DIR $BACKUP_PATH
-        # wenn alles funktioniert --delete noch einfügen
+        rsync -avm --delete --include-from="/home/moritz/.config/rsyncexclude" $SOURCE_DIR $BACKUP_PATH
         ;;
     "weekly") # Sonntag 20 Uhr
         SECONDS="$(date '+%s')"
@@ -23,8 +23,8 @@ case $1 in
         BACKUP_POST="/weekly/week${WEEK}"
         BACKUP_PATH="${BACKUP_DIR}${BACKUP_POST}"
         ssh -t $NAS_ADDR "mkdir -p $BACKUP_VOL$BACKUP_POST"
-        rsync -avm --include-from="/home/moritz/.config/rsyncexclude" $SOURCE_DIR $BACKUP_PATH
-        # wenn alles funktioniert --delete noch einfügen
+        ssh -t $NAS_ADDR "touch -c $BACKUP_VOL$BACKUP_POST"
+        rsync -avm --delete --include-from="/home/moritz/.config/rsyncexclude" $SOURCE_DIR $BACKUP_PATH
         ;;
     "monthly") # am 1. des Monats 19:00 Uhr
         MONTH="$(date --date="yesterday" '+%Y_%B')"

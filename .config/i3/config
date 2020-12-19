@@ -149,6 +149,10 @@ bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/picom_toggle.sh
 bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Ctrl+l workspace next
 
+# time tracker toggle
+bindsym $mod+odiaeresis exec --no-startup-id ~/.scripts/tracker.py toggle \
+    && polybar-msg hook tracker_hook 1
+
 # todolist configuration
 for_window [instance="TODO"] floating enable, sticky enable
 bindsym $mod+t exec --no-startup-id ~/.scripts/toggle.sh TODO
@@ -224,6 +228,7 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia.sh prev
 
 # #---Autostart Applications---# #
 exec --no-startup-id ~/.scripts/picom_toggle.sh
+exec --no-startup-id ~/.scripts/tracker.py reset
 #exec_always --no-startup-id ~/.scripts/audio_listener.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
