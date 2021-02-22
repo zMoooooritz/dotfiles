@@ -1,6 +1,7 @@
 # #---Basic Definitions---# #
 set $mod Mod4
-font pango:monospace 11
+font pango:Noto Sans Regular 11
+
 hide_edge_borders both
 floating_modifier $mod
 gaps inner 15
@@ -130,9 +131,11 @@ bindsym $mod+Shift+Ctrl+0 move container to workspace 20
 # #--- Other Bindings ---# #
 
 bindsym $mod+d exec rofi -show run -theme solarized_alternate.rasi -lines 5
-bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -theme solarized_alternate.rasi
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -theme solarized_alternate.rasi
 bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
 bindsym $mod+e exec rofi -show emoji -modi emoji -theme solarized_alternate.rasi
+
+bindsym $mod+n exec --no-startup-id ~/.scripts/audio.sh toggle
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot.sh
 bindsym --release $mod+Ctrl+s exec --no-startup-id ~/.scripts/screenshot.sh sel
@@ -229,7 +232,7 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia.sh prev
 # #---Autostart Applications---# #
 exec --no-startup-id ~/.scripts/picom_toggle.sh
 exec --no-startup-id ~/.scripts/tracker.py reset
-#exec_always --no-startup-id ~/.scripts/audio_listener.sh
+exec_always --no-startup-id ~/.scripts/pulse_watcher.py | xob
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock.sh"
 exec --no-startup-id ~/.scripts/workspace_setup.sh

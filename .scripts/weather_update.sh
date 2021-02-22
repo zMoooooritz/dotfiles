@@ -2,7 +2,7 @@
 
 stty -echo
 while true; do
-    curl -s "wttr.in/?F&q&lang=de"
+    curl -s "wttr.in/Karlsruhe?F&q&lang=de"
     sleep 900
     clear
 done

@@ -2,7 +2,7 @@
 
 if [ $(pidof mpd) > /dev/null ];
 then
-    # ncmpcpp is open
+    # mpd is open
 
     if [ "$1" == "toggleplay" ];
     then

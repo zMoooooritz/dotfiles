@@ -37,6 +37,8 @@ def get_ipv4_address():
 def get_location_information():
     ipstack_url = "http://api.ipstack.com/"
     format = "&format=1"
+        
+    return DEFAULT_CITY_IDENTIFIER, DEFAULT_COUNTRY_CODE
 
     ipv4 = get_ipv4_address()
     # the determined ipv4 adress

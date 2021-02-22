@@ -26,7 +26,7 @@ case $1 in
         ssh -t $NAS_ADDR "touch -c $BACKUP_VOL$BACKUP_POST"
         rsync -avm --delete --include-from="/home/moritz/.config/rsyncexclude" $SOURCE_DIR $BACKUP_PATH
         ;;
-    "monthly") # am 1. des Monats 19:00 Uhr
+    "monthly") # am 1. des Monats 18:00 Uhr
         MONTH="$(date --date="yesterday" '+%Y_%B')"
         ssh -t $NAS_ADDR "cd $BACKUP_VOL$CURRENT_POST &&
             tar -cjvhf ${BACKUP_VOL}/monthly/${MONTH}.tar.bz2 *"
