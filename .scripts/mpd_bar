@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if pidof "mpd" > /dev/null
+if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ];
 then
 
     if [ "$1" == "toggleplay" ];

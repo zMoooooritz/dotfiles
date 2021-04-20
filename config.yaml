@@ -21,9 +21,6 @@ dotfiles:
   f_xresources:
     src: .Xresources
     dst: ~/.Xresources
-  f_zshrc:
-    src: .zshrc
-    dst: ~/.zshrc
   f_aliasrc:
     src: .aliasrc
     dst: ~/.aliasrc
@@ -116,7 +113,6 @@ profiles:
     dotfiles:
     - f_xinitrc
     - f_xresources
-    - f_zshrc
     - f_aliasrc
     - f_vimrc
     - f_streamlinkrc

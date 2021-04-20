@@ -12,7 +12,7 @@ scrot -z "$tmpbg"
 convert "$tmpbg" -brightness-contrast -20x-20 -blur "0x5" "$icon" -gravity center -composite -matte "$tmpbg"
 
 # Pause mpd-Playback
-if pidof "mpd" > /dev/null
+if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ];
 then
 	mpc pause
 fi
@@ -26,6 +26,6 @@ else
 	time="$1";
 fi
 
-sleep "$time"; pidof i3lock && systemctl suspend
+sleep "$time"; pidof -ws i3lock && systemctl suspend
 
 rm $tmpbg

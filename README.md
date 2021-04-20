@@ -4,7 +4,9 @@ This repo contains the most important dotfiles of my configuration
 
 ## Installation
 
-1. to deploy these dotfiles properly [dotdrop](https://github.com/deadc0de6/dotdrop) is required
+To deploy these dotfiles properly the following steps are necessary:
+
+1. install the application [dotdrop](https://github.com/deadc0de6/dotdrop)
 2. create the directory `~/.dotfiles` and `cd` into it
 3. `git clone` this repository into the directory `dotfiles`
 4. sym-link the `config.yaml` (`ln -s ./dotfiles/config.yaml config.yaml`)

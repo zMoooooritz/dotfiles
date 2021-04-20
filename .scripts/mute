@@ -16,7 +16,7 @@ if ! [[ "$2" == "mute" || "$2" == "unmute" ]]; then
    exit 1
 fi
 
-process_ids=$(pidof "$1")
+process_ids=$(pidof -w "$1")
 
 if [ $? -ne 0 ]; then
    echo "There is no such process as "$1""
