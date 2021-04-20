@@ -1,0 +1,17 @@
+# zathurarc
+
+# settings
+set adjust-open width
+# set show-scrollbars true
+# set first-page-column 1
+set window-title-basename true
+# set database sqlite
+set recolor-keephue
+set selection-clipboard clipboard
+set vertical-center true
+set zoom-center true
+
+map <Right> navigate next
+map <Left> navigate previous
+
+map <C-r> recolor

@@ -1,0 +1,242 @@
+# #---Basic Definitions---# #
+set $mod Mod4
+{%@@ if profile == "eta" @@%}
+font pango:Noto Sans Regular 11
+{%@@ elif profile == "pi" @@%}
+font pango:monospace 9
+{%@@ endif @@%}
+hide_edge_borders both
+floating_modifier $mod
+gaps inner 15
+new_window normal
+
+# #---Basic Binds---# #
+bindsym $mod+Return exec st
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle global
+
+bindsym $mod+Shift+u layout stacking
+bindsym $mod+Shift+i layout tabbed
+bindsym $mod+Shift+o layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+y sticky toggle
+
+bindsym $mod+Mod1+X [class="^.*"] border toggle 2
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+
+bindsym $mod+Shift+t reload
+bindsym $mod+Shift+r exec --no-startup-id ~/.scripts/i3restart
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+k focus down
+bindsym $mod+j focus up
+bindsym $mod+l focus right
+
+# resize window
+bindsym $mod+z exec --no-startup-id ~/.scripts/i3resize left
+bindsym $mod+u exec --no-startup-id ~/.scripts/i3resize down
+bindsym $mod+i exec --no-startup-id ~/.scripts/i3resize up
+bindsym $mod+o exec --no-startup-id ~/.scripts/i3resize right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# move focused container to other output
+bindsym $mod+Shift+Mod1+h move container to output left
+bindsym $mod+Shift+Mod1+j move container to output down
+bindsym $mod+Shift+Mod1+k move container to output up
+bindsym $mod+Shift+Mod1+l move container to output right
+
+# move focused workspace to other output
+bindsym $mod+Shift+Mod1+z move workspace to output left
+bindsym $mod+Shift+Mod1+u move workspace to output down
+bindsym $mod+Shift+Mod1+i move workspace to output up
+bindsym $mod+Shift+Mod1+o move workspace to output right
+
+# #--- Workspace Settings ---# #
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+{%@@ if profile == "eta" @@%}
+workspace 1 output primary
+workspace 2 output primary
+workspace 3 output primary
+workspace 4 output primary
+workspace 5 output primary
+{%@@ endif @@%}
+
+# #--- Workspace Bindings ---# #
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Ctrl+1 workspace 11
+bindsym $mod+Ctrl+2 workspace 12
+bindsym $mod+Ctrl+3 workspace 13
+bindsym $mod+Ctrl+4 workspace 14
+bindsym $mod+Ctrl+5 workspace 15
+bindsym $mod+Ctrl+6 workspace 16
+bindsym $mod+Ctrl+7 workspace 17
+bindsym $mod+Ctrl+8 workspace 18
+bindsym $mod+Ctrl+9 workspace 19
+bindsym $mod+Ctrl+0 workspace 20
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Shift+Ctrl+1 move container to workspace 11
+bindsym $mod+Shift+Ctrl+2 move container to workspace 12
+bindsym $mod+Shift+Ctrl+3 move container to workspace 13
+bindsym $mod+Shift+Ctrl+4 move container to workspace 14
+bindsym $mod+Shift+Ctrl+5 move container to workspace 15
+bindsym $mod+Shift+Ctrl+6 move container to workspace 16
+bindsym $mod+Shift+Ctrl+7 move container to workspace 17
+bindsym $mod+Shift+Ctrl+8 move container to workspace 18
+bindsym $mod+Shift+Ctrl+9 move container to workspace 19
+bindsym $mod+Shift+Ctrl+0 move container to workspace 20
+
+# #--- Other Bindings ---# #
+
+bindsym $mod+d exec rofi -show run -theme solarized_alternate.rasi -lines 5
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -theme solarized_alternate.rasi
+bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
+bindsym $mod+e exec rofi -show emoji -modi emoji -theme solarized_alternate.rasi
+
+{%@@ if profile == "eta" @@%}
+bindsym $mod+n exec --no-startup-id ~/.scripts/audio toggle
+{%@@ endif @@%}
+
+bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot
+bindsym --release $mod+Ctrl+s exec --no-startup-id ~/.scripts/screenshot sel
+bindsym Print exec --no-startup-id ~/.scripts/screenshot
+bindsym --release Ctrl+Print exec --no-startup-id ~/.scripts/screenshot sel
+
+bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot
+bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown
+bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock 1
+bindsym $mod+Mod1+e exec --no-startup-id ~/.scripts/logout
+
+bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/picom_toggle
+
+bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+l workspace next
+
+# time tracker toggle
+bindsym $mod+odiaeresis exec --no-startup-id ~/.scripts/tracker toggle \
+    && polybar-msg hook tracker_hook 1
+
+# todolist configuration
+for_window [instance="TODO"] floating enable, sticky enable
+bindsym $mod+t exec --no-startup-id ~/.scripts/toggle TODO
+
+# musicplayer configuration
+for_window [instance="MUSIC"] floating enable, sticky enable
+bindsym $mod+r exec --no-startup-id ~/.scripts/toggle MUSIC
+bindsym $mod+Ctrl+r exec --no-startup-id ~/.scripts/mpd_switch
+
+# calendar configuration
+for_window [instance="CALENDAR"] floating enable, sticky enable
+bindsym $mod+p exec --no-startup-id ~/.scripts/toggle CALENDAR
+
+# weatherinfo configuration
+for_window [instance="WTTR"] floating enable, sticky enable
+bindsym $mod+w exec --no-startup-id ~/.scripts/toggle WTTR
+
+# crypto configuration
+for_window [instance="CRYPTO"] floating enable, sticky enable
+bindsym $mod+adiaeresis exec --no-startup-id ~/.scripts/toggle CRYPTO
+
+# cheatsheet configuration
+for_window [instance="CHEATSHEET"] floating enable, sticky enable
+bindsym $mod+udiaeresis exec --no-startup-id ~/.scripts/cheatsheet
+
+set $bg-color            #365cad
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676e7d
+set $urgent-bg-color     #e53935
+set $indicator-color     #a0a0a0
+
+#
+# set window colors
+#                       border             background         text                 indicator
+client.focused          $bg-color          $bg-color          $text-color          $indicator-color
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
+
+
+# #--- Special Window Settings ---# #
+
+# disable border for all applicatios
+for_window [class="^.*"] border pixel 2
+for_window [class="^Thunderbird"] layout stacking
+for_window [class="^Pavucontrol"] floating enable
+
+# #---Multimedia Key Bindings---# #
+
+# Brightness Control
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight up 5
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight down 5
+bindsym $mod+XF86MonBrightnessUp exec --no-startup-id ~/.scripts/backlight up 1
+bindsym $mod+XF86MonBrightnessDown exec --no-startup-id ~/.scripts/backlight down 1
+
+# Volume Control
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.scripts/volume up 5
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.scripts/volume down 5
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id ~/.scripts/volume up 1
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id ~/.scripts/volume down 1
+bindsym XF86AudioMute exec --no-startup-id ~/.scripts/volume toggle
+
+# Track control
+bindsym XF86AudioPlay exec ~/.scripts/multimedia playpause
+bindsym XF86AudioPause exec ~/.scripts/multimedia playpause
+bindsym XF86AudioStop exec ~/.scripts/multimedia stop
+bindsym XF86AudioNext exec ~/.scripts/multimedia next
+bindsym XF86AudioPrev exec ~/.scripts/multimedia prev
+
+# #---Autostart Applications---# #
+exec --no-startup-id ~/.scripts/picom_toggle
+exec --no-startup-id ~/.scripts/tracker reset
+exec_always --no-startup-id ~/.scripts/pulse_watcher | xob
+exec_always --no-startup-id ~/.config/polybar/launch
+exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock"
+exec --no-startup-id ~/.scripts/workspace_setup

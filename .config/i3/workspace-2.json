@@ -1,0 +1,22 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1013,
+       "width": 622,
+       "x": 659,
+       "y": 61
+    },
+    "marks": [],
+    "name": "Brave",
+    "percent": 1,
+    "swallows": [
+       {
+          "class": "^Brave\\-browser$"
+       }
+    ],
+    "type": "con"
+}
+

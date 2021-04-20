@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd "/home/moritz/Moritz/Studium/7. Semester/Bachelorarbeit/Implementierung"
+python -m sta_analyzer "$@"

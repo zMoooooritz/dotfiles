@@ -1,0 +1,20 @@
+#EXTM3U
+#EXTINF:-1,SWR1-BW
+#EXTALB:SWR1-BW
+http://swr-swr1-bw.cast.addradio.de/swr/swr1/bw/mp3/128/stream.mp3
+#EXTINF:-1,SWR3
+http://swr-swr3-live.cast.addradio.de/swr/swr3/live/mp3/128/stream.mp3
+#EXTINF:-1,SWR4-TU
+http://swr-swr4-tu.cast.addradio.de/swr/swr4/tu/mp3/128/stream.mp3
+#EXTINF:-1,DASDING
+http://swr-dasding-live.cast.addradio.de/swr/dasding/live/mp3/128/stream.mp3
+#EXTINF:-1,ANTENNE Bayern
+http://stream.antenne.de/antenne/stream/mp3
+#EXTINF:-1,B5-Aktuell
+http://br-b5aktuell-live.cast.addradio.de/br/b5aktuell/live/mp3/mid
+#EXTINF:-1,Antenne 1
+http://stream.antenne1.de/a1stg/livestream2.mp3
+#EXTINF:-1,bigFM
+http://streams.bigfm.de/hmr-128-mp3
+#EXTINF:-1,1Live
+http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3

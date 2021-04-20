@@ -1,0 +1,70 @@
+#!/bin/sh
+#
+# --- ALIASES FOR BASH AND ZSH ---
+#
+
+# shortcuts to config files
+
+alias zshconfig="$EDITOR ~/.zshrc" \
+        ohmyzshconfig="$EDITOR ~/.oh-my-zsh" \
+        polybarconfig="$EDITOR ~/.config/polybar/config" \
+        i3config="$EDITOR ~/.config/i3/config" \
+        vimconfig="$EDITOR ~/.vimrc" \
+        nvimconfig="$EDITOR ~/.config/nvim/init.vim" \
+        aliasconfig="$EDITOR ~/.aliasrc" \
+        dotconfig="$EDITOR ~/.dotfiles/config.yaml"
+
+# system commands
+
+alias ka="killall" \
+        mkd="mkdir -pv" \
+        p="sudo pacman" \
+        SS="sudo systemctl" \
+        ls="ls --color=auto --group-directories-first" \
+        grep="grep --color=auto" \
+        diff="diff --color=auto" \
+        sysinfo="neofetch | lolcat" \
+        cal="cal -m" \
+        la="ls -a" \
+        ll="ls -lah" \
+        vim="nvim" \
+        svim="sudo nvim" \
+        py="python"
+
+# other aliases
+
+alias sl="sl && clear" \
+        SL="sl && clear" \
+        dc="figlet 'TYPO'" \
+        DC="figlet 'TYPO'" \
+        feh="feh --image-bg black -Z -." \
+        tutorium="pdfpc -d 90 -l 10" \
+        clock="clockywock" \
+        clock2="while true; do tput clear; date +'%H : %M : %S' | figlet -c -w 280 ; sleep 1; done" \
+        matrix="cmatrix | lolcat" \
+        pi="echo 'scale=14; 4*a(1)' | bc -l | figlet | lolcat" \
+        wttr="curl wttr.in" \
+        viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
+        yt='youtube-dl -i' \
+        ytm='yt -x -f bestaudio/best' \
+        ncmp='ncmpcpp -q -c ~/.config/ncmpcpp/config' \
+        dotdrop='dotdrop --cfg=~/.dotfiles/config.yaml' \
+        dotgit='git -C ~/.dotfiles/dotfiles' \
+        dotsync='dotgit pull && dotgit add -A && dotgit commit && dotgit push; dotdrop install'
+
+# shortcuts for streamlink
+
+alias ard="streamlink daserste.de/live best" \
+        zdf="streamlink zdf.de/live-tv best" \
+        trill="streamlink twitch.tv/trilluxe best"
+
+# git shortcuts
+
+alias g="git" \
+        gco="git checkout" \
+        gb="git branch" \
+        gc="git commit" \
+        gp="git push" \
+        gs="git status" \
+        gl="git log --decorate --oneline" \
+        gh="git log --pretty=format:'%Cblue%h %Cgreen %ar%Creset %s'"

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+mpd &
+dunst &
+unclutter &
+calcurse --daemon &
+greenclip daemon &
+nm-applet &
+pasystray &
+nitrogen --restore &
+
+xset -b -dpms s off m 1/2 0 &
+numlockx on &
+setxkbmap -layout de &
+
+{%@@ if profile == "pi" @@%}
+setterm -blength 0 &
+{%@@ endif @@%}

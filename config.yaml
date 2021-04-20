@@ -1,0 +1,157 @@
+config:
+  backup: false
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: true
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: true
+dynvariables:
+  appid_owm: cat ~/.local/share/pwd/appid_owm
+  appid_ips: cat ~/.local/share/pwd/appid_ips
+  spotify_usr: cat ~/.local/share/pwd/spotify_usr
+  spotify_pwd: cat ~/.local/share/pwd/spotify_pwd
+  mopidy_id: cat ~/.local/share/pwd/mopidy_id
+  mopidy_scrt: cat ~/.local/share/pwd/mopidy_scrt
+dotfiles:
+  f_xinitrc:
+    src: .xinitrc
+    dst: ~/.xinitrc
+  f_xresources:
+    src: .Xresources
+    dst: ~/.Xresources
+  f_zshrc:
+    src: .zshrc
+    dst: ~/.zshrc
+  f_aliasrc:
+    src: .aliasrc
+    dst: ~/.aliasrc
+  f_vimrc:
+    src: .vimrc
+    dst: ~/.vimrc
+  f_streamlinkrc:
+    src: .streamlinkrc
+    dst: ~/.streamlinkrc
+  f_profile:
+    src: .profile
+    dst: ~/.profile
+  f_zprofile:
+    src: .zprofile
+    dst: ~/.zprofile
+  f_xprofile:
+    src: .xprofile
+    dst: ~/.xprofile
+  d_scripts:
+    src: .scripts
+    dst: ~/.scripts
+  d_config_calcurse:
+    src: .config/calcurse
+    dst: ~/.config/calcurse
+  d_config_cava:
+    src: .config/cava
+    dst: ~/.config/cava
+  d_config_dunst:
+    src: .config/dunst
+    dst: ~/.config/dunst
+  d_config_gtk-2.0:
+    src: .config/gtk-2.0
+    dst: ~/.config/gtk-2.0
+  d_config_gtk-3.0:
+    src: .config/gtk-3.0
+    dst: ~/.config/gtk-3.0
+  d_config_i3:
+    src: .config/i3
+    dst: ~/.config/i3
+  d_config_mpd:
+    src: .config/mpd
+    dst: ~/.config/mpd
+  d_config_mpv:
+    src: .config/mpv
+    dst: ~/.config/mpv
+  d_config_ncmpcpp:
+    src: .config/ncmpcpp
+    dst: ~/.config/ncmpcpp
+  d_config_nvim:
+    src: .config/nvim
+    dst: ~/.config/nvim
+  d_config_picom:
+    src: .config/picom
+    dst: ~/.config/picom
+  d_config_polybar:
+    src: .config/polybar
+    dst: ~/.config/polybar
+  d_config_ranger:
+    src: .config/ranger
+    dst: ~/.config/ranger
+  d_config_sxiv:
+    src: .config/sxiv
+    dst: ~/.config/sxiv
+  d_config_xob:
+    src: .config/xob
+    dst: ~/.config/xob
+  d_config_zathura:
+    src: .config/zathura
+    dst: ~/.config/zathura
+  f_config_directories:
+    src: .config/directories
+    dst: ~/.config/directories
+  f_config_wall_eta:
+    src: .config/wall_eta.jpg
+    dst: ~/.config/wall.jpg
+  f_config_wall_pi:
+    src: .config/wall_pi.jpg
+    dst: ~/.config/wall.jpg
+  d_cheatsheets:
+    src: .cheatsheets
+    dst: ~/.cheatsheets
+  d_config_zsh:
+    src: .config/zsh
+    dst: ~/.config/zsh
+  d_config_mopidy:
+    src: .config/mopidy
+    dst: ~/.config/mopidy
+profiles:
+  base:
+    dotfiles:
+    - f_xinitrc
+    - f_xresources
+    - f_zshrc
+    - f_aliasrc
+    - f_vimrc
+    - f_streamlinkrc
+    - f_profile
+    - f_zprofile
+    - f_xprofile
+    - d_scripts
+    - d_config_calcurse
+    - d_config_cava
+    - d_config_dunst
+    - d_config_gtk-2.0
+    - d_config_gtk-3.0
+    - d_config_i3
+    - d_config_mpd
+    - d_config_mpv
+    - d_config_ncmpcpp
+    - d_config_nvim
+    - d_config_picom
+    - d_config_polybar
+    - d_config_ranger
+    - d_config_sxiv
+    - d_config_xob
+    - d_config_zathura
+    - d_config_zsh
+    - f_config_directories
+    - d_config_mopidy
+    - d_cheatsheets
+  pi:
+    dotfiles:
+    - f_config_wall_pi
+    include:
+    - base
+  eta:
+    dotfiles:
+    - f_config_wall_eta
+    include:
+    - base
+
