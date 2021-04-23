@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 id_path="/home/moritz/.local/share/window/id"
 name_path="/home/moritz/.local/share/window/name"

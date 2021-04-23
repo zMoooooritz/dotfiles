@@ -50,7 +50,8 @@ alias sl="sl && clear" \
         ncmp='ncmpcpp -q -c ~/.config/ncmpcpp/config' \
         dotdrop='dotdrop --cfg=~/.dotfiles/config.yaml' \
         dotgit='git -C ~/.dotfiles/dotfiles' \
-        dotsync='dotgit pull && dotgit add -A && dotgit commit && dotgit push; dotdrop install'
+        dotsync='dotgit pull && dotgit add -A && dotgit commit && dotgit push; dotdrop install' \
+        sem='cd /home/moritz/Moritz/Studium/8.\ Semester'
 
 # shortcuts for streamlink
 
