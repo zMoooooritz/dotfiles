@@ -62,9 +62,11 @@ alias ard="streamlink daserste.de/live best" \
 # git shortcuts
 
 alias g="git" \
+        ga="git add" \
         gco="git checkout" \
         gb="git branch" \
         gc="git commit" \
+        gd="git diff" \
         gp="git push" \
         gs="git status" \
         gl="git log --decorate --oneline" \

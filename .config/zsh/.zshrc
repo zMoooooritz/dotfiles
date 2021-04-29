@@ -26,7 +26,36 @@ git_branch() {
     echo ""
   fi
 }
-PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%b$(git_branch)$ '
+
+# display shortened pwd
+function truncated_pwd() {
+  n=$1 # n = number of directories to show in full (n = 3, /a/b/c/dee/ee/eff)
+  path=$(pwd | sed -e "s,^$HOME,~,")
+
+  # split our path on /
+  dirs=("${(s:/:)path}")
+  dirs_length=$#dirs
+
+  if [[ $dirs_length -ge $n ]]; then
+    # we have more dirs than we want to show in full, so compact those down
+    ((max=dirs_length - n))
+    for (( i = 1; i <= $max; i++ )); do
+      step="$dirs[$i]"
+      if [[ -z $step ]]; then
+        continue
+      fi
+      if [[ $step =~ "^\." ]]; then
+        dirs[$i]=$step[0,2] # make .mydir => .m
+      else
+        dirs[$i]=$step[0,1] # make mydir => m
+      fi
+    done
+  fi
+
+  echo ${(j:/:)dirs}
+}
+
+PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%{$(truncated_pwd 3)%}%{$fg[red]%}]%{$reset_color%}%b$(git_branch)$ '
 
 # vi mode
 bindkey -v
@@ -72,6 +101,10 @@ setopt inc_append_history
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
+
+DISABLE_AUTO_TITLE="true"
+precmd() {  echo -ne "\e]1;$(truncated_pwd 3)\a";}
+CASE_SENSITIVE="false"
 
 [[ -f "$HOME/.aliasrc" ]] && source "$HOME/.aliasrc"
 
