@@ -56,6 +56,7 @@ Plug 'ervandew/supertab' " autocompletion if you press tab
 Plug 'takac/vim-hardtime' " stops you from scrolling down with up and down keys
 
 Plug 'sheerun/vim-polyglot' " highlighting for many languages
+Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'lervag/vimtex'
 
@@ -120,6 +121,8 @@ let g:list_of_insert_keys = []
 
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
+
+let g:ctrlp_show_hidden = 1
 
 au FileType perl set filetype=prolog
 

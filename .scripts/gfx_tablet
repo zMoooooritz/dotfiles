@@ -1,0 +1,20 @@
+#!/bin/sh
+
+TABLET_KEY="GAOMON Gaomon Tablet Pen Pen (0)"
+PEN_KEY="GAOMON Gaomon Tablet Pen"
+FIRST_SCREEN="DP-2"
+SECOND_SCREEN="HDMI-1"
+
+case $1 in
+    "f"|"F"|"first")
+        xinput map-to-output "$TABLET_KEY" "$FIRST_SCREEN"
+        ;;
+    "s"|"S"|"second")
+        xinput map-to-output "$TABLET_KEY" "$SECOND_SCREEN"
+        ;;
+    "a"|"A"|"all"|"d"|"D"|"default")
+        xinput set-prop "$TABLET_KEY" --type=float "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
+        ;;
+    *)
+        ;;
+esac

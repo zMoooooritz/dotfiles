@@ -6,7 +6,8 @@
 
 mkdir $1
 
-cp -r "Abgaben_Tut_4/." $1
-cp -r "Abgaben_Tut_5/." $1
+cp -r "Abgaben/." $1
 
-zip -r "$1.zip" $1 2>&1 | pv -lep -s $(find $1 | wc -l) > /dev/null
+zip -r "$1.zip" "$1" 2>&1 | pv -lep -s $(find "$1" | wc -l) > /dev/null
+
+rm -rf $1
