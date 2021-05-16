@@ -55,7 +55,7 @@ function truncated_pwd() {
   echo ${(j:/:)dirs}
 }
 
-PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%{$(truncated_pwd 3)%}%{$fg[red]%}]%{$reset_color%}%b$(git_branch)$ '
+PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}$(truncated_pwd 3)%f%{$fg[red]%}]%{$reset_color%}%b$(git_branch)$ '
 
 # vi mode
 bindkey -v

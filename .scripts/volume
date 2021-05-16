@@ -5,7 +5,7 @@ step="${2:-5}"
 
 case "$1" in
     inc|up|dec|down|set)
-        ! [[ $2 =~ ^-?[0-9]+$ ]] && echo "second argument has to be an integer" && exit
+        ! [[ $step =~ ^-?[0-9]+$ ]] && echo "second argument has to be an integer" && exit
         ;;&
     inc|up) pamixer --allow-boost -i $step ;;
     dec|down) pamixer --allow-boost -d $step ;;

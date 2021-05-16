@@ -1,0 +1,66 @@
+#!/bin/sh
+
+DECKMASTER="$HOME/Public/deckmaster/deckmaster"
+DECKMASTER_CONFIG="$HOME/.config/streamdeck/main.deck"
+STREAMDECK_PATH="$HOME/Pictures/streamdeck"
+STREAMDECK_BACKGROUND="$STREAMDECK_PATH/background"
+
+select_background() {
+    count=$(find ${STREAMDECK_BACKGROUND} -type f -name 'background*.png' -printf '.' | wc -c)
+    index=$((1 + $RANDOM % $count))
+    if [ $1 ]; then
+       index=$1 
+    fi
+    if [ -f "${STREAMDECK_BACKGROUND}/background${index}.png" ]; then
+        ln -s -f "${STREAMDECK_BACKGROUND}/background${index}.png" "${STREAMDECK_BACKGROUND}/background.png"
+    fi
+}
+
+update_image() {
+    count=$(find ${STREAMDECK_BACKGROUND} -type f -name 'awesome*.png' -printf '.' | wc -c)
+    current=$(readlink -f "${STREAMDECK_BACKGROUND}/awesome.png" | tr -d -c 0-9)
+    if [ ! $1 ]; then
+        return
+    fi
+    if [ $1 == 1 ]; then 
+        if [ $current == $count ]; then
+            index=1
+        else
+            index=$((current+1))
+        fi
+    else
+        if [ $current == 1 ]; then
+            index=$count
+        else
+            index=$((${current}-1))
+        fi
+    fi
+    if [ -f "${STREAMDECK_BACKGROUND}/awesome${index}.png" ]; then
+        ln -s -f "${STREAMDECK_BACKGROUND}/awesome${index}.png" "${STREAMDECK_BACKGROUND}/awesome.png"
+    fi
+    killall deckmaster -q
+    i3-msg exec "$DECKMASTER -deck $HOME/.config/streamdeck/img.deck"
+}
+
+case $1 in
+    "b"|"B"|"bg"|"background")
+        select_background "$2"
+        ;;
+    "s"|"S"|"start")
+        i3-msg exec "$DECKMASTER -deck $DECKMASTER_CONFIG"
+        ;;
+    "r"|"R"|"restart")
+        killall deckmaster -q
+        select_background "$2"
+        ln -s -f "${STREAMDECK_BACKGROUND}/awesome1.png" "${STREAMDECK_BACKGROUND}/awesome.png"
+        i3-msg exec "$DECKMASTER -deck $DECKMASTER_CONFIG"
+        ;;
+    "n"|"N"|"next")
+        update_image "1"
+        ;;
+    "p"|"P"|"prev")
+        update_image "-1"
+        ;;
+    *)
+        ;;
+esac
