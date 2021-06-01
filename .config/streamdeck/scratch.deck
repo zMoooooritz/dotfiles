@@ -1,0 +1,56 @@
+[background]
+  image = "/home/moritz/Pictures/streamdeck/background/background.png"
+
+[[keys]]
+  index = 5
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/write.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/toggle TODO"
+
+[[keys]]
+  index = 6
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/music.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/toggle MUSIC"
+
+[[keys]]
+  index = 7
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/list.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/toggle CALENDAR"
+
+[[keys]]
+  index = 8
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/cloud.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/toggle WTTR"
+
+[[keys]]
+  index = 9
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/$.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/toggle CRYPTO"
+
+[[keys]]
+  index = 12
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/home.png"
+  [keys.action]
+    deck = "/home/moritz/.config/streamdeck/main.deck"

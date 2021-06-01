@@ -1,0 +1,92 @@
+[background]
+  image = "/home/moritz/Pictures/streamdeck/background/background.png"
+
+[[keys]]
+  index = 0
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/shuffle.png"
+  [keys.action]
+    exec = "mpc random"
+
+[[keys]]
+  index = 1
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/half_volume.png"
+  [keys.action]
+    exec = "mpc volume -5"
+
+[[keys]]
+  index = 3
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/full_volume.png"
+  [keys.action]
+    exec = "mpc volume +5"
+
+[[keys]]
+  index = 4
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/retweet.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/mpd_switch"
+
+[[keys]]
+  index = 5
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/skip_back.png"
+  [keys.action]
+    exec = "mpc prev"
+
+[[keys]]
+  index = 6
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/rewind.png"
+  [keys.action]
+    exec = "mpc seek +00:00:10"
+
+[[keys]]
+  index = 7
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/play_pause.png"
+  [keys.action]
+    exec = "mpc toggle"
+
+[[keys]]
+  index = 8
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/fast_forward.png"
+  [keys.action]
+    exec = "mpc seek -00:00:10"
+
+[[keys]]
+  index = 9
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/skip_forward.png"
+  [keys.action]
+    exec = "mpc next"
+
+[[keys]]
+  index = 12
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/home.png"
+  [keys.action]
+    keck = "/home/moritz/.config/streamdeck/main.deck"

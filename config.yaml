@@ -108,6 +108,9 @@ dotfiles:
   d_config_mopidy:
     src: .config/mopidy
     dst: ~/.config/mopidy
+  d_config_streamdeck:
+    src: .config/streamdeck
+    dst: ~/.config/streamdeck
 profiles:
   base:
     dotfiles:
@@ -148,6 +151,7 @@ profiles:
   eta:
     dotfiles:
     - f_config_wall_eta
+    - d_config_streamdeck
     include:
     - base
 

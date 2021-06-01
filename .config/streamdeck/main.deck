@@ -1,0 +1,130 @@
+[background]
+  image = "/home/moritz/Pictures/streamdeck/background/background.png"
+
+[[keys]]
+  index = 0
+  [keys.widget]
+    id = "top"
+    [keys.widget.config]
+      mode = "cpu"
+      fillColor = "#d497de"
+  [keys.action]
+    exec = "st -e gotop"
+
+[[keys]]
+  index = 1
+  [keys.widget]
+    id = "top"
+    [keys.widget.config]
+      mode = "memory"
+      fillColor = "#a69bd6"
+  [keys.action]
+    exec = "st -e gotop"
+
+[[keys]]
+  index = 3
+  [keys.widget]
+    id = "time"
+    [keys.widget.config]
+      format = "%l;%d;%M"
+      font = "regular;bold;regular"
+  [keys.action]
+    deck = "/home/moritz/.config/streamdeck/empty.deck"
+
+[[keys]]
+  index = 4
+  [keys.widget]
+    id = "time"
+    [keys.widget.config]
+      format = "%H;%i;%s"
+      font = "bold;regular;thin"
+  [keys.action]
+    deck = "/home/moritz/.config/streamdeck/empty.deck"
+
+[[keys]]
+  index = 5
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/half_volume.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/volume dec"
+
+[[keys]]
+  index = 6
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/no_volume.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/volume toggle"
+
+[[keys]]
+  index = 7
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/full_volume.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/volume inc"
+
+[[keys]]
+  index = 8
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/crop.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/screenshot sel"
+
+[[keys]]
+  index = 9
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/camera.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/screenshot"
+
+[[keys]]
+  index = 10
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/headphones.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/audio toggle"
+
+[[keys]]
+  index = 11
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/music.png"
+  [keys.action]
+    deck = "/home/moritz/.config/streamdeck/music.deck"
+
+[[keys]]
+  index = 12
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/power.png"
+  [keys.action]
+    deck = "/home/moritz/.config/streamdeck/power.deck"
+
+[[keys]]
+  index = 13
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/screenshot.png"
+  [keys.action]
+    deck = "/home/moritz/.config/streamdeck/scratch.deck"
+
+[[keys]]
+  index = 14
+  [keys.widget]
+    id = "button"
+  [keys.action]
+    deck = "/home/moritz/.config/streamdeck/empty.deck"

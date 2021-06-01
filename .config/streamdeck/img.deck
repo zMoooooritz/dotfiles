@@ -1,0 +1,23 @@
+[background]
+  image = "/home/moritz/Pictures/streamdeck/background/awesome.png"
+
+[[keys]]
+  index = 0
+  [keys.widget]
+    id = "button"
+  [keys.action]
+    deck = "/home/moritz/.config/streamdeck/empty.deck"
+
+[[keys]]
+  index = 10
+  [keys.widget]
+    id = "button"
+  [keys.action]
+    exec = "/home/moritz/.scripts/streamdeck prev"
+
+[[keys]]
+  index = 14
+  [keys.widget]
+    id = "button"
+  [keys.action]
+    exec = "/home/moritz/.scripts/streamdeck next"
