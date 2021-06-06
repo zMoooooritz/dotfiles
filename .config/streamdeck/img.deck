@@ -1,5 +1,4 @@
-[background]
-  image = "/home/moritz/Pictures/streamdeck/background/awesome.png"
+background = "/home/moritz/Pictures/streamdeck/background/awesome.png"
 
 [[keys]]
   index = 0

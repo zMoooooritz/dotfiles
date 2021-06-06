@@ -55,6 +55,11 @@ case $1 in
         ln -s -f "${STREAMDECK_BACKGROUND}/awesome1.png" "${STREAMDECK_BACKGROUND}/awesome.png"
         i3-msg exec "$DECKMASTER -deck $DECKMASTER_CONFIG"
         ;;
+    "c"|"C"|"clear")
+        killall deckmaster -q
+        i3-msg exec "$DECKMASTER -deck $DECKMASTER_CONFIG -brightness 0"
+        killall deckmaster -q
+        ;;
     "n"|"N"|"next")
         update_image "1"
         ;;

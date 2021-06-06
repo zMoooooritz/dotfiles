@@ -111,6 +111,9 @@ dotfiles:
   d_config_streamdeck:
     src: .config/streamdeck
     dst: ~/.config/streamdeck
+  f_xmodmap:
+    src: .Xmodmap
+    dst: ~/.Xmodmap
 profiles:
   base:
     dotfiles:
@@ -122,6 +125,7 @@ profiles:
     - f_profile
     - f_zprofile
     - f_xprofile
+    - f_xmodmap
     - d_scripts
     - d_config_calcurse
     - d_config_cava

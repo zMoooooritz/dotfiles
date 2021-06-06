@@ -1,5 +1,4 @@
-[background]
-  image = "/home/moritz/Pictures/streamdeck/background/background.png"
+background = "/home/moritz/Pictures/streamdeck/background/background.png"
 
 [[keys]]
   index = 0
@@ -18,6 +17,15 @@
       icon = "/home/moritz/Pictures/streamdeck/half_volume.png"
   [keys.action]
     exec = "mpc volume -5"
+
+[[keys]]
+  index = 2
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "/home/moritz/Pictures/streamdeck/music.png"
+  [keys.action]
+    exec = "/home/moritz/.scripts/toggle MUSIC"
 
 [[keys]]
   index = 3
@@ -89,4 +97,4 @@
     [keys.widget.config]
       icon = "/home/moritz/Pictures/streamdeck/home.png"
   [keys.action]
-    keck = "/home/moritz/.config/streamdeck/main.deck"
+    deck = "/home/moritz/.config/streamdeck/main.deck"
