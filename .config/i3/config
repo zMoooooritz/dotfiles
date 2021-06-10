@@ -237,6 +237,9 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia prev
 exec --no-startup-id ~/.scripts/picom_toggle
 exec --no-startup-id ~/.scripts/tracker reset
 exec --no-startup-id ~/.scripts/streamdeck restart
+{%@@ if profile == "eta" @@%}
+exec --no-startup-id "xrandr --output DP-2 --mode 2560x1440 --rate 144"
+{%@@ endif @@%}
 exec_always --no-startup-id ~/.scripts/pulse_watcher | xob
 exec_always --no-startup-id ~/.config/polybar/launch
 exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock"

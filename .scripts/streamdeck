@@ -58,6 +58,7 @@ case $1 in
     "c"|"C"|"clear")
         killall deckmaster -q
         i3-msg exec "$DECKMASTER -deck $DECKMASTER_CONFIG -brightness 0"
+        sleep 1
         killall deckmaster -q
         ;;
     "n"|"N"|"next")

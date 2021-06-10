@@ -108,6 +108,8 @@ CASE_SENSITIVE="false"
 
 [[ -f "$HOME/.aliasrc" ]] && source "$HOME/.aliasrc"
 
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 

@@ -1,37 +1,37 @@
-background = "/home/moritz/Pictures/streamdeck/background/background.png"
+background = "~/Pictures/streamdeck/background/background.png"
 
 [[keys]]
   index = 6
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/reboot.png"
+      icon = "~/Pictures/streamdeck/reboot.png"
   [keys.action]
-    exec = "/home/moritz/.scripts/reboot"
+    exec = "~/.scripts/reboot"
 
 [[keys]]
   index = 7
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/power.png"
+      icon = "~/Pictures/streamdeck/power.png"
   [keys.action]
-    exec = "/home/moritz/.scripts/shutdown"
+    exec = "~/.scripts/shutdown"
 
 [[keys]]
   index = 8
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/lock.png"
+      icon = "~/Pictures/streamdeck/lock.png"
   [keys.action]
-    exec = "/home/moritz/.scripts/lock 1"
+    exec = "~/.scripts/lock 1"
 
 [[keys]]
   index = 12
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/home.png"
+      icon = "~/Pictures/streamdeck/home.png"
   [keys.action]
-    deck = "/home/moritz/.config/streamdeck/main.deck"
+    deck = "~/.config/streamdeck/main.deck"

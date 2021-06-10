@@ -1,11 +1,11 @@
-background = "/home/moritz/Pictures/streamdeck/background/background.png"
+background = "~/Pictures/streamdeck/background/background.png"
 
 [[keys]]
   index = 0
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/shuffle.png"
+      icon = "~/Pictures/streamdeck/shuffle.png"
   [keys.action]
     exec = "mpc random"
 
@@ -14,7 +14,7 @@ background = "/home/moritz/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/half_volume.png"
+      icon = "~/Pictures/streamdeck/half_volume.png"
   [keys.action]
     exec = "mpc volume -5"
 
@@ -23,16 +23,16 @@ background = "/home/moritz/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/music.png"
+      icon = "~/Pictures/streamdeck/music.png"
   [keys.action]
-    exec = "/home/moritz/.scripts/toggle MUSIC"
+    exec = "~/.scripts/toggle MUSIC"
 
 [[keys]]
   index = 3
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/full_volume.png"
+      icon = "~/Pictures/streamdeck/full_volume.png"
   [keys.action]
     exec = "mpc volume +5"
 
@@ -41,16 +41,16 @@ background = "/home/moritz/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/retweet.png"
+      icon = "~/Pictures/streamdeck/retweet.png"
   [keys.action]
-    exec = "/home/moritz/.scripts/mpd_switch"
+    exec = "~/.scripts/mpd_switch"
 
 [[keys]]
   index = 5
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/skip_back.png"
+      icon = "~/Pictures/streamdeck/skip_back.png"
   [keys.action]
     exec = "mpc prev"
 
@@ -59,16 +59,16 @@ background = "/home/moritz/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/rewind.png"
+      icon = "~/Pictures/streamdeck/rewind.png"
   [keys.action]
-    exec = "mpc seek +00:00:10"
+    exec = "mpc seek -00:00:10"
 
 [[keys]]
   index = 7
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/play_pause.png"
+      icon = "~/Pictures/streamdeck/play_pause.png"
   [keys.action]
     exec = "mpc toggle"
 
@@ -77,16 +77,16 @@ background = "/home/moritz/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/fast_forward.png"
+      icon = "~/Pictures/streamdeck/fast_forward.png"
   [keys.action]
-    exec = "mpc seek -00:00:10"
+    exec = "mpc seek +00:00:10"
 
 [[keys]]
   index = 9
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/skip_forward.png"
+      icon = "~/Pictures/streamdeck/skip_forward.png"
   [keys.action]
     exec = "mpc next"
 
@@ -95,6 +95,6 @@ background = "/home/moritz/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "/home/moritz/Pictures/streamdeck/home.png"
+      icon = "~/Pictures/streamdeck/home.png"
   [keys.action]
-    deck = "/home/moritz/.config/streamdeck/main.deck"
+    deck = "~/.config/streamdeck/main.deck"

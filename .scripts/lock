@@ -28,4 +28,7 @@ fi
 
 sleep "$time"; pidof -ws i3lock && systemctl suspend
 
+{%@@ if profile == "eta" @@%}
+streamdeck r
+{%@@ endif @@%}
 rm $tmpbg

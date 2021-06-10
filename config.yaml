@@ -102,9 +102,9 @@ dotfiles:
   d_cheatsheets:
     src: .cheatsheets
     dst: ~/.cheatsheets
-  d_config_zsh:
-    src: .config/zsh
-    dst: ~/.config/zsh
+  f_config_zsh:
+    src: .config/zsh/.zshrc
+    dst: ~/.config/zsh/.zshrc
   d_config_mopidy:
     src: .config/mopidy
     dst: ~/.config/mopidy
@@ -143,7 +143,7 @@ profiles:
     - d_config_sxiv
     - d_config_xob
     - d_config_zathura
-    - d_config_zsh
+    - f_config_zsh
     - f_config_directories
     - d_config_mopidy
     - d_cheatsheets
