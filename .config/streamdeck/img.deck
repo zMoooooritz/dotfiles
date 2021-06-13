@@ -5,7 +5,7 @@ background = "~/Pictures/streamdeck/background/awesome.png"
   [keys.widget]
     id = "button"
   [keys.action]
-    deck = "~/.config/streamdeck/empty.deck"
+    deck = "~/.config/streamdeck/clock.deck"
 
 [[keys]]
   index = 10

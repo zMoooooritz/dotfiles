@@ -78,9 +78,6 @@ dotfiles:
   d_config_polybar:
     src: .config/polybar
     dst: ~/.config/polybar
-  d_config_ranger:
-    src: .config/ranger
-    dst: ~/.config/ranger
   d_config_sxiv:
     src: .config/sxiv
     dst: ~/.config/sxiv
@@ -135,7 +132,6 @@ profiles:
     - d_config_nvim
     - d_config_picom
     - d_config_polybar
-    - d_config_ranger
     - d_config_sxiv
     - d_config_xob
     - d_config_zathura

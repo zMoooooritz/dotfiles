@@ -36,7 +36,7 @@ background = "~/Pictures/streamdeck/background/background.png"
       format = "%l;%d;%M"
       font = "regular;bold;regular"
   [keys.action]
-    deck = "~/.config/streamdeck/empty.deck"
+    deck = "~/.config/streamdeck/clock.deck"
 
 [[keys]]
   index = 4
@@ -46,7 +46,7 @@ background = "~/Pictures/streamdeck/background/background.png"
       format = "%H;%i;%s"
       font = "bold;regular;thin"
   [keys.action]
-    deck = "~/.config/streamdeck/empty.deck"
+    deck = "~/.config/streamdeck/clock.deck"
 
 [[keys]]
   index = 5
@@ -134,4 +134,4 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
   [keys.action]
-    deck = "~/.config/streamdeck/empty.deck"
+    deck = "~/.config/streamdeck/clock.deck"
