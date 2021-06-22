@@ -30,7 +30,7 @@ set number relativenumber
 set clipboard=unnamed
 set nocompatible
 set nowrap
-let mapleader=';'
+let mapleader='ö'
 set foldmethod=syntax
 nnoremap <space> za
 set foldlevel=120
@@ -39,6 +39,7 @@ set iskeyword+=-
 set incsearch
 syntax on
 filetype plugin indent on
+runtime macros/matchit.vim
 
 """"""""""""""""
 " Custom Binds "
@@ -121,3 +122,16 @@ let g:tex_flavor = 'latex'
 " ctrlp.vim
 let g:ctrlp_show_hidden = 1
 
+" vim-go
+let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save
+let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor
+:augroup gogroup
+    :au FileType go set fileformat=unix | set nolist
+    :au FileType go nnoremap <leader>lr :GoRun<Enter>
+    :au FileType go nnoremap <leader>li :GoInstall<Enter>
+    :au FileType go nnoremap <leader>lt :GoTest<Enter>
+    :au FileType go nnoremap <leader>lb :GoBuild<Enter>
+    :au FileType go nnoremap <leader>ld :GoDoc<Enter>
+    :au FileType go nnoremap <leader>lD :GoDocBrowser<Enter>
+    :au FileType go nnoremap <leader>ll :GoMetaLinter<Enter>
+:augroup END

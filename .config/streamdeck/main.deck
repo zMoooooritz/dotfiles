@@ -27,6 +27,8 @@ background = "~/Pictures/streamdeck/background/background.png"
     [keys.widget.config]
       location = "Karlsruhe"
       flatten = true
+  [keys.action]
+    exec = "~/.scripts/toggle WTTR"
 
 [[keys]]
   index = 3

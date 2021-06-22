@@ -7,7 +7,7 @@ STREAMDECK_BACKGROUND="$STREAMDECK_PATH/background"
 
 select_background() {
     count=$(find ${STREAMDECK_BACKGROUND} -type f -name 'background*.png' -printf '.' | wc -c)
-    index=$((1 + $RANDOM % $count))
+    index=$((1 + $(date "+%j") % $count))
     if [ $1 ]; then
        index=$1 
     fi
