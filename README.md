@@ -1,4 +1,4 @@
-# arch-config
+#  dotfiles
 
 This repo contains the most important dotfiles of my configuration
 
