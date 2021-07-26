@@ -13,6 +13,15 @@ background = "~/Pictures/streamdeck/background/awesome.png"
     id = "button"
   [keys.action]
     exec = "~/.scripts/streamdeck prev"
+  [keys.action_hold]
+    deck = "~/.config/streamdeck/img.deck"
+
+[[keys]]
+  index = 12
+  [keys.widget]
+    id = "button"
+  [keys.action]
+    deck = "~/.config/streamdeck/img.deck"
 
 [[keys]]
   index = 14
@@ -20,3 +29,5 @@ background = "~/Pictures/streamdeck/background/awesome.png"
     id = "button"
   [keys.action]
     exec = "~/.scripts/streamdeck next"
+  [keys.action_hold]
+    deck = "~/.config/streamdeck/img.deck"
