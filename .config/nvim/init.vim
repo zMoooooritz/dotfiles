@@ -109,9 +109,10 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " vim-hardtime
 let g:hardtime_default_on = 1
-let g:hardtime_timeout = 5000
+let g:hardtime_timeout = 2000
 let g:hardtime_showmsg = 1
-let g:list_of_normal_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:hardtime_maxcount = 5
+let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:list_of_visual_keys = []
 let g:list_of_insert_keys = []
 

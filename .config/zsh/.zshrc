@@ -114,3 +114,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
+source /usr/share/zsh/plugins/zsh-z/zsh-z.plugin.zsh 2>/dev/null

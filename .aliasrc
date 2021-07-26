@@ -5,8 +5,7 @@
 
 # shortcuts to config files
 
-alias zshconfig="$EDITOR ~/.zshrc" \
-        ohmyzshconfig="$EDITOR ~/.oh-my-zsh" \
+alias zshconfig="$EDITOR ~/.config/zsh/.zshrc" \
         polybarconfig="$EDITOR ~/.config/polybar/config" \
         i3config="$EDITOR ~/.config/i3/config" \
         vimconfig="$EDITOR ~/.vimrc" \
