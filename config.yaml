@@ -24,12 +24,6 @@ dotfiles:
   f_aliasrc:
     src: .aliasrc
     dst: ~/.aliasrc
-  f_vimrc:
-    src: .vimrc
-    dst: ~/.vimrc
-  f_streamlinkrc:
-    src: .streamlinkrc
-    dst: ~/.streamlinkrc
   f_profile:
     src: .profile
     dst: ~/.profile
@@ -42,6 +36,9 @@ dotfiles:
   d_scripts:
     src: .scripts
     dst: ~/.scripts
+  f_streamlinkrc:
+    src: .config/streamlink/config
+    dst: ~/.config/streamlink/config
   d_config_calcurse:
     src: .config/calcurse
     dst: ~/.config/calcurse
@@ -114,7 +111,6 @@ profiles:
     - f_xinitrc
     - f_xresources
     - f_aliasrc
-    - f_vimrc
     - f_streamlinkrc
     - f_profile
     - f_zprofile
