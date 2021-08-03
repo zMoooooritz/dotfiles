@@ -135,5 +135,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   index = 14
   [keys.widget]
     id = "button"
+    [keys.widget.config]
+      icon = "~/Pictures/streamdeck/timer2.png"
   [keys.action]
-    deck = "~/.config/streamdeck/clock.deck"
+    exec = "~/.scripts/tracker_toggle"
