@@ -72,6 +72,10 @@ endfunction
 
 inoremap {<CR>  {<CR>}<Esc>O
 
+" make n/N always go in the same direction
+nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
+nnoremap <expr> N 'nN'[v:searchforward] . "zv"
+
 """""""""""""""""""
 " Plugin settings "
 """""""""""""""""""
