@@ -112,6 +112,8 @@ background = "~/Pictures/streamdeck/background/background.png"
       icon = "~/Pictures/streamdeck/music.png"
   [keys.action]
     deck = "~/.config/streamdeck/music.deck"
+  [keys.action_hold]
+    exec = "mpc toggle"
 
 [[keys]]
   index = 12

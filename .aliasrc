@@ -50,7 +50,17 @@ alias sl="sl && clear" \
         dotdrop='dotdrop --cfg=~/.dotfiles/config.yaml' \
         dotgit='git -C ~/.dotfiles/dotfiles' \
         dotsync='dotgit pull && dotgit add -A && dotgit commit && dotgit push; dotdrop install' \
-        sem='cd /home/moritz/Moritz/Studium/8.\ Semester'
+        ...="cd ../.." \
+        ..2="cd ../.." \
+        ....="cd ../../.." \
+        ..3="cd ../../.." \
+        .....="cd ../../../.." \
+        ..4="cd ../../../.." \
+        ......="cd ../../../../.." \
+        ..5="cd ../../../../.." \
+        sem='cd /home/moritz/Moritz/Studium/8.\ Semester' \
+        frost='docker-compose -f ~/Public/docker/docker-compose.yaml up </dev/null &>/dev/null &' \
+        frostd='docker-compose -f ~/Public/docker/docker-compose.yaml down'
 
 # shortcuts for streamlink
 
