@@ -146,4 +146,7 @@ profiles:
     - d_config_streamdeck
     include:
     - base
-
+  xi:
+    dotfiles:
+    - f_config_zsh
+    - f_config_nvim
