@@ -7,8 +7,9 @@
 tmp_dir=$(mktemp -d -t ci-XXXXXXXXXX)
 
 magick -density 300 $1 -quality 100 -alpha remove "$tmp_dir/page_%04d.jpg"
-magick mogrify -path "$tmp_dir" -strokewidth 0 -fill "#ffffff" -draw "rectangle 710,3320 1770,3440" "$tmp_dir/*.jpg"
-#magick mogrify -path "$tmp_dir" -strokewidth 0 -fill "#ffffff" -draw "rectangle 650,3340 1850,3500" "$tmp_dir/*.jpg"
-magick -quality 100 -page a4 "$tmp_dir/*.jpg" "$(pwd)/unmark_$1"
+# magick mogrify -path "$tmp_dir" -strokewidth 0 -fill "#ffffff" -draw "rectangle 710,3320 1770,3440" "$tmp_dir/*.jpg"
+magick mogrify -path "$tmp_dir" -strokewidth 0 -fill "#ffffff" -draw "rectangle 650,3340 1850,3500" "$tmp_dir/*.jpg"
+# magick -quality 100 -page a4 "$tmp_dir/*.jpg" "$(pwd)/unmark_$1"
+convert "$tmp_dir/*.jpg" -quality 100 -page A4 -background white "$(pwd)/unmark_$1"
 
 rm -rf $tmp_dir
