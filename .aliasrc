@@ -58,7 +58,7 @@ alias sl="sl && clear" \
         ..4="cd ../../../.." \
         ......="cd ../../../../.." \
         ..5="cd ../../../../.." \
-        sem='cd /home/moritz/Moritz/Studium/9.\ Semester' \
+        sem='cd /home/moritz/Moritz/Studium/9.\ Semester/Module' \
         frost='docker-compose -f ~/Public/docker/docker-compose.yaml up </dev/null &>/dev/null &' \
         frostd='docker-compose -f ~/Public/docker/docker-compose.yaml down' \
         cov="coverage run --source=stapy setup.py test && coverage xml"

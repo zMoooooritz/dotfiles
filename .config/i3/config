@@ -202,15 +202,19 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
 set $indicator-color     #a0a0a0
+set $full-dark-color     #ffffff
+set $place-bg-color      #0c0c0c
 
 #
 # set window colors
-#                       border             background         text                 indicator
-client.focused          $bg-color          $bg-color          $text-color          $indicator-color
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
+#                       border             background         text                 indicator        child_border
+client.focused          $bg-color          $bg-color          $text-color          $indicator-color $bg-color
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color $inactive-bg-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color $inactive-bg-color
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color $urgent-bg-color
+client.placeholder      $place-bg-color    $place-bg-color    $place-bg-color      $full-dark-color $place-bg-color
 
+client.background       $full-dark-color
 
 # #--- Special Window Settings ---# #
 
@@ -253,3 +257,4 @@ exec_always --no-startup-id ~/.scripts/tracker reset
 exec_always --no-startup-id ~/.config/polybar/launch
 #exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock"
 exec --no-startup-id ~/.scripts/workspace_setup
+

@@ -6,19 +6,18 @@ then
     if [ "$1" == "toggleplay" ];
     then
         mpc -q toggle
-    elif [ -z "$(mpc current)" ];
+    elif [ -z "$(mpc current 2> /dev/null)" ];
     then
         echo ""
     else
-        file=$(mpc --format %file% | head -n 1)
-        name=$(mpc --format %name% | head -n 1)
+        file=$(mpc --format %file% 2> /dev/null | head -n 1)
 
         if [[ "$file" == *"http"* ]];
         then
-            title="$name"
+            title=$(mpc --format %name% 2> /dev/null | head -n 1)
         else
-            title=$(mpc --format %title% | head -n 1 | cut -f1 -d"(" | cut -f1 -d"-")
-            artist=$(mpc --format %artist% | head -n 1 | cut -f1 -d";")
+            title=$(mpc --format %title% 2> /dev/null | head -n 1 | cut -f1 -d"(" | cut -f1 -d"-")
+            artist=$(mpc --format %artist% 2> /dev/null | head -n 1 | cut -f1 -d";")
             title="${title%% } - $artist"
         fi
 
