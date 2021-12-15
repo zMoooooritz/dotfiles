@@ -8,7 +8,10 @@ apps=(st)
 
 for ws in "${!apps[@]}"
 do
-    i3-msg "workspace $((ws + 1)); append_layout /home/moritz/.config/i3/workspace-$((ws + 1)).json"
+    if [[ $((ws)) -ne 0 ]]; then
+        i3-msg "workspace $((ws + 1))"
+    fi
+    i3-msg "append_layout /home/moritz/.config/i3/workspace-$((ws + 1)).json"
     i3-msg "exec --no-startup-id ${apps[$ws]}"
 done
 

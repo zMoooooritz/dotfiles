@@ -16,8 +16,8 @@ export LESSHISTFILE="-"
 
 # Other settings
 #export ANDROID_SDK_ROOT="/opt/android-sdk"
-export QT_SELECT=5
-export QT_STYLE_OVERRIDE="Breeze"
+# export QT_SELECT=5
+# export QT_STYLE_OVERRIDE="gtk2"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Start graphical server if i3 not already running
