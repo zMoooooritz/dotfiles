@@ -99,9 +99,9 @@ dotfiles:
   f_config_zsh:
     src: .config/zsh/.zshrc
     dst: ~/.config/zsh/.zshrc
-  d_config_mopidy:
-    src: .config/mopidy
-    dst: ~/.config/mopidy
+  f_config_mopidy:
+    src: .config/mopidy/mopidy.conf
+    dst: ~/.config/mopidy/mopidy.conf
   d_config_streamdeck:
     src: .config/streamdeck
     dst: ~/.config/streamdeck
@@ -133,7 +133,7 @@ profiles:
     - f_config_nvim
     - f_config_zsh
     - f_config_directories
-    - d_config_mopidy
+    - f_config_mopidy
     - d_cheatsheets
   pi:
     dotfiles:
