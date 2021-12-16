@@ -105,6 +105,9 @@ dotfiles:
   d_config_streamdeck:
     src: .config/streamdeck
     dst: ~/.config/streamdeck
+  d_local_share_applications:
+    src: .local/share/applications
+    dst: ~/.local/share/applications
 profiles:
   base:
     dotfiles:
@@ -134,6 +137,7 @@ profiles:
     - f_config_zsh
     - f_config_directories
     - f_config_mopidy
+    - d_local_share_applications
     - d_cheatsheets
   pi:
     dotfiles:
