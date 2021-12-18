@@ -7,14 +7,9 @@ clines=$(( $clines < $max_lines ? $clines : $max_lines ))
 
 rofi_menu="rofi \
     -dmenu \
-    -lines 43 \
     -hide-scrollbar \
-    -theme DarkBlue.rasi \
+    -theme solarized_alternate.rasi \
     -no-custom \
-    -location 1 \
-    -width 20 \
-    -yoffset 40 \
-    -xoffset 5 \
     -p Cheatsheet"
 
 chosen="$(echo -e "$options" | $rofi_menu)"

@@ -2,7 +2,8 @@
 
 # Adds ~/.scripts and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.scripts" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export PATH="$PATH:$HOME/.local/bin:$HOME/go/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.go/bin"
+
 
 # Default programs
 export EDITOR="nvim"
@@ -13,6 +14,7 @@ export READER="zathura"
 # ~/ Clean-up
 export ZDOTDIR="$HOME/.config/zsh"
 export LESSHISTFILE="-"
+export GOPATH="$HOME/.go"
 
 # Other settings
 #export ANDROID_SDK_ROOT="/opt/android-sdk"
