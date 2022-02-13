@@ -159,7 +159,7 @@ bindsym --release Ctrl+Print exec --no-startup-id ~/.scripts/screenshot sel
 
 bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot
 bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown
-#bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock 1
+bindsym $mod+Mod1+h exec --no-startup-id ~/.scripts/lock 1
 bindsym $mod+Mod1+e exec --no-startup-id ~/.scripts/logout
 
 bindsym $mod+Mod1+c exec --no-startup-id ~/.scripts/picom_toggle
@@ -249,9 +249,6 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia prev
 exec --no-startup-id ~/.scripts/picom_toggle
 exec --no-startup-id ~/.scripts/tracker reset
 exec --no-startup-id ~/.scripts/streamdeck restart
-{%@@ if profile == "eta" @@%}
-exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --rate 144
-{%@@ endif @@%}
 exec_always --no-startup-id ~/.scripts/pulse_watcher | xob
 exec_always --no-startup-id ~/.scripts/tracker reset
 exec_always --no-startup-id ~/.config/polybar/launch

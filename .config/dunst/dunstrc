@@ -91,7 +91,7 @@
     ### Text ###
 
     {%@@ if profile == "eta" @@%}
-    font = Noto Sans Regular 11
+    font = Noto Sans Regular 13
     {%@@ elif profile == "pi" @@%}
     font = Monospace 9
     {%@@ endif @@%}
