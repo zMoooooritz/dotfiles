@@ -1,0 +1,43 @@
+#!/bin/sh
+
+WALLPAPER_DIR="/home/moritz/.wallpaper"
+WALLPAPERS_DIR="${WALLPAPER_DIR}/wallpapers"
+WALLPAPER_PATH="${WALLPAPER_DIR}/wall_path"
+WALLPAPER_IMG="${WALLPAPER_DIR}/wall_img"
+
+function show_wallpaper {
+    img=$1
+    img_path="${WALLPAPERS_DIR}/${img}"
+    extension="${img##*.}"
+    img_copy="${WALLPAPER_IMG}.${extension}"
+    ln -sf $img_path $WALLPAPER_PATH
+    cp -f $img_path $img_copy
+    convert $img_copy -resize 2560x1440 -blur 0x4 $img_copy
+    nitrogen --head=0 --set-zoom-fill $img_copy
+    nitrogen --head=1 --set-zoom-fill $img_copy
+}
+
+case $1 in
+    "next")
+        img=$(ls $WALLPAPERS_DIR | shuf -n 1)
+        show_wallpaper $img
+        ;;
+    "show")
+        if [ ! -z $2 ]; then
+            show_wallpaper $2
+        else
+            echo "No image name provided nothing to do"
+        fi
+        ;;
+    "delete")
+        if [ -e $WALLPAPER_PATH ]; then
+            img=$(readlink $WALLPAPER_PATH)
+            unlink $WALLPAPER_PATH
+            rm -f $img
+            show_wallpaper "next"
+        else
+            echo "Symlink does not exist"
+        fi
+        ;;
+esac
+

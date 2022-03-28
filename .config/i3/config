@@ -252,6 +252,7 @@ exec --no-startup-id ~/.scripts/streamdeck restart
 exec_always --no-startup-id ~/.scripts/pulse_watcher | xob
 exec_always --no-startup-id ~/.scripts/tracker reset
 exec_always --no-startup-id ~/.config/polybar/launch
-#exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock"
+exec_always --no-startup-id xautolock -corners "--00" -time 10 -locker "i3-msg exec ~/.scripts/lock"
+exec --no-startup-id ~/.scripts/wallpaper next
 exec --no-startup-id ~/.scripts/workspace_setup
 

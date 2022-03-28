@@ -33,6 +33,16 @@ background = "~/Pictures/streamdeck/background/background.png"
 [[keys]]
   index = 4
   [keys.widget]
+  id = "timer"
+  [keys.widget.config]
+    times = "0s;5s;10m;30m;1h5m" # optional
+    font = "bold"
+    adaptive = "true"
+    underflow = "false"
+
+[[keys]]
+  index = 4
+  [keys.widget]
     id = "button"
   [keys.action]
     deck = "~/.config/streamdeck/main.deck"
@@ -101,6 +111,15 @@ background = "~/Pictures/streamdeck/background/background.png"
     id = "button"
   [keys.action]
     deck = "~/.config/streamdeck/main.deck"
+
+[[keys]]
+  index = 12
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "~/Pictures/streamdeck/show.png"
+  [keys.action]
+    device = "sleep"
 
 [[keys]]
   index = 13
