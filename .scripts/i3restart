@@ -3,3 +3,4 @@
 i3-msg exec ~/.scripts/picom_toggle
 i3-msg restart
 i3-msg exec ~/.scripts/picom_toggle
+

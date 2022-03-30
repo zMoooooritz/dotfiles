@@ -31,3 +31,4 @@ with Pulse() as pulse:
       sys.stdout.flush()
   except:
     pass
+

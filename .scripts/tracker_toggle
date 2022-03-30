@@ -2,3 +2,4 @@
 
 ~/.scripts/tracker toggle
 polybar-msg hook tracker_hook 1
+

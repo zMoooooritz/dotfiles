@@ -10,6 +10,8 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura"
+export PAGER="less"
+export VISUAL="nvim"
 
 # ~/ Clean-up
 export ZDOTDIR="$HOME/.config/zsh"

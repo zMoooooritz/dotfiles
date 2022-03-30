@@ -1,19 +1,15 @@
 #!/bin/sh
 
-if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ];
-then
+if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ]; then
 
-    if [ "$1" == "toggleplay" ];
-    then
+    if [ "$1" == "toggleplay" ]; then
         mpc -q toggle
-    elif [ -z "$(mpc current 2> /dev/null)" ];
-    then
+    elif [ -z "$(mpc current 2> /dev/null)" ]; then
         echo ""
     else
         file=$(mpc --format %file% 2> /dev/null | head -n 1)
 
-        if [[ "$file" == *"http"* ]];
-        then
+        if [[ "$file" == *"http"* ]]; then
             title=$(mpc --format %name% 2> /dev/null | head -n 1)
         else
             title=$(mpc --format %title% 2> /dev/null | head -n 1 | cut -f1 -d"(" | cut -f1 -d"-")
@@ -26,3 +22,4 @@ then
 else
     echo ""
 fi
+

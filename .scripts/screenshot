@@ -11,3 +11,4 @@ case $1 in
 esac
 
 [ "$file_num" -lt "$(ls $save_path | wc -l)" ] && notify-send "Screenshot" "Your screenshot has been saved!" --icon=simplescreenrecorder-idle
+

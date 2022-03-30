@@ -13,3 +13,4 @@ magick mogrify -path "$tmp_dir" -strokewidth 0 -fill "#ffffff" -draw "rectangle 
 convert "$tmp_dir/*.jpg" -quality 100 -page A4 -background white "$(pwd)/unmark_$1"
 
 rm -rf $tmp_dir
+

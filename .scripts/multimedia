@@ -1,7 +1,6 @@
 #!/bin/sh
 
-if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ];
-then
+if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ]; then
     case "$1" in
         "playpause") mpc toggle ;;
         "stop")      mpc stop ;;
@@ -9,3 +8,4 @@ then
         "prev")      mpc prev ;;
     esac
 fi
+

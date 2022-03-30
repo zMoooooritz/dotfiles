@@ -19,3 +19,4 @@ case $1 in
     "CRYPTO") i3-msg exec "st -n $1 -g 150x50 -e cointop" ;;
     *) ;;
 esac
+

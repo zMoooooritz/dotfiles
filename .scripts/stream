@@ -17,3 +17,4 @@ elif [ "$#" -eq 2 ]; then
 fi
 
 streamlink $service $quality
+

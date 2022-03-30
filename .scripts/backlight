@@ -20,3 +20,4 @@ esac
 [ $bl_current -ge $bl_max ] && bl_current=$bl_max
 
 echo $bl_current > /sys/class/backlight/intel_backlight/brightness
+

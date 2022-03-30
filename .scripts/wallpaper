@@ -5,7 +5,7 @@ WALLPAPERS_DIR="${WALLPAPER_DIR}/wallpapers"
 WALLPAPER_PATH="${WALLPAPER_DIR}/wall_path"
 WALLPAPER_IMG="${WALLPAPER_DIR}/wall_img"
 
-function show_wallpaper {
+function select_wallpaper {
     img=$1
     img_path="${WALLPAPERS_DIR}/${img}"
     extension="${img##*.}"
@@ -15,18 +15,26 @@ function show_wallpaper {
     convert $img_copy -resize 2560x1440 -blur 0x4 $img_copy
     nitrogen --head=0 --set-zoom-fill $img_copy
     nitrogen --head=1 --set-zoom-fill $img_copy
+    (betterlockscreen -u $img_copy --display 1 --fx > /dev/null) &
 }
 
 case $1 in
     "next")
         img=$(ls $WALLPAPERS_DIR | shuf -n 1)
-        show_wallpaper $img
+        select_wallpaper $img
         ;;
-    "show")
+    "select")
         if [ ! -z $2 ]; then
-            show_wallpaper $2
+            select_wallpaper $2
         else
             echo "No image name provided nothing to do"
+        fi
+        ;;
+    "show")
+        if [ -e $WALLPAPER_PATH ]; then
+            sxiv $WALLPAPER_PATH
+        else
+            echo "No wallpaper is selected"
         fi
         ;;
     "delete")
@@ -34,7 +42,7 @@ case $1 in
             img=$(readlink $WALLPAPER_PATH)
             unlink $WALLPAPER_PATH
             rm -f $img
-            show_wallpaper "next"
+            select_wallpaper "next"
         else
             echo "Symlink does not exist"
         fi

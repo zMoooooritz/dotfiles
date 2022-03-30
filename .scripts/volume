@@ -13,3 +13,4 @@ case "$1" in
     reset) pamixer --set-volume $default ;;
     toggle) pamixer -t ;;
 esac
+

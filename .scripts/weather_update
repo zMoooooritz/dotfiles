@@ -7,3 +7,4 @@ while true; do
     clear
 done
 stty echo
+

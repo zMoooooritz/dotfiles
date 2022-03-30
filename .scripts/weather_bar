@@ -13,3 +13,4 @@ diff=$((date_esec - change_esec))
 [ $diff -gt 300 ] && python "/home/moritz/.scripts/weather" > $weatherreport
 
 cat $weatherreport
+

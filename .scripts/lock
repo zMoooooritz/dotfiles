@@ -1,34 +1,53 @@
 #!/bin/sh
 
-{%@@ if profile == "eta" @@%}
-icon='/home/moritz/.config/i3/icons/icon2.png'
-{%@@ elif profile == "pi" @@%}
-icon='/home/moritz/.config/i3/icons/icon.png'
-{%@@ endif @@%}
-tmpbg='/tmp/i3lock.png'
+# ensure only one instance of this script is running
+pids=$(pidof -wx $0)
+for pid in $pids; do
+    if [ $pid != $$ ]; then
+        kill -9 $pid
+    fi
+done
 
-scrot -z "$tmpbg"
+PARAM=(
+    --lock
+    --display 1
+    --
+    --radius=40
+    --time-size=50
+    --ind-pos="x+370:y+h-95"
+    --time-pos="ix-325:iy+0"
+    --layout-pos="ix-1000:iy+1000"
+    --date-pos="ix-325:iy+35"
+    --date-align 1
+    --date-str="%A, %d.%m.%Y"
+    --date-color=ffffffff
+    --date-font="sans-serif"
+    --date-size="20"
+    --no-modkey-text
+    --greeter-text=""
+    --verif-text=""
+    --wrong-text=""
+    --ignore-empty-password
+    --nofork
+)
 
-convert "$tmpbg" -brightness-contrast -20x-20 -blur "0x5" "$icon" -gravity center -composite -matte "$tmpbg"
+function restart_services {
+    {%@@ if profile == "eta" @@%}
+    ~/.scripts/streamdeck restart
+    {%@@ endif @@%}
+}
 
-# Pause mpd-Playback
-if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ];
-then
-	mpc pause
+if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ]; then
+    mpc pause > /dev/null
 fi
 
-i3lock -u -t -i $tmpbg
+(betterlockscreen "${PARAM[@]}"; restart_services; kill -9 $$) &
 
-if [ -z "$1" ];
-then
-	time=300;
+if [ -z $1 ]; then
+	time=300
 else
-	time="$1";
+	time=$1
 fi
 
-sleep "$time"; pidof -ws i3lock && systemctl suspend
+sleep $time; pidof -ws i3lock && systemctl suspend
 
-{%@@ if profile == "eta" @@%}
-streamdeck r
-{%@@ endif @@%}
-rm $tmpbg

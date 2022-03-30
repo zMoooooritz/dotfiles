@@ -22,3 +22,4 @@ case $1 in
     moveChoice grow right shrink left
     ;;
 esac
+

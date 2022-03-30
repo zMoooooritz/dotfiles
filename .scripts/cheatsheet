@@ -15,3 +15,4 @@ rofi_menu="rofi \
 chosen="$(echo -e "$options" | $rofi_menu)"
 
 [ $chosen -z ] || i3-msg exec "sxiv -b -g 1000x800 -N CHEATSHEET ~/.cheatsheets/$chosen*"
+

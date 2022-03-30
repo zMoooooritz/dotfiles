@@ -26,8 +26,7 @@ case $1 in
     "t"|"toggle")
         active_sink=$(pacmd list-sinks | grep "*" | tr -d "\n" | tail -c 1)
         headset_sink=$(pamixer --list-sinks | grep "${HEADSET_KEY}" | cut -c1)
-        if [ $active_sink == $headset_sink ]
-        then
+        if [ $active_sink == $headset_sink ]; then
             change_sink_and_source $WEBCAM_KEY $SPEAKER_KEY
         else
             change_sink_and_source $HEADSET_KEY $HEADSET_KEY
@@ -37,3 +36,4 @@ case $1 in
         change_sink_and_source
         ;;
 esac
+
