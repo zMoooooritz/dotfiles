@@ -12,17 +12,24 @@ PARAM=(
     --lock
     --display 1
     --
+    {%@@ if profile == "eta" @@%}
     --radius=40
-    --time-size=50
     --ind-pos="x+370:y+h-95"
     --time-pos="ix-325:iy+0"
-    --layout-pos="ix-1000:iy+1000"
+    --time-size=50
     --date-pos="ix-325:iy+35"
+    {%@@ elif profile == "pi" @@%}
+    --radius=35
+    --ind-pos="x+310:y+h-80"
+    --time-pos="ix-265:iy+0"
+    --time-size=40
+    --date-pos="ix-265:iy+35"
+    {%@@ endif @@%}
     --date-align 1
     --date-str="%A, %d.%m.%Y"
     --date-color=ffffffff
     --date-font="sans-serif"
-    --date-size="20"
+    --layout-pos="ix-1000:iy+1000"
     --no-modkey-text
     --greeter-text=""
     --verif-text=""
@@ -34,6 +41,8 @@ PARAM=(
 function restart_services {
     {%@@ if profile == "eta" @@%}
     ~/.scripts/streamdeck restart
+    {%@@ elif profile == "pi" @@%}
+    :
     {%@@ endif @@%}
 }
 
