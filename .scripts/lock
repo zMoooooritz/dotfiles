@@ -41,7 +41,7 @@ if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ]; 
     mpc pause > /dev/null
 fi
 
-(betterlockscreen "${PARAM[@]}"; restart_services; kill -9 $$) &
+(betterlockscreen "${PARAM[@]}"; restart_services; kill -9 $$) > /dev/null &
 
 if [ -z $1 ]; then
 	time=300

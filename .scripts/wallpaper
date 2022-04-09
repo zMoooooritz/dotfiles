@@ -1,21 +1,37 @@
 #!/bin/sh
 
-WALLPAPER_DIR="/home/moritz/.wallpaper"
+WALLPAPER_DIR="${HOME}/.images"
 WALLPAPERS_DIR="${WALLPAPER_DIR}/wallpapers"
 WALLPAPER_PATH="${WALLPAPER_DIR}/wall_path"
-WALLPAPER_IMG="${WALLPAPER_DIR}/wall_img"
+WALLPAPER_IMG="${WALLPAPER_DIR}/wall_img.jpg"
+STREAMDECK_IMG="${WALLPAPER_DIR}/stream_img.jpg"
 
 function select_wallpaper {
     img=$1
     img_path="${WALLPAPERS_DIR}/${img}"
-    extension="${img##*.}"
-    img_copy="${WALLPAPER_IMG}.${extension}"
+    if [ ! -f $img_path ]; then
+        echo "Image does not exist at path '${img_path}'"
+        return
+    fi
     ln -sf $img_path $WALLPAPER_PATH
-    cp -f $img_path $img_copy
-    convert $img_copy -resize 2560x1440 -blur 0x4 $img_copy
-    nitrogen --head=0 --set-zoom-fill $img_copy
-    nitrogen --head=1 --set-zoom-fill $img_copy
-    (betterlockscreen -u $img_copy --display 1 --fx > /dev/null) &
+    cp -f $img_path $WALLPAPER_IMG
+    resolution=$(xrandr | grep " primary ")
+    resolution=${resolution%%+*}
+    resolution=${resolution##* }
+    convert $WALLPAPER_IMG -resize $resolution -blur 0x4 $WALLPAPER_IMG
+    displays=$(xrandr | grep " connected " | wc -l)
+    for (( display = 0; display < $displays; display++)); do
+        nitrogen --head=$display --set-zoom-fill $WALLPAPER_IMG
+    done
+    (betterlockscreen -u $WALLPAPER_IMG --display 1 --fx > /dev/null) &
+
+    {%@@ if profile == "eta" @@%}
+    cp -f $img_path $STREAMDECK_IMG
+    brightness=$(convert $img_path -colorspace gray -format "%[fx:100*mean]" info:)
+    gamma=$(bc -l <<< "0.8 - $brightness / 100")
+    convert $STREAMDECK_IMG -resize 424x248^ -gravity Center -extent 424x248 -gamma $gamma -blur 0x2 $STREAMDECK_IMG
+    streamdeck restart
+    {%@@ endif @@%}
 }
 
 case $1 in
@@ -24,7 +40,7 @@ case $1 in
         select_wallpaper $img
         ;;
     "select")
-        if [ ! -z $2 ]; then
+        if [ -n $2 ]; then
             select_wallpaper $2
         else
             echo "No image name provided nothing to do"
@@ -42,7 +58,8 @@ case $1 in
             img=$(readlink $WALLPAPER_PATH)
             unlink $WALLPAPER_PATH
             rm -f $img
-            select_wallpaper "next"
+            img=$(ls $WALLPAPERS_DIR | shuf -n 1)
+            select_wallpaper $img
         else
             echo "Symlink does not exist"
         fi

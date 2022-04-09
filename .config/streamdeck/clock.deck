@@ -1,4 +1,4 @@
-background = "~/Pictures/streamdeck/background/background.png"
+background = "~/.images/stream_img.jpg"
 
 [[keys]]
   index = 0
@@ -20,8 +20,6 @@ background = "~/Pictures/streamdeck/background/background.png"
     id = "button"
   [keys.action]
     deck = "~/.config/streamdeck/main.deck"
-  [keys.action_hold]
-    deck = "~/.config/streamdeck/img.deck"
 
 [[keys]]
   index = 3
@@ -117,7 +115,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/show.png"
+      icon = "~/.images/streamdeck/show.png"
   [keys.action]
     device = "sleep"
 

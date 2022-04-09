@@ -248,7 +248,6 @@ bindsym XF86AudioPrev exec ~/.scripts/multimedia prev
 # #---Autostart Applications---# #
 exec --no-startup-id ~/.scripts/picom_toggle
 exec --no-startup-id ~/.scripts/tracker reset
-exec --no-startup-id ~/.scripts/streamdeck restart
 exec_always --no-startup-id ~/.scripts/pulse_watcher | xob
 exec_always --no-startup-id ~/.scripts/tracker reset
 exec_always --no-startup-id ~/.config/polybar/launch

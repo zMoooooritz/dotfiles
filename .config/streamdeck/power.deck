@@ -1,11 +1,11 @@
-background = "~/Pictures/streamdeck/background/background.png"
+background = "~/.images/stream_img.jpg"
 
 [[keys]]
   index = 6
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/reboot.png"
+      icon = "~/.images/streamdeck/reboot.png"
   [keys.action]
     exec = "~/.scripts/reboot"
 
@@ -14,7 +14,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/power.png"
+      icon = "~/.images/streamdeck/power.png"
   [keys.action]
     exec = "~/.scripts/shutdown"
 
@@ -23,7 +23,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/lock.png"
+      icon = "~/.images/streamdeck/lock.png"
   [keys.action]
     exec = "~/.scripts/lock 1"
 
@@ -32,6 +32,6 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/home.png"
+      icon = "~/.images/streamdeck/home.png"
   [keys.action]
     deck = "~/.config/streamdeck/main.deck"

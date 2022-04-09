@@ -1,11 +1,11 @@
-background = "~/Pictures/streamdeck/background/background.png"
+background = "~/.images/stream_img.jpg"
 
 [[keys]]
   index = 0
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/shuffle.png"
+      icon = "~/.images/streamdeck/shuffle.png"
   [keys.action]
     exec = "mpc random"
 
@@ -14,7 +14,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/half_volume.png"
+      icon = "~/.images/streamdeck/half_volume.png"
   [keys.action]
     exec = "mpc volume -5"
 
@@ -23,7 +23,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/music.png"
+      icon = "~/.images/streamdeck/music.png"
   [keys.action]
     exec = "~/.scripts/toggle MUSIC"
 
@@ -32,7 +32,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/full_volume.png"
+      icon = "~/.images/streamdeck/full_volume.png"
   [keys.action]
     exec = "mpc volume +5"
 
@@ -41,7 +41,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/retweet.png"
+      icon = "~/.images/streamdeck/retweet.png"
   [keys.action]
     exec = "~/.scripts/mpd_switch"
 
@@ -50,7 +50,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/skip_back.png"
+      icon = "~/.images/streamdeck/skip_back.png"
   [keys.action]
     exec = "mpc prev"
 
@@ -59,7 +59,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/rewind.png"
+      icon = "~/.images/streamdeck/rewind.png"
   [keys.action]
     exec = "mpc seek -00:00:10"
 
@@ -68,7 +68,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/play_pause.png"
+      icon = "~/.images/streamdeck/play_pause.png"
   [keys.action]
     exec = "mpc toggle"
 
@@ -77,7 +77,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/fast_forward.png"
+      icon = "~/.images/streamdeck/fast_forward.png"
   [keys.action]
     exec = "mpc seek +00:00:10"
 
@@ -86,7 +86,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/skip_forward.png"
+      icon = "~/.images/streamdeck/skip_forward.png"
   [keys.action]
     exec = "mpc next"
 
@@ -95,6 +95,6 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/home.png"
+      icon = "~/.images/streamdeck/home.png"
   [keys.action]
     deck = "~/.config/streamdeck/main.deck"

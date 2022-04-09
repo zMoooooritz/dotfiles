@@ -1,4 +1,4 @@
-background = "~/Pictures/streamdeck/background/background.png"
+background = "~/.images/stream_img.jpg"
 
 [[keys]]
   index = 0
@@ -55,7 +55,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/half_volume.png"
+      icon = "~/.images/streamdeck/half_volume.png"
   [keys.action]
     exec = "~/.scripts/volume dec"
 
@@ -64,7 +64,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/no_volume.png"
+      icon = "~/.images/streamdeck/no_volume.png"
   [keys.action]
     exec = "~/.scripts/volume toggle"
 
@@ -73,7 +73,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/full_volume.png"
+      icon = "~/.images/streamdeck/full_volume.png"
   [keys.action]
     exec = "~/.scripts/volume inc"
 
@@ -82,7 +82,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/crop.png"
+      icon = "~/.images/streamdeck/crop.png"
   [keys.action]
     exec = "~/.scripts/screenshot sel"
 
@@ -91,7 +91,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/camera.png"
+      icon = "~/.images/streamdeck/camera.png"
   [keys.action]
     exec = "~/.scripts/screenshot"
 
@@ -100,7 +100,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/headphones.png"
+      icon = "~/.images/streamdeck/headphones.png"
   [keys.action]
     exec = "~/.scripts/audio toggle"
 
@@ -109,7 +109,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/music.png"
+      icon = "~/.images/streamdeck/music.png"
   [keys.action]
     deck = "~/.config/streamdeck/music.deck"
   [keys.action_hold]
@@ -120,7 +120,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/power.png"
+      icon = "~/.images/streamdeck/power.png"
   [keys.action]
     deck = "~/.config/streamdeck/power.deck"
 
@@ -129,7 +129,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/screenshot.png"
+      icon = "~/.images/streamdeck/screenshot.png"
   [keys.action]
     deck = "~/.config/streamdeck/scratch.deck"
 
@@ -138,6 +138,6 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/timer2.png"
+      icon = "~/.images/streamdeck/timer2.png"
   [keys.action]
     exec = "~/.scripts/tracker_toggle"

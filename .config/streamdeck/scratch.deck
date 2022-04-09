@@ -1,11 +1,11 @@
-background = "~/Pictures/streamdeck/background/background.png"
+background = "~/.images/stream_img.jpg"
 
 [[keys]]
   index = 5
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/write.png"
+      icon = "~/.images/streamdeck/write.png"
   [keys.action]
     exec = "~/.scripts/toggle TODO"
 
@@ -14,7 +14,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/music.png"
+      icon = "~/.images/streamdeck/music.png"
   [keys.action]
     exec = "~/.scripts/toggle MUSIC"
 
@@ -23,7 +23,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/list.png"
+      icon = "~/.images/streamdeck/list.png"
   [keys.action]
     exec = "~/.scripts/toggle CALENDAR"
 
@@ -32,7 +32,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/cloud.png"
+      icon = "~/.images/streamdeck/cloud.png"
   [keys.action]
     exec = "~/.scripts/toggle WTTR"
 
@@ -41,7 +41,7 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/$.png"
+      icon = "~/.images/streamdeck/$.png"
   [keys.action]
     exec = "~/.scripts/toggle CRYPTO"
 
@@ -50,6 +50,6 @@ background = "~/Pictures/streamdeck/background/background.png"
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "~/Pictures/streamdeck/home.png"
+      icon = "~/.images/streamdeck/home.png"
   [keys.action]
     deck = "~/.config/streamdeck/main.deck"

@@ -1,50 +1,14 @@
 #!/bin/sh
 
-DECKMASTER="$HOME/Public/deckmaster/deckmaster"
-DECKMASTER_CONFIG="$HOME/.config/streamdeck/main.deck"
-STREAMDECK_PATH="$HOME/Pictures/streamdeck"
-STREAMDECK_BACKGROUND="$STREAMDECK_PATH/background"
-
-select_background() {
-    count=$(find ${STREAMDECK_BACKGROUND} -type f -name 'background*.png' -printf '.' | wc -c)
-    index=$((1 + $(date "+%-j") % $count))
-    if [ $1 ]; then
-       index=$1 
-    fi
-    if [ -f "${STREAMDECK_BACKGROUND}/background${index}.png" ]; then
-        ln -s -f "${STREAMDECK_BACKGROUND}/background${index}.png" "${STREAMDECK_BACKGROUND}/background.png"
-    fi
-}
-
-update_image() {
-    count=$(find ${STREAMDECK_BACKGROUND} -type f -name 'awesome*.png' -printf '.' | wc -c)
-    current=$(readlink -f "${STREAMDECK_BACKGROUND}/awesome.png" | tr -d -c 0-9)
-    if [ ! $1 ]; then
-        return
-    fi
-    index=$((current+$1))
-    echo $index
-    if [ $index == $((count+1)) ]; then
-        index=1
-    elif [ $index == 0 ]; then
-        index=$count
-    fi
-    if [ -f "${STREAMDECK_BACKGROUND}/awesome${index}.png" ]; then
-        ln -s -f "${STREAMDECK_BACKGROUND}/awesome${index}.png" "${STREAMDECK_BACKGROUND}/awesome.png"
-    fi
-}
+DECKMASTER="${HOME}/Public/deckmaster/deckmaster"
+DECKMASTER_CONFIG="${HOME}/.config/streamdeck/main.deck"
 
 case $1 in
-    "b"|"B"|"bg"|"background")
-        select_background "$2"
-        ;;
     "s"|"S"|"start")
         i3-msg exec "$DECKMASTER -deck $DECKMASTER_CONFIG"
         ;;
     "r"|"R"|"restart")
         killall deckmaster -q
-        select_background "$2"
-        ln -s -f "${STREAMDECK_BACKGROUND}/awesome1.png" "${STREAMDECK_BACKGROUND}/awesome.png"
         i3-msg exec "$DECKMASTER -deck $DECKMASTER_CONFIG"
         ;;
     "c"|"C"|"clear")
@@ -52,12 +16,6 @@ case $1 in
         i3-msg exec "$DECKMASTER -deck $DECKMASTER_CONFIG -brightness 0"
         sleep 1
         killall deckmaster -q
-        ;;
-    "n"|"N"|"next")
-        update_image "1"
-        ;;
-    "p"|"P"|"prev")
-        update_image "-1"
         ;;
     *)
         ;;
