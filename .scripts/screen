@@ -1,9 +1,10 @@
 #!/bin/sh
 
-# TODO template
-
-# Normal Laptop-Screen
+{%@@ if profile == "eta" @@%}
+INTERN="eDP-1"
+{%@@ elif profile == "pi" @@%}
 INTERN="DP-2"
+{%@@ endif @@%}
 
 # VGA Output
 VGA="VGA"
