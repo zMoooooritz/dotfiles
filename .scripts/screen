@@ -1,9 +1,9 @@
 #!/bin/sh
 
 {%@@ if profile == "eta" @@%}
-INTERN="eDP-1"
-{%@@ elif profile == "pi" @@%}
 INTERN="DP-2"
+{%@@ elif profile == "pi" @@%}
+INTERN="eDP-1"
 {%@@ endif @@%}
 
 # VGA Output

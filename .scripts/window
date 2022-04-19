@@ -11,12 +11,14 @@ id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
 ! [ -f $name_path ] && echo "name file does not exist" && exit 0
 
 name=$(xprop -id $id | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
+icon_name=$(xprop -id $id | awk '/_NET_WM_ICON_NAME/{$1=$2="";print}' | cut -d'"' -f2)
 
 # check if the window changed
 read old_id < $id_path
 read old_name < $name_path
-[[ $id$name == $old_id ]] && echo $old_name && exit 0
-echo $id$name > $id_path
+ident="$id$name$icon_name"
+[[ $ident == $old_id ]] && echo $old_name && exit 0
+echo $ident > $id_path
 
 output="$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).output' | cut -d"\"" -f2): "
 
@@ -64,7 +66,7 @@ elif [[ ${class_full_upper[@]} =~ "$class" ]]; then
     # whatever you want to do when class_full_upper contains value
     title="${class^^}"
 elif [[ $class == "st" ]]; then
-    s_name=${name##..*/}
+    s_name=${icon_name##..*/}
     title="st - $s_name"
 else
     title="$class"

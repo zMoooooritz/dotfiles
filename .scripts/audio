@@ -32,8 +32,5 @@ case $1 in
             change_sink_and_source $HEADSET_KEY $HEADSET_KEY
         fi
         ;;
-    *)
-        change_sink_and_source
-        ;;
 esac
 
