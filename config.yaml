@@ -87,12 +87,6 @@ dotfiles:
   f_config_directories:
     src: .config/directories
     dst: ~/.config/directories
-  f_config_wall_eta:
-    src: .config/wall_eta.jpg
-    dst: ~/.config/wall.jpg
-  f_config_wall_pi:
-    src: .config/wall_pi.jpg
-    dst: ~/.config/wall.jpg
   d_cheatsheets:
     src: .cheatsheets
     dst: ~/.cheatsheets
@@ -140,13 +134,10 @@ profiles:
     - d_local_share_applications
     - d_cheatsheets
   pi:
-    dotfiles:
-    - f_config_wall_pi
     include:
     - base
   eta:
     dotfiles:
-    - f_config_wall_eta
     - d_config_streamdeck
     include:
     - base
