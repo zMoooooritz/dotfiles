@@ -15,3 +15,6 @@ map <Right> navigate next
 map <Left> navigate previous
 
 map <C-r> recolor
+
+# map <C-x> feedkeys ":exec page_del $FILE $PAGE<Return>"
+

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ $(pidof -x $0 -o $$) > /dev/null ]; then
+    echo "Script is already running in another instance"
+    exit 0
+fi
+
+if [ -z $2 ]; then
+    echo "Missing arguments"
+    exit 0
+fi
+
+tmp=$(mktemp)
+trap "rm -f $tmp" EXIT
+pdftk "$1" cat "~$2" output $tmp && mv $tmp "$1"
+
