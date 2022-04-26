@@ -154,8 +154,10 @@ bindsym $mod+n exec --no-startup-id ~/.scripts/audio toggle
 
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/screenshot
 bindsym --release $mod+Ctrl+s exec --no-startup-id ~/.scripts/screenshot sel
+bindsym --release $mod+Ctrl+Mod1+s exec --no-startup-id ~/.scripts/screenshot sel_copy
 bindsym Print exec --no-startup-id ~/.scripts/screenshot
 bindsym --release Ctrl+Print exec --no-startup-id ~/.scripts/screenshot sel
+bindsym --release Ctrl+Mod1+Print exec --no-startup-id ~/.scripts/screenshot sel_copy
 
 bindsym $mod+Mod1+r exec --no-startup-id ~/.scripts/reboot
 bindsym $mod+Mod1+s exec --no-startup-id ~/.scripts/shutdown

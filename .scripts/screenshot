@@ -6,7 +6,16 @@ combined=$save_path$name
 file_num=$(ls $save_path | wc -l)
 
 case $1 in
-    "sel") scrot -l style=solid,width=3 -s -f -z -q 100 $combined ;;
+    "sel")
+        killall unclutter && unclutter &
+        scrot -l style=solid,width=3 -s -f -z -q 100 $combined ;;
+    "sel_copy")
+        killall unclutter && unclutter &
+        scrot -l style=solid,width=3 -s -f -z -q 100  $combined
+        if [ -f $combined ]; then
+            xclip -selection clipboard -t image/png -i $combined
+        fi
+        ;;
     *) scrot -z -q 100 $combined ;;
 esac
 
