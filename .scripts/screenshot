@@ -1,23 +1,9 @@
 #!/bin/sh
 
-name=$(date +'%Y-%m-%d_%H:%M:%S.png')
-save_path="/home/moritz/Pictures/screenshots/"
-combined=$save_path$name
-file_num=$(ls $save_path | wc -l)
-
 case $1 in
     "sel")
-        killall unclutter && unclutter &
-        scrot -l style=solid,width=3 -s -f -z -q 100 $combined ;;
-    "sel_copy")
-        killall unclutter && unclutter &
-        scrot -l style=solid,width=3 -s -f -z -q 100  $combined
-        if [ -f $combined ]; then
-            xclip -selection clipboard -t image/png -i $combined
-        fi
-        ;;
-    *) scrot -z -q 100 $combined ;;
+        flameshot gui ;;
+    *)
+        flameshot screen -c ;;
 esac
-
-[ "$file_num" -lt "$(ls $save_path | wc -l)" ] && notify-send "Screenshot" "Your screenshot has been saved!" --icon=simplescreenrecorder-idle
 

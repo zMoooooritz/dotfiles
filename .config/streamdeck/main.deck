@@ -85,8 +85,6 @@ background = "~/.images/stream_img.jpg"
       icon = "~/.images/streamdeck/crop.png"
   [keys.action]
     exec = "~/.scripts/screenshot sel"
-  [keys.action_hold]
-    exec = "~/.scripts/screenshot sel_copy"
 
 [[keys]]
   index = 9

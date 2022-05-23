@@ -9,6 +9,7 @@ nm-applet &
 pasystray &
 
 xset -b -dpms s off m 1/2 0 &
+xset r rate 400 40
 numlockx on &
 {%@@ if profile == "pi" @@%}
 setxkbmap -layout de &
