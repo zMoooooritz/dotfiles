@@ -11,9 +11,14 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
+Plug 'preservim/tagbar'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'xolox/vim-session'
 Plug 'lervag/vimtex'
 Plug 'dracula/vim'
-Plug 'scrooloose/nerdtree'
 Plug 'ap/vim-css-color'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -54,9 +59,9 @@ noremap <F3> :set list!<CR>
 
 noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-noremap <F5> :NERDTreeToggle<CR>
-
 noremap <F6> :call ToggleSpellChecking()<CR>
+
+nmap <F8> :TagbarToggle<CR>
 
 let g:is_spell_checking = 0
 
@@ -75,6 +80,13 @@ inoremap {<CR>  {<CR>}<Esc>O
 " make n/N always go in the same direction
 nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 nnoremap <expr> N 'nN'[v:searchforward] . "zv"
+
+nnoremap <leader>h :noh<CR>
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 """""""""""""""""""
 " Plugin settings "
@@ -140,3 +152,12 @@ let g:go_auto_type_info = 1           " Automatically get signature/type info fo
     :au FileType go nnoremap <leader>lD :GoDocBrowser<Enter>
     :au FileType go nnoremap <leader>ll :GoMetaLinter<Enter>
 :augroup END
+
+" vim-session
+let g:session_autoload = 'no'
+let g:session_autosave = 'no'
+nnoremap <leader>so :OpenSession 
+nnoremap <leader>ss :SaveSession 
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
