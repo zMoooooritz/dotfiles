@@ -16,7 +16,8 @@ Plug 'dense-analysis/ale'
 Plug 'preservim/tagbar'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'xolox/vim-session'
+Plug 'tpope/vim-obsession'
+Plug 'xolox/vim-notes'
 Plug 'lervag/vimtex'
 Plug 'dracula/vim'
 Plug 'ap/vim-css-color'
@@ -42,6 +43,8 @@ set foldlevel=120
 set encoding=utf-8
 set iskeyword+=-
 set incsearch
+set splitbelow
+set splitright
 syntax on
 filetype plugin indent on
 runtime macros/matchit.vim
@@ -87,6 +90,11 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 """""""""""""""""""
 " Plugin settings "
@@ -153,11 +161,6 @@ let g:go_auto_type_info = 1           " Automatically get signature/type info fo
     :au FileType go nnoremap <leader>ll :GoMetaLinter<Enter>
 :augroup END
 
-" vim-session
-let g:session_autoload = 'no'
-let g:session_autosave = 'no'
-nnoremap <leader>so :OpenSession 
-nnoremap <leader>ss :SaveSession 
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
+" vim-notes
+let g:notes_directories = ['~/.vim/misc/notes/']
 
