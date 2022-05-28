@@ -18,9 +18,7 @@ PARAM=(
     --time-pos="ix-280:iy+0"
     --time-size=50
     --date-pos="ix-280:iy+35"
-    --time-size=40
-    --date-pos="ix-265:iy+35"
-    --date-size=20
+    --date-size=24
     {%@@ endif @@%}
     --date-align 1
     --date-str="%A, %d.%m.%Y"
