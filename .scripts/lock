@@ -19,6 +19,12 @@ PARAM=(
     --time-size=50
     --date-pos="ix-280:iy+35"
     --date-size=24
+    {%@@ elif profile == "pi" @@%}
+    --ind-pos="x+310:y+h-80"
+    --time-pos="ix-265:iy+0"
+    --time-size=40
+    --date-pos="ix-265:iy+35"
+    --date-size=20
     {%@@ endif @@%}
     --date-align 1
     --date-str="%A, %d.%m.%Y"
