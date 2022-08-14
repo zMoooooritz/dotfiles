@@ -8,7 +8,7 @@ background = "~/.images/stream_img.jpg"
       mode = "cpu"
       fillColor = "#d497de"
   [keys.action]
-    exec = "st -e gotop"
+    exec = "~/.scripts/toggle SYSINFO"
 
 [[keys]]
   index = 1
@@ -18,7 +18,7 @@ background = "~/.images/stream_img.jpg"
       mode = "memory"
       fillColor = "#a69bd6"
   [keys.action]
-    exec = "st -e gotop"
+    exec = "~/.scripts/toggle SYSINFO"
 
 [[keys]]
   index = 2

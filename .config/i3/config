@@ -168,8 +168,8 @@ bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Ctrl+l workspace next
 
 # time tracker toggle
-bindsym $mod+odiaeresis exec --no-startup-id ~/.scripts/tracker toggle \
-    && polybar-msg hook tracker_hook 1
+#bindsym $mod+odiaeresis exec --no-startup-id ~/.scripts/tracker toggle \
+#    && polybar-msg hook tracker_hook 1
 
 # todolist configuration
 for_window [instance="TODO"] floating enable, sticky enable
@@ -191,6 +191,10 @@ bindsym $mod+w exec --no-startup-id ~/.scripts/toggle WTTR
 # crypto configuration
 for_window [instance="CRYPTO"] floating enable, sticky enable
 bindsym $mod+adiaeresis exec --no-startup-id ~/.scripts/toggle CRYPTO
+
+# system monitor configuration
+for_window [instance="SYSINFO"] floating enable, sticky enable
+bindsym $mod+odiaeresis exec --no-startup-id ~/.scripts/toggle SYSINFO
 
 # cheatsheet configuration
 for_window [instance="CHEATSHEET"] floating enable, sticky enable

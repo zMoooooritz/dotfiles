@@ -17,6 +17,7 @@ case $1 in
     "CALENDAR") i3-msg exec "st -n $1 -g 150x50 -e calcurse" ;;
     "WTTR") i3-msg exec "st -n $1 -g 125x38 -e weather_update" ;;
     "CRYPTO") i3-msg exec "st -n $1 -g 150x50 -e cointop" ;;
+    "SYSINFO") i3-msg exec "st -n $1 -g 150x50 -e btop" ;;
     *) ;;
 esac
 
