@@ -18,6 +18,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-obsession'
 Plug 'xolox/vim-notes'
+Plug 'vimwiki/vimwiki'
 Plug 'lervag/vimtex'
 Plug 'dracula/vim'
 Plug 'ap/vim-css-color'
@@ -66,16 +67,17 @@ noremap <F6> :call ToggleSpellChecking()<CR>
 
 nmap <F8> :TagbarToggle<CR>
 
-let g:is_spell_checking = 0
+let g:spell_index = 0
 
 function! ToggleSpellChecking()
-    if g:is_spell_checking
-        setlocal nospell
-        let g:is_spell_checking = 0
-    else
+    if g:spell_index == 0
         setlocal spell spelllang=de_20
-        let g:is_spell_checking = 1
+    elseif g:spell_index == 1
+        setlocal spell spelllang=en_us
+    else
+        setlocal nospell
     endif
+    let g:spell_index = (g:spell_index + 1) % 3
 endfunction
 
 inoremap {<CR>  {<CR>}<Esc>O
