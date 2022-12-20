@@ -168,8 +168,8 @@ bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Ctrl+l workspace next
 
 # time tracker toggle
-#bindsym $mod+odiaeresis exec --no-startup-id ~/.scripts/tracker toggle \
-#    && polybar-msg hook tracker_hook 1
+bindsym $mod+adiaeresis exec --no-startup-id ~/.scripts/tracker toggle \
+    && polybar-msg hook tracker_hook 1
 
 # todolist configuration
 for_window [instance="TODO"] floating enable, sticky enable
@@ -189,8 +189,8 @@ for_window [instance="WTTR"] floating enable, sticky enable
 bindsym $mod+w exec --no-startup-id ~/.scripts/toggle WTTR
 
 # crypto configuration
-for_window [instance="CRYPTO"] floating enable, sticky enable
-bindsym $mod+adiaeresis exec --no-startup-id ~/.scripts/toggle CRYPTO
+# for_window [instance="CRYPTO"] floating enable, sticky enable
+# bindsym $mod+adiaeresis exec --no-startup-id ~/.scripts/toggle CRYPTO
 
 # system monitor configuration
 for_window [instance="SYSINFO"] floating enable, sticky enable
@@ -224,7 +224,7 @@ client.background       $full-dark-color
 
 # disable border for all applicatios
 for_window [class="^.*"] border pixel 2
-for_window [class="^Thunderbird"] layout stacking
+for_window [class="^thunderbird"] layout stacking
 for_window [class="^Pavucontrol"] floating enable
 
 # #---Multimedia Key Bindings---# #

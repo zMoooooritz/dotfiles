@@ -97,45 +97,39 @@ def now():
     return datetime.datetime.now().replace(microsecond=0)
 
 def secs_to_time(seconds):
-    minutes = int(seconds / 60)
-    hours = str(int(minutes  / 60))
-    mins = str(minutes % 60)
-    return hours.zfill(2) + ":" + mins.zfill(2)
+    mins, _ = divmod(seconds, 60)
+    hours, mins = divmod(mins, 60)
+    return str(hours).zfill(2) + ":" + str(mins).zfill(2)
 
 def print_usage():
     print(USAGE)
 
-USAGE = """Usage: {} [options]
+USAGE = f"""Usage: {sys.argv[0].split('/')[-1]} [options]
     start
     reset
+    current
     pause
     unpause
     toggle
-    usage""".format(sys.argv[0].split("/")[-1])
+    usage"""
 
 if __name__ == '__main__':
 
-    if (len(sys.argv) == 1):
+    if len(sys.argv) == 1:
         print_usage()
         sys.exit()
 
     cmd = sys.argv[1]
     t = Tracker()
 
-    if (cmd == "start"):
-        t.start_tracking()
-    if (cmd == "reset"):
-        t.reset_tracking()
-    elif (cmd == "current"):
-        t.print_current()
-    elif (cmd == "pause"):
-        t.pause_tracking()
-    elif (cmd == "unpause"):
-        t.unpause_tracking()
-    elif (cmd == "toggle"):
-        t.toggle_tracking()
-    elif (cmd == "usage" or cmd == "help"):
-        print_usage()
-    else:
-        pass
+    func_mapping = {
+        "start": t.start_tracking,
+        "reset": t.reset_tracking,
+        "current": t.print_current,
+        "pause": t.pause_tracking,
+        "unpause": t.unpause_tracking,
+        "toggle": t.toggle_tracking,
+    }
+
+    func_mapping.get(cmd, print_usage)()
 

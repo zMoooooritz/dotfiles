@@ -2,7 +2,7 @@
 
 case $1 in
     "s"|"shutdown"|"poweroff")
-        ssh -t "moritz@xi" -o ConnectTimeout=2 -o ConnectionAttempts=2 "sudo poweroff"
+        ssh -t "moritz@xi" -o ConnectTimeout=2 -o ConnectionAttempts=2 "sudo shutdown"
         ;;
     "r"|"reboot")
         ssh -t "moritz@xi" "sudo reboot"

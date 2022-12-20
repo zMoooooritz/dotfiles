@@ -23,7 +23,7 @@
             "percent": 1,
             "swallows": [
                {
-                  "class": "^Thunderbird$"
+                  "class": "^thunderbird$"
                }
             ],
             "type": "con"

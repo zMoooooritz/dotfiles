@@ -18,6 +18,7 @@ alias zshconfig="$EDITOR ~/.config/zsh/.zshrc" \
 alias ka="killall" \
         mkd="mkdir -pv" \
         p="sudo pacman" \
+        y="yay --sudoloop -Syu" \
         SS="sudo systemctl" \
         ls="ls --color=auto --group-directories-first" \
         grep="grep --color=auto" \
@@ -62,15 +63,15 @@ alias sl="sl && clear" \
         kappad='vboxmanage controlvm kappa poweroff' \
         temple='vboxmanage startvm temple' \
         templed='vboxmanage controlvm temple poweroff' \
-        sem='cd /home/moritz/Moritz/Studium/10.\ Semester/Module' \
+        ma='cd /home/moritz/Moritz/Studium/11.\ Semester/Masterarbeit' \
         frost='docker-compose -f ~/Public/docker/docker-compose.yaml up </dev/null &>/dev/null &' \
         frostd='docker-compose -f ~/Public/docker/docker-compose.yaml down' \
         cov="coverage run --source=stapy setup.py test && coverage xml" \
-        cepd="ssh -i ~/.ssh/cepd -Y asip01@i80pdc.ira.uka.de"
+        hll="ssh moritz@vhndrk.de"
 
 # shortcuts for streamlink
 
-alias ard="streamlink daserste.de/live best" \
+alias ard="streamlink live.daserste.de best" \
         zdf="streamlink zdf.de/live-tv best" \
         trill="streamlink twitch.tv/trilluxe best"
 
