@@ -72,7 +72,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3 mpd
 modules-center = window
-modules-right = weather pulseaudio backlight wlan eth cpu battery temperature cal
+modules-right = tracker_hook tracker weather pulseaudio backlight wlan eth cpu battery temperature cal
 {%@@ endif @@%}
 
 tray-position = right

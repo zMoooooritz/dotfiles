@@ -66,9 +66,9 @@ dotfiles:
   d_config_ncmpcpp:
     src: .config/ncmpcpp
     dst: ~/.config/ncmpcpp
-  f_config_nvim:
-    src: .config/nvim/init.vim
-    dst: ~/.config/nvim/init.vim
+  d_config_nvim:
+    src: .config/nvim
+    dst: ~/.config/nvim
   d_config_picom:
     src: .config/picom
     dst: ~/.config/picom
@@ -127,7 +127,7 @@ profiles:
     - d_config_sxiv
     - d_config_xob
     - d_config_zathura
-    - f_config_nvim
+    - d_config_nvim
     - f_config_zsh
     - f_config_directories
     - f_config_mopidy
@@ -144,4 +144,4 @@ profiles:
   xi:
     dotfiles:
     - f_config_zsh
-    - f_config_nvim
+    - d_config_nvim
