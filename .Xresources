@@ -4,71 +4,28 @@ Sxiv.background: #111111
 
 st.alpha: 0.9
 st.alphaOffset: 0.3
-*.font: Hack:pixelsize=14:antialias=true:autohint=true;
+st.font: Hack:pixelsize=14:antialias=true:autohint=true;
 st.termname: st
 st.borderpx: 2
-/* *.foreground: #F8F8F2 */
-/* *.background: #202435 */
-/* *.color0:     #282a36 */
-/* *.color8:     #4D4D4D */
-/* *.color1:     #FF5555 */
-/* *.color9:     #FF6E67 */
-/* *.color2:     #50FA7B */
-/* *.color10:    #5AF78E */
-/* *.color3:     #F1FA8C */
-/* *.color11:    #F4F99D */
-/* *.color4:     #BD93F9 */
-/* *.color12:    #CAA9FA */
-/* *.color5:     #FF79C6 */
-/* *.color13:    #FF92D0 */
-/* *.color6:     #8BE9FD */
-/* *.color14:    #9AEDFE */
-/* *.color7:     #BFBFBF */
-/* *.color15:    #E6E6E6 */
-
-
-*.color0:     #000000
-*.color8:     #44475A
-*.color1:     #FF5555
-*.color9:     #FF9585
-*.color2:     #7BFF7B
-*.color10:    #80FF9B
-*.color3:     #B58900
-*.color11:    #F1FA8C
-*.color4:     #268BD2
-*.color12:    #7DA3F9
-*.color5:     #FF79C6
-*.color13:    #FF99E6
-*.color6:     #8BE9FD
-*.color14:    #9BF9FD
-*.color7:     #BBBBBB
-*.color15:    #FFFFFF
-*.bgFocus:    #1c1c1c
-*.bgUnfocus:  #5a5a5a
-*.background: #1c1c1c
-*.foreground: #FFFFFF
-*.cursorColor:#FFFFFF
 
 /* Gruvbox */
-/* *.color0: #1d2021 */
-/* *.color1: #cc241d */
-/* *.color2: #98971a */
-/* *.color3: #d79921 */
-/* *.color4: #458588 */
-/* *.color5: #b16286 */
-/* *.color6: #689d6a */
-/* *.color7: #a89984 */
-/* *.color8: #928374 */
-/* *.color9: #fb4934 */
-/* *.color10: #b8bb26 */
-/* *.color11: #fabd2f */
-/* *.color12: #83a598 */
-/* *.color13: #d3869b */
-/* *.color14: #8ec07c */
-/* *.color15: #ebdbb2 */
-/* *.bgFocus: #1c1c1c */
-/* *.bgUnfocus: #5a5a5a */
-/* *.background: #1c1c1c */
-/* *.foreground: white */
-/* *.cursorColor: white */
+*.color0: #1d2021
+*.color1: #cc241d
+*.color2: #98971a
+*.color3: #d79921
+*.color4: #458588
+*.color5: #b16286
+*.color6: #689d6a
+*.color7: #a89984
+*.color8: #928374
+*.color9: #fb4934
+*.color10: #b8bb26
+*.color11: #fabd2f
+*.color12: #83a598
+*.color13: #d3869b
+*.color14: #8ec07c
+*.color15: #ebdbb2
+*.background: #282828
+*.foreground: white
+*.cursorColor: white
 
