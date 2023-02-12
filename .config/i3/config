@@ -143,10 +143,10 @@ bindsym $mod+Shift+Ctrl+0 move container to workspace 20
 
 # #--- Other Bindings ---# #
 
-bindsym $mod+d exec rofi -show run -theme solarized_alternate.rasi -lines 5
-bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -theme solarized_alternate.rasi
-bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -run-command '{cmd}' -theme solarized_alternate.rasi
-bindsym $mod+e exec rofi -show emoji -modi emoji -theme solarized_alternate.rasi
+bindsym $mod+d exec rofi -show drun -modi drun -monitor -4 -theme "~/.config/rofi/drun.rasi"
+bindsym $mod+c exec rofi -show calc -modi calc -monitor -4 -no-show-match -no-sort -no-persist-history
+bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -monitor -4 -run-command '{cmd}'
+bindsym $mod+e exec rofi -show emoji -modi emoji -monitor -4
 
 {%@@ if profile == "eta" @@%}
 bindsym $mod+n exec --no-startup-id ~/.scripts/audio toggle
@@ -195,10 +195,6 @@ bindsym $mod+w exec --no-startup-id ~/.scripts/toggle WTTR
 # system monitor configuration
 for_window [instance="SYSINFO"] floating enable, sticky enable
 bindsym $mod+odiaeresis exec --no-startup-id ~/.scripts/toggle SYSINFO
-
-# cheatsheet configuration
-for_window [instance="CHEATSHEET"] floating enable, sticky enable
-bindsym $mod+udiaeresis exec --no-startup-id ~/.scripts/cheatsheet
 
 set $bg-color            #365cad
 set $inactive-bg-color   #2f343f

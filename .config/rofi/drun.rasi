@@ -1,0 +1,21 @@
+
+configuration {
+    display-drun: "Applications";
+    drun-display-format: "{icon} {name}";
+    show-icons: true;
+}
+
+@theme "gruvbox.rasi"
+
+listview {
+    lines: 10;
+}
+
+element-text {
+    vertical-align:   0.5;
+}
+
+element-icon {
+    size:             1.5em;
+}
+

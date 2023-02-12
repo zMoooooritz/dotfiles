@@ -1,4 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=File Manager
+Name=ranger
 Exec=/usr/local/bin/st -e ranger %u
+Icon=ranger
+Terminal=true

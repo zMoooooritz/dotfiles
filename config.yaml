@@ -39,6 +39,12 @@ dotfiles:
   f_streamlinkrc:
     src: .config/streamlink/config
     dst: ~/.config/streamlink/config
+  f_config_gtk-2.0:
+    src: .config/gtk-2.0/gtkrc-2.0
+    dst: ~/.config/gtk-2.0/gtkrc-2.0
+  f_config_gtk-3.0:
+    src: .config/gtk-3.0/settings.ini
+    dst: ~/.config/gtk-3.0/settings.ini
   d_config_calcurse:
     src: .config/calcurse
     dst: ~/.config/calcurse
@@ -48,12 +54,6 @@ dotfiles:
   d_config_dunst:
     src: .config/dunst
     dst: ~/.config/dunst
-  d_config_gtk-2.0:
-    src: .config/gtk-2.0
-    dst: ~/.config/gtk-2.0
-  d_config_gtk-3.0:
-    src: .config/gtk-3.0
-    dst: ~/.config/gtk-3.0
   d_config_i3:
     src: .config/i3
     dst: ~/.config/i3
@@ -84,12 +84,12 @@ dotfiles:
   d_config_zathura:
     src: .config/zathura
     dst: ~/.config/zathura
+  d_config_rofi:
+    src: .config/rofi
+    dst: ~/.config/rofi
   f_config_directories:
     src: .config/directories
     dst: ~/.config/directories
-  d_cheatsheets:
-    src: .cheatsheets
-    dst: ~/.cheatsheets
   f_config_zsh:
     src: .config/zsh/.zshrc
     dst: ~/.config/zsh/.zshrc
@@ -112,12 +112,12 @@ profiles:
     - f_profile
     - f_zprofile
     - f_xprofile
+    - f_config_gtk-2.0
+    - f_config_gtk-3.0
     - d_scripts
     - d_config_calcurse
     - d_config_cava
     - d_config_dunst
-    - d_config_gtk-2.0
-    - d_config_gtk-3.0
     - d_config_i3
     - d_config_mpd
     - d_config_mpv
@@ -128,11 +128,11 @@ profiles:
     - d_config_xob
     - d_config_zathura
     - d_config_nvim
+    - d_config_rofi
     - f_config_zsh
     - f_config_directories
     - f_config_mopidy
     - d_local_share_applications
-    - d_cheatsheets
   pi:
     include:
     - base

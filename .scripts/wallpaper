@@ -18,7 +18,7 @@ function select_wallpaper {
     resolution=$(xrandr | grep " primary ")
     resolution=${resolution%%+*}
     resolution=${resolution##* }
-    convert $WALLPAPER_IMG -resize $resolution -blur 0x4 $WALLPAPER_IMG
+    convert $WALLPAPER_IMG -resize $resolution $WALLPAPER_IMG
     displays=$(xrandr | grep " connected " | wc -l)
     for (( display = 0; display < $displays; display++)); do
         nitrogen --head=$display --set-zoom-fill $WALLPAPER_IMG

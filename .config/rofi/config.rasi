@@ -1,0 +1,11 @@
+
+configuration {
+    display-window: "Windows";
+    display-calc: "Calculate";
+    display-clipboard: "Clipboard";
+    display-emoji: "Emoji";
+    show-icons: true;
+}
+
+@theme "gruvbox.rasi"
+
