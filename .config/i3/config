@@ -143,10 +143,10 @@ bindsym $mod+Shift+Ctrl+0 move container to workspace 20
 
 # #--- Other Bindings ---# #
 
-bindsym $mod+d exec rofi -show drun -modi drun -monitor -4 -theme "~/.config/rofi/drun.rasi"
-bindsym $mod+c exec rofi -show calc -modi calc -monitor -4 -no-show-match -no-sort -no-persist-history
-bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -monitor -4 -run-command '{cmd}'
-bindsym $mod+e exec rofi -show emoji -modi emoji -monitor -4
+bindsym $mod+d exec rofi -show drun -modi drun -monitor -1 -theme "~/.config/rofi/drun.rasi"
+bindsym $mod+c exec rofi -show calc -modi calc -monitor -1 -no-show-match -no-sort -no-persist-history
+bindsym $mod+m exec rofi -show clipboard -modi "clipboard:greenclip print" -monitor -1 -run-command '{cmd}'
+bindsym $mod+e exec rofi -show emoji -modi emoji -monitor -1
 
 {%@@ if profile == "eta" @@%}
 bindsym $mod+n exec --no-startup-id ~/.scripts/audio toggle
@@ -178,7 +178,7 @@ bindsym $mod+t exec --no-startup-id ~/.scripts/toggle TODO
 # musicplayer configuration
 for_window [instance="MUSIC"] floating enable, sticky enable
 bindsym $mod+r exec --no-startup-id ~/.scripts/toggle MUSIC
-bindsym $mod+Ctrl+r exec --no-startup-id ~/.scripts/mpd_switch
+bindsym $mod+Ctrl+r exec --no-startup-id ~/.scripts/music_switch
 
 # calendar configuration
 for_window [instance="CALENDAR"] floating enable, sticky enable
@@ -239,8 +239,8 @@ bindsym $mod+XF86AudioLowerVolume exec --no-startup-id ~/.scripts/volume down 1
 bindsym XF86AudioMute exec --no-startup-id ~/.scripts/volume toggle
 
 # Track control
-bindsym XF86AudioPlay exec ~/.scripts/multimedia playpause
-bindsym XF86AudioPause exec ~/.scripts/multimedia playpause
+bindsym XF86AudioPlay exec ~/.scripts/multimedia toggle
+bindsym XF86AudioPause exec ~/.scripts/multimedia toggle
 bindsym XF86AudioStop exec ~/.scripts/multimedia stop
 bindsym XF86AudioNext exec ~/.scripts/multimedia next
 bindsym XF86AudioPrev exec ~/.scripts/multimedia prev

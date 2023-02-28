@@ -7,7 +7,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/shuffle.png"
   [keys.action]
-    exec = "mpc random"
+    exec = "~/.scripts/multimedia shuffle"
 
 [[keys]]
   index = 1
@@ -16,7 +16,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/half_volume.png"
   [keys.action]
-    exec = "mpc volume -5"
+    exec = "~/.scripts/multimedia vol_down"
 
 [[keys]]
   index = 2
@@ -34,7 +34,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/full_volume.png"
   [keys.action]
-    exec = "mpc volume +5"
+    exec = "~/.scripts/multimedia vol_up"
 
 [[keys]]
   index = 4
@@ -43,7 +43,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/retweet.png"
   [keys.action]
-    exec = "~/.scripts/mpd_switch"
+    exec = "~/.scripts/music_switch"
 
 [[keys]]
   index = 5
@@ -52,7 +52,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/skip_back.png"
   [keys.action]
-    exec = "mpc prev"
+    exec = "~/.scripts/multimedia prev"
 
 [[keys]]
   index = 6
@@ -61,7 +61,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/rewind.png"
   [keys.action]
-    exec = "mpc seek -00:00:10"
+    exec = "~/.scripts/multimedia backward"
 
 [[keys]]
   index = 7
@@ -70,7 +70,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/play_pause.png"
   [keys.action]
-    exec = "mpc toggle"
+    exec = "~/.scripts/multimedia toggle"
 
 [[keys]]
   index = 8
@@ -79,7 +79,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/fast_forward.png"
   [keys.action]
-    exec = "mpc seek +00:00:10"
+    exec = "~/.scripts/multimedia forward"
 
 [[keys]]
   index = 9
@@ -88,7 +88,7 @@ background = "~/.images/stream_img.jpg"
     [keys.widget.config]
       icon = "~/.images/streamdeck/skip_forward.png"
   [keys.action]
-    exec = "mpc next"
+    exec = "~/.scripts/multimedia next"
 
 [[keys]]
   index = 12

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+classname="MUSIC"
+pid=$(xdotool search --classname $classname getwindowpid)
+pid_open=$(xdotool search --onlyvisible --classname $classname getwindowpid)
+kill -9 $pid >/dev/null 2>&1
+pidof -ws spotifyd && killall spotifyd || spotifyd &
+
+if [ "$pid_open" != "" ]; then
+    toggle $classname
+fi
+

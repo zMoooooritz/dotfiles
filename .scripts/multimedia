@@ -1,11 +1,45 @@
 #!/bin/sh
-
-if [ $(pidof -ws "mpd") > /dev/null ] || [ $(pidof -ws "mopidy") > /dev/null ]; then
+#
+if [ $(pidof -ws "spotifyd") 2> /dev/null ]; then
     case "$1" in
-        "playpause") mpc toggle ;;
+        "toggle")    spt pb --toggle;;
+        "next")      spt pb --next ;;
+        "prev")      spt pb --previous ;;
+        "shuffle")   spt pb --shuffle ;;
+        "forward")   spt pb --seek +10 ;;
+        "backward")  spt pb --seek -10 ;;
+        "vol_up")    spt pb --volume 80 ;;
+        "vol_down")  spt pb --volume 70 ;;
+        "current")
+            echo $(spt pb -s -f '%t - %a' 2> /dev/null ) ;;
+    esac
+elif [ $(pidof -ws "mpd") 2> /dev/null ]; then
+    case "$1" in
+        "toggle")    mpc toggle ;;
         "stop")      mpc stop ;;
         "next")      mpc next ;;
         "prev")      mpc prev ;;
+        "shuffle")   mpc random ;;
+        "forward")   mpc seek +00:00:10 ;;
+        "backward")  mpc seek -00:00:10 ;;
+        "vol_up")    mpc volume +5 ;;
+        "vol_down")  mpc volume -5 ;;
+        "current")
+            file=$(mpc --format %file% 2> /dev/null | head -n 1)
+
+            if [[ "$file" == *"http"* ]]; then
+                title=$(mpc --format %name% 2> /dev/null | head -n 1)
+            else
+                title=$(mpc --format %title% 2> /dev/null | head -n 1 | cut -f1 -d"(" | cut -f1 -d"-")
+                artist=$(mpc --format %artist% 2> /dev/null | head -n 1 | cut -f1 -d";")
+                title="${title%% } - $artist"
+            fi
+            echo "$title"
+            ;;
+    esac
+else 
+    case "$1" in
+        "current") echo "" ;;
     esac
 fi
 

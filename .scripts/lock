@@ -27,7 +27,7 @@ PARAM=(
     --date-size=20
     {%@@ endif @@%}
     --date-align 1
-    --date-str="%A, %d.%m.%Y"
+    --date-str="%a, %d.%m.%Y"
     --date-color=ffffffff
     --date-font="sans-serif"
     --layout-pos="ix-1000:iy+1000"

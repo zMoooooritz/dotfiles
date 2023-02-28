@@ -1,4 +1,0 @@
-#!/bin/sh
-
-pidof -ws mpd && (killall mpd; mopidy -q &) || (killall mopidy; mpd &)
-
