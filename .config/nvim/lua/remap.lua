@@ -11,6 +11,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<leader>h", ":noh<CR>")
+vim.keymap.set("n", "<leader>H", ":set hlsearch!<CR>")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -27,32 +28,19 @@ vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+vim.keymap.set("n", "<F2>", ":set nonumber!<CR>:set relativenumber!<CR>")
+vim.keymap.set("n", "<F3>", ":set list!<CR>")
+vim.keymap.set("n", "<F4>", ":let _s=@/<Bar>:%s/\\s\\+$//e<Bar>:let @/=_s<Bar><CR>")
 
-vim.api.nvim_exec([[
-    noremap <F2> :call ToggleNumber()<CR>
-    function! ToggleNumber()
-        :set nonumber!
-        :set relativenumber!
-    endfunction
-
-    noremap <F3> :set list!<CR>
-
-    noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-    noremap <F6> :call ToggleSpellChecking()<CR>
-
-    let g:spell_index = 0
-
-    function! ToggleSpellChecking()
-        if g:spell_index == 0
-            setlocal spell spelllang=de_20
-        elseif g:spell_index == 1
-            setlocal spell spelllang=en_us
-        else
-            setlocal nospell
-        endif
-        let g:spell_index = (g:spell_index + 1) % 3
-    endfunction
-
-]], false)
+local spell_index = 0
+vim.keymap.set("n", "<F6>", function ()
+    if spell_index == 0 then
+        vim.cmd("setlocal spell spelllang=de_20")
+    elseif spell_index == 1 then
+        vim.cmd("setlocal spell spelllang=en_us")
+    else
+        vim.cmd("setlocal nospell")
+    end
+    spell_index = (spell_index + 1) % 3
+end)
 

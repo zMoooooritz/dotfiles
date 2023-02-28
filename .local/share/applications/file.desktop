@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=ranger
-Exec=/usr/local/bin/st -e ranger %u
+Exec=ranger %u
 Icon=ranger
 Terminal=true

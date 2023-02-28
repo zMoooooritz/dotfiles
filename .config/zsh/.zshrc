@@ -7,6 +7,8 @@ setopt interactive_comments
 
 autoload -Uz zmv
 
+zle_highlight=('paste:none')
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -97,6 +99,8 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+bindkey "^p" up-line-or-beginning-search
+bindkey "^n" down-line-or-beginning-search
 
 # History in cache directory:
 setopt inc_append_history
@@ -118,3 +122,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
 source /usr/share/zsh/plugins/zsh-z/zsh-z.plugin.zsh 2>/dev/null
+
+source /usr/share/fzf/completion.zsh 2> /dev/null
+
+source /usr/share/fzf/key-bindings.zsh 2> /dev/null
+
