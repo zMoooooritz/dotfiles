@@ -63,11 +63,11 @@ alias sl="sl && clear" \
         kappad='vboxmanage controlvm kappa poweroff' \
         temple='vboxmanage startvm temple' \
         templed='vboxmanage controlvm temple poweroff' \
-        ma='cd /home/moritz/Moritz/Studium/11.\ Semester/Masterarbeit' \
+        ma='cd /home/moritz/Moritz/Studium/11.\ Semester/Masterarbeit/Ausarbeitung' \
         frost='docker-compose -f ~/Public/docker/docker-compose.yaml up </dev/null &>/dev/null &' \
         frostd='docker-compose -f ~/Public/docker/docker-compose.yaml down' \
         cov="coverage run --source=stapy setup.py test && coverage xml" \
-        hll="ssh moritz@vhndrk.de"
+        hll="ssh moritz@hll.vhndrk.de"
 
 # shortcuts for streamlink
 

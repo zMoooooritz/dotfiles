@@ -11,7 +11,13 @@ if [ $(pidof -ws "spotifyd") 2> /dev/null ]; then
         "vol_up")    spt pb --volume 80 ;;
         "vol_down")  spt pb --volume 70 ;;
         "current")
-            echo $(spt pb -s -f '%t - %a' 2> /dev/null ) ;;
+            title=$(spt pb -s -f '%t' 2> /dev/null | cut -f1 -d"(" | cut -f1 -d"-")
+            artist=$(spt pb -s -f '%a' 2> /dev/null | cut -f1 -d",")
+            if [[ "$title" != "" ]]; then
+                title="${title} - ${artist}"
+            fi
+            echo $title
+            ;;
     esac
 elif [ $(pidof -ws "mpd") 2> /dev/null ]; then
     case "$1" in
@@ -25,13 +31,15 @@ elif [ $(pidof -ws "mpd") 2> /dev/null ]; then
         "vol_up")    mpc volume +5 ;;
         "vol_down")  mpc volume -5 ;;
         "current")
-            file=$(mpc --format %file% 2> /dev/null | head -n 1)
+            file=$(mpc -q --format %file% 2> /dev/null)
 
-            if [[ "$file" == *"http"* ]]; then
-                title=$(mpc --format %name% 2> /dev/null | head -n 1)
+            if [[ "$file" == "" ]]; then
+                title=""
+            elif [[ "$file" == *"http"* ]]; then
+                title=$(mpc -q --format %name% 2> /dev/null)
             else
-                title=$(mpc --format %title% 2> /dev/null | head -n 1 | cut -f1 -d"(" | cut -f1 -d"-")
-                artist=$(mpc --format %artist% 2> /dev/null | head -n 1 | cut -f1 -d";")
+                title=$(mpc -q --format %title% 2> /dev/null | cut -f1 -d"(" | cut -f1 -d"-")
+                artist=$(mpc -q --format %artist% 2> /dev/null | cut -f1 -d";")
                 title="${title%% } - $artist"
             fi
             echo "$title"

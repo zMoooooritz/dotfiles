@@ -55,9 +55,9 @@ class Tracker:
     def print_current(self):
         time = secs_to_time(self.get_active_time() + self.get_prev_time())
         if (self.is_active()):
-            print(time + "h")
+            print('%{F#ebdbb2}' + time + "h" + '%{F-}')
         else:
-            print('%{F#ffee00}' + time + "h" + '%{F-}')
+            print('%{F#fabd2f}' + time + "h" + '%{F-}')
 
     def is_active(self):
         return load_content(START) != "0"

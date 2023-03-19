@@ -6,7 +6,7 @@ font pango:Noto Sans Regular 11
 {%@@ elif profile == "pi" @@%}
 font pango:monospace 9
 {%@@ endif @@%}
-gaps inner 15
+gaps inner 10
 focus_follows_mouse yes
 mouse_warping none
 hide_edge_borders both

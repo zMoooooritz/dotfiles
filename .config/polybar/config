@@ -17,15 +17,13 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
+background = ${xrdb:color0}
+background-alt = ${xrdb:background}
+foreground = ${xrdb:color15}
+foreground-alt = ${xrdb:color8}
+primary = ${xrdb:color3}
 secondary = #e60053
-alert = #bd2c40
+alert = ${xrdb:color1}
 
 [bar/main]
 {%@@ if profile == "eta" @@%}
@@ -45,10 +43,12 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 4
 line-color = #f00
 
-border-size = 4
+border-left-size = 10
+border-top-size = 5
+border-right-size = 10
 border-color = #00000000
 
 padding-left = 0
@@ -64,7 +64,7 @@ font-2 = siji:pixelsize=13;1
 
 modules-left = i3 music
 modules-center = window
-modules-right = tracker_hook tracker weather pulseaudio eth cpu temperature memory cal
+modules-right = tracker_hook tracker weather pulseaudio cpu temperature memory cal
 {%@@ elif profile == "pi" @@%}
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -105,7 +105,9 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-border-size = 4
+border-left-size = 10
+border-top-size = 5
+border-right-size = 10
 border-color = #00000000
 
 padding-left = 0
@@ -272,7 +274,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${xrdb:color9}
 label = %percentage:2%%
 
 [module/memory]
@@ -280,7 +282,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${xrdb:color14}
 label = %percentage_used%%
 
 [module/wlan]
@@ -329,7 +331,7 @@ date = " %d.%m.%Y"
 date-alt = 
 
 time = " %H:%M:%S"
-time-alt = " %H:%M:%S"
+time-alt = 
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
@@ -341,29 +343,12 @@ label = %time% %date%
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-format-volume-underline = #fc7035
+format-volume-underline = ${xrdb:color11}
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted =  sound muted
-format-muted-underline = #fc7035
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator =
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+label-muted =  muted
+format-muted-underline = ${xrdb:color11}
 
 ;[module/alsa]
 ;type = internal/alsa
@@ -427,8 +412,8 @@ animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
 [module/music]
-format-underline = #008C79
 type = custom/script
+format-underline = ${xrdb:color4}
 exec = ~/.scripts/multimedia current
 tail = true
 interval = 1
@@ -445,8 +430,8 @@ exec = polybar-msg hook tracker_hook 1 &> /dev/null
 interval = 60
 
 [module/tracker_hook]
-format-underline = #e21012
 type = custom/ipc
+format-underline = ${xrdb:color9}
 hook-0 = ~/.scripts/tracker current
 hook-1 = date
 click-left = ~/.scripts/tracker toggle && polybar-msg -p %pid% hook tracker_hook 1
@@ -473,16 +458,16 @@ label =  %percentage%%
 {%@@ endif @@%}
 
 [module/weather]
-format-underline = #19b6ff
 type = custom/script
+format-underline = ${xrdb:color4}
 exec = ~/.scripts/weather_bar
 click-left = ~/.scripts/toggle WTTR
 tail = true
 interval = 5
 
 [module/cal]
-format-underline = #0a6cf5
 type = custom/script
+format-underline = ${xrdb:color4}
 exec = date '+%H:%M:%S %d.%m.%Y'
 click-left = ~/.scripts/toggle CALENDAR
 click-right = ~/.scripts/toggle CALENDAR
