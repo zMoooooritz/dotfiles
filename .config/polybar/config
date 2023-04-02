@@ -102,7 +102,7 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
+line-size = 3
 line-color = #f00
 
 border-left-size = 10
@@ -459,7 +459,7 @@ label =  %percentage%%
 
 [module/weather]
 type = custom/script
-format-underline = ${xrdb:color4}
+format-underline = ${xrdb:color6}
 exec = ~/.scripts/weather_bar
 click-left = ~/.scripts/toggle WTTR
 tail = true

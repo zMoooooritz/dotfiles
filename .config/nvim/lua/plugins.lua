@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
 	'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
   }
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
@@ -53,6 +54,8 @@ return require('packer').startup(function(use)
   use 'xolox/vim-notes'
   use 'lervag/vimtex'
   use 'airblade/vim-gitgutter'
+
+  use 'eandrju/cellular-automaton.nvim'
 
 end)
 
