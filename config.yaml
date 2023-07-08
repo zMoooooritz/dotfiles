@@ -99,6 +99,9 @@ dotfiles:
   d_config_streamdeck:
     src: .config/streamdeck
     dst: ~/.config/streamdeck
+  f_config_tmux:
+    src: .config/tmux/tmux.conf
+    dst: ~/.config/tmux/tmux.conf
   d_local_share_applications:
     src: .local/share/applications
     dst: ~/.local/share/applications
@@ -132,6 +135,7 @@ profiles:
     - f_config_zsh
     - f_config_directories
     - f_config_mopidy
+    - f_config_tmux
     - d_local_share_applications
   pi:
     include:

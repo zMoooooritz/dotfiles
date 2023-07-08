@@ -29,7 +29,8 @@ alias ka="killall" \
         ll="ls -lah" \
         vim="nvim" \
         svim="sudo nvim" \
-        py="python"
+        py="python" \
+        tmux="tmux -2"
 
 # other aliases
 
@@ -67,7 +68,6 @@ alias sl="sl && clear" \
         frost='docker-compose -f ~/Public/docker/docker-compose.yaml up </dev/null &>/dev/null &' \
         frostd='docker-compose -f ~/Public/docker/docker-compose.yaml down' \
         cov="coverage run --source=stapy setup.py test && coverage xml" \
-        hll="ssh moritz@hll.vhndrk.de"
 
 # shortcuts for streamlink
 

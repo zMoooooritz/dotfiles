@@ -55,6 +55,8 @@ return require('packer').startup(function(use)
   use 'lervag/vimtex'
   use 'airblade/vim-gitgutter'
 
+  use 'christoomey/vim-tmux-navigator'
+
   use 'eandrju/cellular-automaton.nvim'
 
 end)

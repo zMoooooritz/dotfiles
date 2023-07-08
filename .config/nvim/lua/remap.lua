@@ -44,4 +44,6 @@ vim.keymap.set("n", "<F6>", function ()
     spell_index = (spell_index + 1) % 3
 end)
 
+vim.keymap.set("n", "<leader>gs", ":Git<CR>")
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+
