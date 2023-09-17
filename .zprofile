@@ -17,6 +17,7 @@ export VISUAL="nvim"
 export ZDOTDIR="$HOME/.config/zsh"
 export LESSHISTFILE="-"
 export GOPATH="$HOME/.go"
+export GO111MODULE="auto"
 
 # Other settings
 #export ANDROID_SDK_ROOT="/opt/android-sdk"
