@@ -9,7 +9,7 @@ alias zshconfig="$EDITOR ~/.config/zsh/.zshrc" \
         polybarconfig="$EDITOR ~/.config/polybar/config" \
         i3config="$EDITOR ~/.config/i3/config" \
         vimconfig="$EDITOR ~/.vimrc" \
-        nvimconfig="$EDITOR ~/.config/nvim/init.vim" \
+        nvimconfig="$EDITOR ~/.config/nvim/init.lua" \
         aliasconfig="$EDITOR ~/.aliasrc" \
         dotconfig="$EDITOR ~/.dotfiles/config.yaml"
 
@@ -64,10 +64,6 @@ alias sl="sl && clear" \
         kappad='vboxmanage controlvm kappa poweroff' \
         temple='vboxmanage startvm temple' \
         templed='vboxmanage controlvm temple poweroff' \
-        ma='cd /home/moritz/Moritz/Studium/11.\ Semester/Masterarbeit/Ausarbeitung' \
-        frost='docker-compose -f ~/Public/docker/docker-compose.yaml up </dev/null &>/dev/null &' \
-        frostd='docker-compose -f ~/Public/docker/docker-compose.yaml down' \
-        cov="coverage run --source=stapy setup.py test && coverage xml" \
 
 # shortcuts for streamlink
 

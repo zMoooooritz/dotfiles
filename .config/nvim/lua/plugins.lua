@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
   use 'vim-airline/vim-airline-themes'
 
   use 'vimwiki/vimwiki'
+  use 'xolox/vim-misc'
   use 'xolox/vim-notes'
   use 'lervag/vimtex'
   use 'airblade/vim-gitgutter'
