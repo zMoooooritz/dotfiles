@@ -1,7 +1,7 @@
 #!/bin/sh
 
 {%@@ if profile == "eta" @@%}
-apps=(st brave thunderbird nemo telegram-desktop)
+apps=(st chromium thunderbird nemo telegram-desktop)
 {%@@ elif profile == "pi" @@%}
 apps=(st)
 {%@@ endif @@%}
