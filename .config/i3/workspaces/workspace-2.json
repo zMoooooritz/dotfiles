@@ -4,17 +4,17 @@
     "current_border_width": 2,
     "floating": "auto_off",
     "geometry": {
-       "height": 1013,
-       "width": 622,
-       "x": 659,
-       "y": 61
+       "height": 1269,
+       "width": 2536,
+       "x": 1932,
+       "y":159
     },
     "marks": [],
-    "name": "Brave",
+    "name": "Chromium",
     "percent": 1,
     "swallows": [
        {
-          "class": "^Brave\\-browser$"
+          "class": "^Chromium$"
        }
     ],
     "type": "con"

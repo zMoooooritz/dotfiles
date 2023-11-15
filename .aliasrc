@@ -8,8 +8,7 @@
 alias zshconfig="$EDITOR ~/.config/zsh/.zshrc" \
         polybarconfig="$EDITOR ~/.config/polybar/config" \
         i3config="$EDITOR ~/.config/i3/config" \
-        vimconfig="$EDITOR ~/.vimrc" \
-        nvimconfig="$EDITOR ~/.config/nvim/init.lua" \
+        nvimconfig="$EDITOR ~/.config/nvim/" \
         aliasconfig="$EDITOR ~/.aliasrc" \
         dotconfig="$EDITOR ~/.dotfiles/config.yaml"
 
@@ -63,7 +62,7 @@ alias sl="sl && clear" \
         kappa='vboxmanage startvm kappa' \
         kappad='vboxmanage controlvm kappa poweroff' \
         temple='vboxmanage startvm temple' \
-        templed='vboxmanage controlvm temple poweroff' \
+        templed='vboxmanage controlvm temple poweroff'
 
 # shortcuts for streamlink
 

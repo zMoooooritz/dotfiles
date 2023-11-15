@@ -29,3 +29,5 @@ st.borderpx: 2
 *.foreground: white
 *.cursorColor: white
 
+Xcursor.size: 16
+

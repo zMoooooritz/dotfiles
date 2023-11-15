@@ -64,7 +64,8 @@ font-2 = siji:pixelsize=13;1
 
 modules-left = i3 music
 modules-center = window
-modules-right = tracker_hook tracker weather pulseaudio cpu temperature memory cal
+modules-right = weather pulseaudio cpu temperature memory cal
+; tracker_hook tracker 
 {%@@ elif profile == "pi" @@%}
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
