@@ -9,6 +9,7 @@ alias zshconfig="$EDITOR ~/.config/zsh/.zshrc" \
         polybarconfig="$EDITOR ~/.config/polybar/config" \
         i3config="$EDITOR ~/.config/i3/config" \
         nvimconfig="$EDITOR ~/.config/nvim/" \
+        tmuxconfig="$EDITOR ~/.config/tmux/tmux.conf" \
         aliasconfig="$EDITOR ~/.aliasrc" \
         dotconfig="$EDITOR ~/.dotfiles/config.yaml"
 
@@ -45,12 +46,12 @@ alias sl="sl && clear" \
         pi="echo 'scale=14; 4*a(1)' | bc -l | figlet | lolcat" \
         wttr="curl wttr.in" \
         viminfo='i3-msg exec "feh --image-bg black -Z -. ~/Pictures/vimcheatsheet.jpg"' \
-        yt='youtube-dl -i' \
-        ytm='yt -x -f bestaudio/best' \
-        ncmp='ncmpcpp -q -c ~/.config/ncmpcpp/config' \
-        dotdrop='dotdrop --cfg=~/.dotfiles/config.yaml' \
-        dotgit='git -C ~/.dotfiles/dotfiles' \
-        dotsync='dotgit pull && dotgit add -A && dotgit commit && dotgit push; dotdrop install' \
+        yt="youtube-dl -i" \
+        ytm="yt -x -f bestaudio/best" \
+        ncmp="ncmpcpp -q -c ~/.config/ncmpcpp/config" \
+        dotdrop="dotdrop --cfg=~/.dotfiles/config.yaml" \
+        dotgit="git -C ~/.dotfiles/dotfiles" \
+        dotsync="dotgit pull && dotgit add -A && dotgit commit && dotgit push; dotdrop install" \
         ...="cd ../.." \
         ..2="cd ../.." \
         ....="cd ../../.." \
@@ -59,10 +60,11 @@ alias sl="sl && clear" \
         ..4="cd ../../../.." \
         ......="cd ../../../../.." \
         ..5="cd ../../../../.." \
-        kappa='vboxmanage startvm kappa' \
-        kappad='vboxmanage controlvm kappa poweroff' \
-        temple='vboxmanage startvm temple' \
-        templed='vboxmanage controlvm temple poweroff'
+        kappa="vboxmanage startvm kappa" \
+        kappad="vboxmanage controlvm kappa poweroff" \
+        temple="vboxmanage startvm temple" \
+        templed="vboxmanage controlvm temple poweroff" \
+        news="nachrichten -shortnews -config ~/.config/nachrichten/config.yaml"
 
 # shortcuts for streamlink
 
@@ -75,10 +77,14 @@ alias ard="streamlink live.daserste.de best" \
 alias g="git" \
         ga="git add" \
         gco="git checkout" \
+        gcm="git checkout master" \
         gb="git branch" \
         gc="git commit" \
+        gca="git commit --amend" \
         gd="git diff" \
         gp="git push" \
+        gpl="git pull" \
         gs="git status" \
         gl="git log --decorate --oneline" \
-        gh="git log --pretty=format:'%Cblue%h %Cgreen %ar%Creset %s'"
+        gh="git log --pretty=format:'%Cblue%h %Cgreen %ar%Creset %s'" \
+        gg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"

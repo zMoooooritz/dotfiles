@@ -127,3 +127,8 @@ source /usr/share/fzf/completion.zsh 2> /dev/null
 
 source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 
+zle -N fzf-cd-widget
+bindkey -M emacs '^F' fzf-cd-widget
+bindkey -M vicmd '^F' fzf-cd-widget
+bindkey -M viins '^F' fzf-cd-widget
+

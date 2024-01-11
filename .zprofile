@@ -24,6 +24,7 @@ export GO111MODULE="auto"
 # export QT_SELECT=5
 # export QT_STYLE_OVERRIDE="gtk2"
 export QT_QPA_PLATFORMTHEME="qt5ct"
+export GTK_THEME="Arc:dark"
 
 # Start graphical server if i3 not already running
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
