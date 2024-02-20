@@ -64,6 +64,7 @@ alias sl="sl && clear" \
         kappad="vboxmanage controlvm kappa poweroff" \
         temple="vboxmanage startvm temple" \
         templed="vboxmanage controlvm temple poweroff" \
+        nachrichten="nachrichten -config ~/.config/nachrichten/config.yaml" \
         news="nachrichten -shortnews -config ~/.config/nachrichten/config.yaml"
 
 # shortcuts for streamlink
@@ -87,4 +88,5 @@ alias g="git" \
         gs="git status" \
         gl="git log --decorate --oneline" \
         gh="git log --pretty=format:'%Cblue%h %Cgreen %ar%Creset %s'" \
-        gg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
+        gg="git log --graph --abbrev-commit --decorate --format=format:'%C()%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all" \
+        gcl="git branch --merged | grep -v '\*\|master\|main' | xargs -n 1 git branch -d"

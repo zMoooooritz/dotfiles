@@ -5,7 +5,7 @@ Sxiv.background: #111111
 st.alpha: 0.9
 st.alphaOffset: 0.3
 st.font: Hack:pixelsize=14:antialias=true:autohint=true;
-st.termname: st
+st.termname: xterm-256color
 st.borderpx: 2
 
 /* Gruvbox */

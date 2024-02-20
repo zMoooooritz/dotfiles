@@ -12,7 +12,7 @@ if xdotool search --classname "$1"; then
 fi
 
 case $1 in
-    "TODO") i3-msg exec "st -n $1 -g 150x50 -e nvim +edit note:todo" ;;
+    "TODO") i3-msg exec "st -n $1 -g 150x50 -e nvim +':Note TODO'" ;;
     "MUSIC")
         pidof -ws spotifyd && player="spt" || player="ncmpcpp"
         i3-msg exec "st -n $1 -g 150x50 -e $player" ;;
