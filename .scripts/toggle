@@ -11,15 +11,17 @@ if xdotool search --classname "$1"; then
     exit
 fi
 
+NORMAL_DIMS="-o window.dimensions.lines=40 -o window.dimensions.columns=120"
+BIG_DIMS="-o window.dimensions.lines=50 -o window.dimensions.columns=140"
+WEATHER_DIMS="-o window.dimensions.lines=38 -o window.dimensions.columns=125"
 case $1 in
-    "TODO") i3-msg exec "st -n $1 -g 150x50 -e nvim +':Note TODO'" ;;
+    "TODO") i3-msg exec "alacritty --class $1 $NORMAL_DIMS -e nvim +':Note TODO'" ;;
     "MUSIC")
         pidof -ws spotifyd && player="spt" || player="ncmpcpp"
-        i3-msg exec "st -n $1 -g 150x50 -e $player" ;;
-    "CALENDAR") i3-msg exec "st -n $1 -g 150x50 -e calcurse" ;;
-    "WTTR") i3-msg exec "st -n $1 -g 125x38 -e weather_update" ;;
-    "CRYPTO") i3-msg exec "st -n $1 -g 150x50 -e cointop" ;;
-    "SYSINFO") i3-msg exec "st -n $1 -g 150x50 -e btop" ;;
+        i3-msg exec "alacritty --class $1 $NORMAL_DIMS -e $player" ;;
+    "CALENDAR") i3-msg exec "alacritty --class $1 $NORMAL_DIMS -e calcurse" ;;
+    "WTTR") i3-msg exec "alacritty --class $1 $WEATHER_DIMS -e weather_update" ;;
+    "SYSINFO") i3-msg exec "alacritty --class $1 $BIG_DIMS -e btop" ;;
     *) ;;
 esac
 

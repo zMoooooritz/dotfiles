@@ -7,7 +7,7 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/.go/bin"
 
 # Default programs
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="chromium"
 export READER="zathura"
 export PAGER="less"

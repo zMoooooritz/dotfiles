@@ -67,9 +67,6 @@ elif [[ ${class_upper[@]} =~ "$class" ]]; then
 elif [[ ${class_full_upper[@]} =~ "$class" ]]; then
     # whatever you want to do when class_full_upper contains value
     title="${class^^}"
-elif [[ $class == "st" ]]; then
-    s_name=${icon_name##..*/}
-    title="st - $s_name"
 else
     title="$class"
 fi

@@ -17,7 +17,7 @@ workspace_auto_back_and_forth yes
 force_display_urgency_hint 200 ms
 
 # #---Basic Binds---# #
-bindsym $mod+Return exec st
+bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+q kill
 
@@ -187,10 +187,6 @@ bindsym $mod+p exec --no-startup-id ~/.scripts/toggle CALENDAR
 # weatherinfo configuration
 for_window [instance="WTTR"] floating enable, sticky enable
 bindsym $mod+w exec --no-startup-id ~/.scripts/toggle WTTR
-
-# crypto configuration
-# for_window [instance="CRYPTO"] floating enable, sticky enable
-# bindsym $mod+adiaeresis exec --no-startup-id ~/.scripts/toggle CRYPTO
 
 # system monitor configuration
 for_window [instance="SYSINFO"] floating enable, sticky enable
