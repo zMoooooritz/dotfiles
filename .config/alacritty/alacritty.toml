@@ -3,7 +3,7 @@ TERM = "xterm-256color"
 
 [window]
 title = "alacritty"
-opacity = 0.98
+opacity = 0.9
 class.instance = "alacritty"
 class.general = "alacritty"
 
@@ -27,7 +27,7 @@ family = "Hack"
 style = "Regular"
 
 [colors.primary]
-background = '#1a1b26'
+background = '#282828'
 foreground = '#c0caf5'
 
 #[colors.cursor]

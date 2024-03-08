@@ -1,9 +1,9 @@
 #!/bin/sh
 
 {%@@ if profile == "eta" @@%}
-apps=(st chromium thunderbird nemo telegram-desktop)
+apps=(alacritty chromium thunderbird nemo telegram-desktop)
 {%@@ elif profile == "pi" @@%}
-apps=(st)
+apps=(alacritty)
 {%@@ endif @@%}
 
 for ws in "${!apps[@]}"
