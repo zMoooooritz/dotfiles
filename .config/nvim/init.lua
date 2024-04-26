@@ -90,6 +90,9 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>g", ":vertical rightbelow Git<CR>")
 
+vim.keymap.set("n", "<leader>t", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>ev", ":e $MYVIMRC<CR>")
+
 local spell_index = 0
 vim.keymap.set("n", "<F6>", function()
 	if spell_index == 0 then
@@ -191,6 +194,16 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
+
 	-- NOTE: Plugins can specify dependencies.
 	--
 	-- The dependencies are proper plugin specifications as well - anything
@@ -269,16 +282,22 @@ require("lazy").setup({
 
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-			vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set("n", "<leader>fs", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-			vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-			vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[S]earch [R]esume" })
-			vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Search [H]elp" })
+			vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Search [K]eymaps" })
+			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Search [F]iles" })
+			vim.keymap.set("n", "<leader>fs", builtin.builtin, { desc = "Search [S]elect Telescope" })
+			vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "Search current [W]ord" })
+			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Search by [G]rep" })
+			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Search [D]iagnostics" })
+			vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Search [R]esume" })
+			vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
+			vim.keymap.set("n", "<leader><leader>", function()
+				require("telescope.builtin").buffers({
+					sort_mru = true,
+					ignore_current_buffer = true,
+					show_all_buffers = false,
+				})
+			end, { desc = "[ ] Find existing buffers" })
 
 			-- Slightly advanced example of overriding default behavior and theme
 			vim.keymap.set("n", "<leader>/", function()
@@ -831,6 +850,11 @@ require("lazy").setup({
 
 	{
 		"fatih/vim-go",
+		config = function()
+			vim.g.go_fmt_command = "goimports"
+			-- vim.g.go_metalinter_autosave = 1
+			-- vim.g.go_metalinter_autosave_enabled = { "vet", "golint" }
+		end,
 	},
 
 	{
@@ -859,6 +883,48 @@ require("lazy").setup({
 						["h"] = "close_node",
 					},
 				},
+			})
+		end,
+	},
+
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
+
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			vim.keymap.set("n", "<leader>fo", ":Oil<CR>")
+
+			require("oil").setup({
+				default_file_explorer = false,
+				keymaps = {
+					["g?"] = "actions.show_help",
+					["<CR>"] = "actions.select",
+					["<C-s>"] = "actions.select_vsplit",
+					["<C-h>"] = "actions.select_split",
+					["<C-t>"] = "actions.select_tab",
+					["<C-p>"] = "actions.preview",
+					["<C-c>"] = "actions.close",
+					["<C-l>"] = "actions.refresh",
+					["<BS>"] = "actions.parent",
+					["_"] = "actions.open_cwd",
+					["`"] = "actions.cd",
+					["~"] = "actions.tcd",
+					["gs"] = "actions.change_sort",
+					["gx"] = "actions.open_external",
+					["g."] = "actions.toggle_hidden",
+					["g\\"] = "actions.toggle_trash",
+				},
+				use_default_keymaps = false,
 			})
 		end,
 	},

@@ -79,6 +79,7 @@ alias g="git" \
         ga="git add" \
         gco="git checkout" \
         gcm="git checkout master" \
+        gcb="git checkout -b" \
         gb="git branch" \
         gc="git commit" \
         gca="git commit --amend" \
