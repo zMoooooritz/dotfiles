@@ -22,6 +22,7 @@ vim.opt.clipboard = "unnamed"
 vim.opt.breakindent = true
 vim.opt.smartindent = true
 
+vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 
@@ -88,9 +89,9 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set("n", "<leader>g", ":vertical rightbelow Git<CR>")
 
-vim.keymap.set("n", "<leader>t", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
 vim.keymap.set("n", "<leader>ev", ":e $MYVIMRC<CR>")
 
 local spell_index = 0
@@ -139,8 +140,6 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --
 require("lazy").setup({
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 
@@ -148,8 +147,7 @@ require("lazy").setup({
 	-- options to `gitsigns.nvim`. This is equivalent to the following lua:
 	--    require('gitsigns').setup({ ... })
 	--
-	-- See `:help gitsigns` to understand what the configuration keys do
-	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
+	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
@@ -160,6 +158,33 @@ require("lazy").setup({
 				changedelete = { text = "~" },
 			},
 		},
+	},
+
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+		config = function()
+			require("neogit").setup({})
+
+			vim.keymap.set("n", "<leader>gs", ":Neogit<CR>")
+			vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>")
+			vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>")
+			vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>")
+			vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>")
+		end,
+	},
+
+	{
+		"FabijanZulj/blame.nvim",
+		config = function()
+			require("blame").setup()
+
+			vim.keymap.set("n", "<leader>gB", ":BlameToggle<CR>")
+		end,
 	},
 
 	-- NOTE: Plugins can also be configured to run lua code when they are loaded.
@@ -197,11 +222,16 @@ require("lazy").setup({
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
+		config = function()
+			vim.keymap.set("n", "<leader>ft", ":TodoTelescope<CR>")
+
+			require("todo-comments").setup({
+				signs = false,
+				-- highlight = {
+				-- 	pattern = [[.*<(KEYWORDS)\S*]],
+				-- },
+			})
+		end,
 	},
 
 	-- NOTE: Plugins can specify dependencies.
@@ -535,22 +565,42 @@ require("lazy").setup({
 
 	{ -- Autoformat
 		"stevearc/conform.nvim",
-		opts = {
-			notify_on_error = false,
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
-			},
-			formatters_by_ft = {
-				lua = { "stylua" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use a sub-list to tell conform to run *until* a formatter
-				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
-			},
-		},
+		config = function()
+			require("conform").setup({
+				notify_on_error = true,
+				format_on_save = function(bufnr)
+					if vim.b[bufnr].disable_autoformat then
+						return
+					end
+					return {
+						timeout_ms = 500,
+						lsp_fallback = true,
+					}
+				end,
+				formatters_by_ft = {
+					lua = { "stylua" },
+					bash = { "shfmt" },
+					json = { "jq" },
+					python = { "isort", "black" },
+					-- You can use a sub-list to tell conform to run *until* a formatter
+					-- is found.
+					-- javascript = { { "prettierd", "prettier" } },
+				},
+			})
+
+			vim.api.nvim_create_user_command("FormatDisable", function()
+				vim.b.disable_autoformat = true
+			end, {
+				desc = "Disable autoformat-on-save",
+			})
+
+			vim.api.nvim_create_user_command("FormatEnable", function()
+				vim.b.disable_autoformat = false
+			end, {
+				desc = "Enable autoformat-on-save",
+			})
+			vim.keymap.set("n", "<leader>uf", ":FormatDisable<CR>")
+		end,
 	},
 
 	{ -- Autocompletion
@@ -713,14 +763,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Highlight todo, notes, etc in comments
-	{
-		"folke/todo-comments.nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
-	},
-
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
@@ -801,19 +843,11 @@ require("lazy").setup({
 	},
 
 	{
-		"tpope/vim-fugitive",
-	},
-
-	{
 		"tpope/vim-surround",
 	},
 
 	{
 		"tpope/vim-obsession",
-	},
-
-	{
-		"vimwiki/vimwiki",
 	},
 
 	{
@@ -927,5 +961,9 @@ require("lazy").setup({
 				use_default_keymaps = false,
 			})
 		end,
+	},
+
+	{
+		"mechatroner/rainbow_csv",
 	},
 })
