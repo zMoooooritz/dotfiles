@@ -65,6 +65,17 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+vim.api.nvim_create_user_command("ToggleDiagnostics", function()
+	local config = vim.diagnostic.config
+	local vt = config().virtual_text
+	config({
+		virtual_text = not vt,
+		underline = not vt,
+		signs = not vt,
+	})
+end, { desc = "Toggle Diagnostics" })
+vim.keymap.set("n", "<leader>ud", ":ToggleDiagnostics<CR>", { desc = "Toggle [D]iagnostics" })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -104,6 +115,15 @@ vim.keymap.set("n", "<F6>", function()
 		vim.cmd("setlocal nospell")
 	end
 	spell_index = (spell_index + 1) % 3
+end)
+
+vim.keymap.set("n", "<leader>st", function()
+	vim.cmd.new()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 12)
+	vim.wo.winfixheight = true
+	vim.cmd.term()
+	vim.api.nvim_feedkeys("A", "n", {})
 end)
 
 -- [[ Basic Autocommands ]]
@@ -588,18 +608,10 @@ require("lazy").setup({
 				},
 			})
 
-			vim.api.nvim_create_user_command("FormatDisable", function()
-				vim.b.disable_autoformat = true
-			end, {
-				desc = "Disable autoformat-on-save",
-			})
-
-			vim.api.nvim_create_user_command("FormatEnable", function()
-				vim.b.disable_autoformat = false
-			end, {
-				desc = "Enable autoformat-on-save",
-			})
-			vim.keymap.set("n", "<leader>uf", ":FormatDisable<CR>")
+			vim.api.nvim_create_user_command("ToggleFormatting", function()
+				vim.b.disable_autoformat = not vim.b.disable_autoformat
+			end, { desc = "Toggle Formatting" })
+			vim.keymap.set("n", "<leader>uf", ":ToggleFormatting<CR>", { desc = "Toggle [F]ormatting" })
 		end,
 	},
 
