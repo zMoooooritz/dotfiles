@@ -588,8 +588,8 @@ require("lazy").setup({
 		config = function()
 			require("conform").setup({
 				notify_on_error = true,
-				format_on_save = function(bufnr)
-					if vim.b[bufnr].disable_autoformat then
+				format_on_save = function()
+					if vim.g.disable_autoformat then
 						return
 					end
 					return {
@@ -609,7 +609,7 @@ require("lazy").setup({
 			})
 
 			vim.api.nvim_create_user_command("ToggleFormatting", function()
-				vim.b.disable_autoformat = not vim.b.disable_autoformat
+				vim.g.disable_autoformat = not vim.g.disable_autoformat
 			end, { desc = "Toggle Formatting" })
 			vim.keymap.set("n", "<leader>uf", ":ToggleFormatting<CR>", { desc = "Toggle [F]ormatting" })
 		end,
