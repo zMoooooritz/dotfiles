@@ -1,12 +1,5 @@
--- Set <space> as the leader key
--- See `:help mapleader`
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -52,14 +45,9 @@ vim.opt.scrolloff = 4
 vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 120
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
@@ -84,16 +72,6 @@ vim.keymap.set("n", "<leader>ud", ":ToggleDiagnostics<CR>", { desc = "Toggle [D]
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
@@ -126,12 +104,6 @@ vim.keymap.set("n", "<leader>st", function()
 	vim.api.nvim_feedkeys("A", "n", {})
 end)
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
@@ -140,8 +112,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -149,16 +119,6 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins, you can run
---    :Lazy update
---
 require("lazy").setup({
 	{ "numToStr/Comment.nvim", opts = {} },
 
@@ -189,9 +149,6 @@ require("lazy").setup({
 			require("neogit").setup({})
 
 			vim.keymap.set("n", "<leader>gs", ":Neogit<CR>")
-			vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>")
-			vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>")
-			vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>")
 			vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>")
 		end,
 	},
@@ -225,9 +182,6 @@ require("lazy").setup({
 
 			require("todo-comments").setup({
 				signs = false,
-				-- highlight = {
-				-- 	pattern = [[.*<(KEYWORDS)\S*]],
-				-- },
 			})
 		end,
 	},
