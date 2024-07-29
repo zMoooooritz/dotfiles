@@ -83,6 +83,8 @@ vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
 vim.keymap.set("n", "<leader>ev", ":e $MYVIMRC<CR>")
 
+vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>")
+
 local spell_index = 0
 vim.keymap.set("n", "<F6>", function()
 	if spell_index == 0 then
@@ -146,10 +148,12 @@ require("lazy").setup({
 			"nvim-telescope/telescope.nvim",
 		},
 		config = function()
-			require("neogit").setup({})
+			require("neogit").setup({
+				disable_hint = true,
+				disable_context_highlighting = true,
+			})
 
 			vim.keymap.set("n", "<leader>gs", ":Neogit<CR>")
-			vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>")
 		end,
 	},
 
